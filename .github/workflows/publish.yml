@@ -17,8 +17,10 @@ jobs:
         run: emacs --batch --eval "(require 'org)" --eval "(setq org-html-validation-link nil)" --eval "(org-babel-do-load-languages 'org-babel-load-languages '((shell . t)))" --eval "(setq org-confirm-babel-evaluate nil)" --eval "(mapc (lambda (file) (org-export-to-file (org-export-get-backend 'html) file)) (directory-files \"./\" t \"\\.org$\"))"
       - name: Copy html files
         run: for file in *.org; do mv "$file" "${file%.org}.html";done && cp *.html ./public
+      - name: Rename file to index.html
+        run: mv ./public/bevy_rust_setup.html ./public/index.html
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./
+          publish_dir: ./public
