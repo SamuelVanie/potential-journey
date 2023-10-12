@@ -1,0 +1,22 @@
+name: Publish Site
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install Emacs
+        run: sudo apt-get install emacs
+      - name: Install Org mode
+        run: git clone https://code.orgmode.org/bzg/org-mode.git && cd org-mode && make autoloads && sudo make install
+      - name: Export Org files to HTML
+        run: emacs --batch --eval "(require 'org)" --eval "(setq org-html-validation-link nil)" --eval "(org-babel-do-load-languages 'org-babel-load-languages '((shell . t)))" --eval "(setq org-confirm-babel-evaluate nil)" --funcall org-publish-all
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
