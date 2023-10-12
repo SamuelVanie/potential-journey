@@ -1,0 +1,183 @@
+* How to setup bevy for web based game ?
+
+Bevy is a fast and flexible game engine written in Rust that supports both native and web platforms. In this article, we will show you how to setup Bevy with Trunk, a tool that simplifies the development and deployment of web applications using WebAssembly.
+
+
+** Prerequisites
+
+Before we start, we need to install some tools and dependencies:
+
+- Rust: You can install Rust using rustup, the official Rust toolchain manager.
+
+- wasm32-unknown-unknown target: This is the target for compiling Rust code to WebAssembly. You can add it with ~rustup target add wasm32-unknown-unknown~.
+
+- Trunk: This is a tool that helps us build, serve, and deploy web applications using WebAssembly. You can install it with ~cargo install --locked trunk~.
+
+
+** Creating a Bevy Project
+
+Next, we need to create a new Bevy project using Cargo, the Rust package manager. We can use the following command:
+
+~cargo new bevy_web_game~
+
+This will create a new binary project called =bevy_web_game= in the current directory. We can then edit the =Cargo.toml= file to add our dependencies:
+
+#+begin_src toml
+[package]
+name = "speed_typing"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[dependencies]
+bevy = "0.11"
+#+end_src
+
+Here, we specify that we want to use Bevy version 0.11, which added out of the tools required for building a game (the full engine)
+
+
+** Writing Some Code
+
+Now that we have our project set up, we can write some code to load a simple asset in our Bevy project and run it. For this example, we will use an asset file that I downloaded on the internet. You should start by creating an =asset= folder at the root of your project (=bevy_web_game/asset=). You can copy and paste the code from there into your =src/main.rs= file, or write or your own logic.
+
+Main function,
+we set a title for our game, we attach our canvas to the object of the DOM that has the id =bevy=  (HTML corresponding canvas), we set the resolution of the window, and removing all the default event handling behavior of js.
+
+*This syntax doesn't work for bevy 0.10 or older version, so make sure you use the last one 0.11*
+
+#+begin_src rust
+use bevy::{prelude::*, window::PrimaryWindow};
+
+fn main() {
+    App::new()
+        .insert_resource(Msaa::Off)
+        .add_plugins(DefaultPlugins.set(
+	    WindowPlugin {
+		primary_window: Some(Window {
+		    title: "Bevy Game".to_string(),
+		    canvas: Some("#bevy".to_owned()),
+		    resolution: (800., 600.).into(),
+		    prevent_default_event_handling: false,
+		    ..default()
+		}),
+		..default()
+	    }))
+        .add_systems(Startup, spawn_camera)
+        .add_systems(Startup, spawn_test_sprite)
+        .run();
+}
+
+#+end_src
+
+We create a component(Gojo) and a new system(spawn_test_sprite) to spawn that component with his sprite on our game window. Refer to the [[https://docs.rs/bevy/latest/bevy/][Bevy's documentation]]
+
+#+begin_src rust
+#[derive(Component)]
+pub struct Gojo;
+
+pub fn spawn_test_sprite(
+    mut commands: Commands,
+    window_query: Query<&Window, With<PrimaryWindow>>,
+    asset_server: Res<AssetServer>
+) {
+    let window = window_query.get_single().unwrap();
+
+    commands.spawn(
+	(
+	    SpriteBundle {
+		transform: Transform::from_xyz(window.width() / 2.0, window.height() / 2.0, 0.0),
+		texture: asset_server.load("tile.png"),
+		..default()
+	    },
+	    Gojo {},
+	));
+
+}
+#+end_src
+
+Creating a camera that will be spawn at the center of the screen. *The (0,0) point is located at the bottom left corner*.
+
+#+begin_src rust
+pub fn spawn_camera(
+    mut commands: Commands,
+    window_query: Query<&Window, With<PrimaryWindow>>,
+) {
+
+    let window = window_query.get_single().unwrap();
+
+    commands.spawn(
+	Camera2dBundle {
+	    transform: Transform::from_xyz(window.width() / 2.0, window.height() / 2.0, 100.0),
+	    ..default()
+	}
+    );
+}
+#+end_src
+
+
+** Building and Running the Game
+
+To build our game for the web, we need to use Trunk. Trunk provides a simple command line interface that automates the process of compiling our Rust code to WebAssembly, generating JavaScript bindings, bundling assets, and serving our application on a local server.
+
+To able to use Trunk (that we've already installed), you will need to create an =index.html= file at the root of your project containing :
+
+#+begin_src html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Bevy game</title>
+    <link data-trunk rel="copy-dir" href="assets" />
+  </head>
+  <body>
+    <div class="game-container">
+      <canvas id="bevy"> Javascript and support for canvas is required </canvas>
+    </div>
+  </body>
+</html>
+#+end_src
+
+The *data-trunk* keyword is important for trunk to automatically download all your assets files in the final build.
+As you can see we created a =canvas= with the id =bevy= corresponding to the one we put in the Rust main function.
+
+To build our game, we can use the following command:
+
+~trunk build~
+
+This will create a dist folder in our project directory that contains all the files needed to run our game on the web.
+
+To run our game locally, we can use the following command:
+
+~trunk serve~
+
+This will start a local server on port 8080 and open our game in a browser window. We can also access our game from any other device on the same network by visiting http://localhost:8080.
+
+Trunk also supports live reloading, which means that any changes we make to our code or assets will be automatically reflected in our browser without refreshing.
+
+
+** Result
+
+*** TODO ADD the image of the project (the cloud hosted image should be ready)
+
+
+** Deploying the Game
+
+To deploy our game to the web, we need to host our dist folder on some server that supports static files. There are many options for this, such as GitHub Pages, Netlify, Firebase Hosting, etc.
+
+For this example, we will use GitHub Pages as our hosting service. To do this, we need to create a new GitHub repository for our project and push our code there. Then, we need to enable GitHub Pages for our repository by going to Settings > Pages and selecting the branch and folder where our dist folder is located.
+
+After that, GitHub will generate a URL for our game that looks something like this: https://username.github.io/bevy_web_game/. We can then share this URL with anyone who wants to play our game on the web.
+
+
+** Conclusion
+
+In this article, we have shown you how to setup Bevy with Trunk for web game programming. We have created a simple Bevy binary app and deployed it to the web using GitHub Pages. We hope this article has been helpful and inspiring for you to create your own web games using Bevy and Rust.
+
+
+** References
+
+[[https://trunkrs.dev/#install][trunk doc]]
+
+[[https://www.youtube.com/watch?v=izhFutJiZgo&list=PLVnntJRoP85JHGX7rGDu6LaF3fmDDbqyd&index=2][Bevy Jacque's youtube playlist]]
+
+[[https://github.com/NiklasEi/bevy_game_template][Bevy game template]]
