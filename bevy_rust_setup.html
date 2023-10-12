@@ -1,203 +1,183 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
-<head>
-<!-- 2023-10-12 Thu 19:28 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>&lrm;</title>
-<meta name="generator" content="Org Mode" />
-<style>
-  #content { max-width: 60em; margin: auto; }
-  .title  { text-align: center;
-             margin-bottom: .2em; }
-  .subtitle { text-align: center;
-              font-size: medium;
-              font-weight: bold;
-              margin-top:0; }
-  .todo   { font-family: monospace; color: red; }
-  .done   { font-family: monospace; color: green; }
-  .priority { font-family: monospace; color: orange; }
-  .tag    { background-color: #eee; font-family: monospace;
-            padding: 2px; font-size: 80%; font-weight: normal; }
-  .timestamp { color: #bebebe; }
-  .timestamp-kwd { color: #5f9ea0; }
-  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
-  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
-  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
-  .underline { text-decoration: underline; }
-  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
-  p.verse { margin-left: 3%; }
-  pre {
-    border: 1px solid #e6e6e6;
-    border-radius: 3px;
-    background-color: #f2f2f2;
-    padding: 8pt;
-    font-family: monospace;
-    overflow: auto;
-    margin: 1.2em;
-  }
-  pre.src {
-    position: relative;
-    overflow: auto;
-  }
-  pre.src:before {
-    display: none;
-    position: absolute;
-    top: -8px;
-    right: 12px;
-    padding: 3px;
-    color: #555;
-    background-color: #f2f2f299;
-  }
-  pre.src:hover:before { display: inline; margin-top: 14px;}
-  /* Languages per Org manual */
-  pre.src-asymptote:before { content: 'Asymptote'; }
-  pre.src-awk:before { content: 'Awk'; }
-  pre.src-authinfo::before { content: 'Authinfo'; }
-  pre.src-C:before { content: 'C'; }
-  /* pre.src-C++ doesn't work in CSS */
-  pre.src-clojure:before { content: 'Clojure'; }
-  pre.src-css:before { content: 'CSS'; }
-  pre.src-D:before { content: 'D'; }
-  pre.src-ditaa:before { content: 'ditaa'; }
-  pre.src-dot:before { content: 'Graphviz'; }
-  pre.src-calc:before { content: 'Emacs Calc'; }
-  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
-  pre.src-fortran:before { content: 'Fortran'; }
-  pre.src-gnuplot:before { content: 'gnuplot'; }
-  pre.src-haskell:before { content: 'Haskell'; }
-  pre.src-hledger:before { content: 'hledger'; }
-  pre.src-java:before { content: 'Java'; }
-  pre.src-js:before { content: 'Javascript'; }
-  pre.src-latex:before { content: 'LaTeX'; }
-  pre.src-ledger:before { content: 'Ledger'; }
-  pre.src-lisp:before { content: 'Lisp'; }
-  pre.src-lilypond:before { content: 'Lilypond'; }
-  pre.src-lua:before { content: 'Lua'; }
-  pre.src-matlab:before { content: 'MATLAB'; }
-  pre.src-mscgen:before { content: 'Mscgen'; }
-  pre.src-ocaml:before { content: 'Objective Caml'; }
-  pre.src-octave:before { content: 'Octave'; }
-  pre.src-org:before { content: 'Org mode'; }
-  pre.src-oz:before { content: 'OZ'; }
-  pre.src-plantuml:before { content: 'Plantuml'; }
-  pre.src-processing:before { content: 'Processing.js'; }
-  pre.src-python:before { content: 'Python'; }
-  pre.src-R:before { content: 'R'; }
-  pre.src-ruby:before { content: 'Ruby'; }
-  pre.src-sass:before { content: 'Sass'; }
-  pre.src-scheme:before { content: 'Scheme'; }
-  pre.src-screen:before { content: 'Gnu Screen'; }
-  pre.src-sed:before { content: 'Sed'; }
-  pre.src-sh:before { content: 'shell'; }
-  pre.src-sql:before { content: 'SQL'; }
-  pre.src-sqlite:before { content: 'SQLite'; }
-  /* additional languages in org.el's org-babel-load-languages alist */
-  pre.src-forth:before { content: 'Forth'; }
-  pre.src-io:before { content: 'IO'; }
-  pre.src-J:before { content: 'J'; }
-  pre.src-makefile:before { content: 'Makefile'; }
-  pre.src-maxima:before { content: 'Maxima'; }
-  pre.src-perl:before { content: 'Perl'; }
-  pre.src-picolisp:before { content: 'Pico Lisp'; }
-  pre.src-scala:before { content: 'Scala'; }
-  pre.src-shell:before { content: 'Shell Script'; }
-  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
-  /* additional language identifiers per "defun org-babel-execute"
-       in ob-*.el */
-  pre.src-cpp:before  { content: 'C++'; }
-  pre.src-abc:before  { content: 'ABC'; }
-  pre.src-coq:before  { content: 'Coq'; }
-  pre.src-groovy:before  { content: 'Groovy'; }
-  /* additional language identifiers from org-babel-shell-names in
-     ob-shell.el: ob-shell is the only babel language using a lambda to put
-     the execution function name together. */
-  pre.src-bash:before  { content: 'bash'; }
-  pre.src-csh:before  { content: 'csh'; }
-  pre.src-ash:before  { content: 'ash'; }
-  pre.src-dash:before  { content: 'dash'; }
-  pre.src-ksh:before  { content: 'ksh'; }
-  pre.src-mksh:before  { content: 'mksh'; }
-  pre.src-posh:before  { content: 'posh'; }
-  /* Additional Emacs modes also supported by the LaTeX listings package */
-  pre.src-ada:before { content: 'Ada'; }
-  pre.src-asm:before { content: 'Assembler'; }
-  pre.src-caml:before { content: 'Caml'; }
-  pre.src-delphi:before { content: 'Delphi'; }
-  pre.src-html:before { content: 'HTML'; }
-  pre.src-idl:before { content: 'IDL'; }
-  pre.src-mercury:before { content: 'Mercury'; }
-  pre.src-metapost:before { content: 'MetaPost'; }
-  pre.src-modula-2:before { content: 'Modula-2'; }
-  pre.src-pascal:before { content: 'Pascal'; }
-  pre.src-ps:before { content: 'PostScript'; }
-  pre.src-prolog:before { content: 'Prolog'; }
-  pre.src-simula:before { content: 'Simula'; }
-  pre.src-tcl:before { content: 'tcl'; }
-  pre.src-tex:before { content: 'TeX'; }
-  pre.src-plain-tex:before { content: 'Plain TeX'; }
-  pre.src-verilog:before { content: 'Verilog'; }
-  pre.src-vhdl:before { content: 'VHDL'; }
-  pre.src-xml:before { content: 'XML'; }
-  pre.src-nxml:before { content: 'XML'; }
-  /* add a generic configuration mode; LaTeX export needs an additional
-     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
-  pre.src-conf:before { content: 'Configuration File'; }
+* How to setup bevy for web based game ?
 
-  table { border-collapse:collapse; }
-  caption.t-above { caption-side: top; }
-  caption.t-bottom { caption-side: bottom; }
-  td, th { vertical-align:top;  }
-  th.org-right  { text-align: center;  }
-  th.org-left   { text-align: center;   }
-  th.org-center { text-align: center; }
-  td.org-right  { text-align: right;  }
-  td.org-left   { text-align: left;   }
-  td.org-center { text-align: center; }
-  dt { font-weight: bold; }
-  .footpara { display: inline; }
-  .footdef  { margin-bottom: 1em; }
-  .figure { padding: 1em; }
-  .figure p { text-align: center; }
-  .equation-container {
-    display: table;
-    text-align: center;
-    width: 100%;
-  }
-  .equation {
-    vertical-align: middle;
-  }
-  .equation-label {
-    display: table-cell;
-    text-align: right;
-    vertical-align: middle;
-  }
-  .inlinetask {
-    padding: 10px;
-    border: 2px solid gray;
-    margin: 10px;
-    background: #ffffcc;
-  }
-  #org-div-home-and-up
-   { text-align: right; font-size: 70%; white-space: nowrap; }
-  textarea { overflow-x: auto; }
-  .linenr { font-size: smaller }
-  .code-highlighted { background-color: #ffff00; }
-  .org-info-js_info-navigation { border-style: none; }
-  #org-info-js_console-label
-    { font-size: 10px; font-weight: bold; white-space: nowrap; }
-  .org-info-js_search-highlight
-    { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { }
-</style>
-</head>
-<body>
-<div id="content" class="content">
-</div>
-<div id="postamble" class="status">
-<p class="date">Created: 2023-10-12 Thu 19:28</p>
-</div>
-</body>
+Bevy is a fast and flexible game engine written in Rust that supports both native and web platforms. In this article, we will show you how to setup Bevy with Trunk, a tool that simplifies the development and deployment of web applications using WebAssembly.
+
+
+** Prerequisites
+
+Before we start, we need to install some tools and dependencies:
+
+- Rust: You can install Rust using rustup, the official Rust toolchain manager.
+
+- wasm32-unknown-unknown target: This is the target for compiling Rust code to WebAssembly. You can add it with ~rustup target add wasm32-unknown-unknown~.
+
+- Trunk: This is a tool that helps us build, serve, and deploy web applications using WebAssembly. You can install it with ~cargo install --locked trunk~.
+
+
+** Creating a Bevy Project
+
+Next, we need to create a new Bevy project using Cargo, the Rust package manager. We can use the following command:
+
+~cargo new bevy_web_game~
+
+This will create a new binary project called =bevy_web_game= in the current directory. We can then edit the =Cargo.toml= file to add our dependencies:
+
+#+begin_src toml
+[package]
+name = "speed_typing"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[dependencies]
+bevy = "0.11"
+#+end_src
+
+Here, we specify that we want to use Bevy version 0.11, which added out of the tools required for building a game (the full engine)
+
+
+** Writing Some Code
+
+Now that we have our project set up, we can write some code to load a simple asset in our Bevy project and run it. For this example, we will use an asset file that I downloaded on the internet. You should start by creating an =asset= folder at the root of your project (=bevy_web_game/asset=). You can copy and paste the code from there into your =src/main.rs= file, or write or your own logic.
+
+Main function,
+we set a title for our game, we attach our canvas to the object of the DOM that has the id =bevy=  (HTML corresponding canvas), we set the resolution of the window, and removing all the default event handling behavior of js.
+
+*This syntax doesn't work for bevy 0.10 or older version, so make sure you use the last one 0.11*
+
+#+begin_src rust
+use bevy::{prelude::*, window::PrimaryWindow};
+
+fn main() {
+    App::new()
+        .insert_resource(Msaa::Off)
+        .add_plugins(DefaultPlugins.set(
+	    WindowPlugin {
+		primary_window: Some(Window {
+		    title: "Bevy Game".to_string(),
+		    canvas: Some("#bevy".to_owned()),
+		    resolution: (800., 600.).into(),
+		    prevent_default_event_handling: false,
+		    ..default()
+		}),
+		..default()
+	    }))
+        .add_systems(Startup, spawn_camera)
+        .add_systems(Startup, spawn_test_sprite)
+        .run();
+}
+
+#+end_src
+
+We create a component(Gojo) and a new system(spawn_test_sprite) to spawn that component with his sprite on our game window. Refer to the [[https://docs.rs/bevy/latest/bevy/][Bevy's documentation]]
+
+#+begin_src rust
+#[derive(Component)]
+pub struct Gojo;
+
+pub fn spawn_test_sprite(
+    mut commands: Commands,
+    window_query: Query<&Window, With<PrimaryWindow>>,
+    asset_server: Res<AssetServer>
+) {
+    let window = window_query.get_single().unwrap();
+
+    commands.spawn(
+	(
+	    SpriteBundle {
+		transform: Transform::from_xyz(window.width() / 2.0, window.height() / 2.0, 0.0),
+		texture: asset_server.load("tile.png"),
+		..default()
+	    },
+	    Gojo {},
+	));
+
+}
+#+end_src
+
+Creating a camera that will be spawn at the center of the screen. *The (0,0) point is located at the bottom left corner*.
+
+#+begin_src rust
+pub fn spawn_camera(
+    mut commands: Commands,
+    window_query: Query<&Window, With<PrimaryWindow>>,
+) {
+
+    let window = window_query.get_single().unwrap();
+
+    commands.spawn(
+	Camera2dBundle {
+	    transform: Transform::from_xyz(window.width() / 2.0, window.height() / 2.0, 100.0),
+	    ..default()
+	}
+    );
+}
+#+end_src
+
+
+** Building and Running the Game
+
+To build our game for the web, we need to use Trunk. Trunk provides a simple command line interface that automates the process of compiling our Rust code to WebAssembly, generating JavaScript bindings, bundling assets, and serving our application on a local server.
+
+To able to use Trunk (that we've already installed), you will need to create an =index.html= file at the root of your project containing :
+
+#+begin_src html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Bevy game</title>
+    <link data-trunk rel="copy-dir" href="assets" />
+  </head>
+  <body>
+    <div class="game-container">
+      <canvas id="bevy"> Javascript and support for canvas is required </canvas>
+    </div>
+  </body>
 </html>
+#+end_src
+
+The *data-trunk* keyword is important for trunk to automatically download all your assets files in the final build.
+As you can see we created a =canvas= with the id =bevy= corresponding to the one we put in the Rust main function.
+
+To build our game, we can use the following command:
+
+~trunk build~
+
+This will create a dist folder in our project directory that contains all the files needed to run our game on the web.
+
+To run our game locally, we can use the following command:
+
+~trunk serve~
+
+This will start a local server on port 8080 and open our game in a browser window. We can also access our game from any other device on the same network by visiting http://localhost:8080.
+
+Trunk also supports live reloading, which means that any changes we make to our code or assets will be automatically reflected in our browser without refreshing.
+
+
+** Result
+
+*** TODO ADD the image of the project (the cloud hosted image should be ready)
+
+
+** Deploying the Game
+
+To deploy our game to the web, we need to host our dist folder on some server that supports static files. There are many options for this, such as GitHub Pages, Netlify, Firebase Hosting, etc.
+
+For this example, we will use GitHub Pages as our hosting service. To do this, we need to create a new GitHub repository for our project and push our code there. Then, we need to enable GitHub Pages for our repository by going to Settings > Pages and selecting the branch and folder where our dist folder is located.
+
+After that, GitHub will generate a URL for our game that looks something like this: https://username.github.io/bevy_web_game/. We can then share this URL with anyone who wants to play our game on the web.
+
+
+** Conclusion
+
+In this article, we have shown you how to setup Bevy with Trunk for web game programming. We have created a simple Bevy binary app and deployed it to the web using GitHub Pages. We hope this article has been helpful and inspiring for you to create your own web games using Bevy and Rust.
+
+
+** References
+
+[[https://trunkrs.dev/#install][trunk doc]]
+
+[[https://www.youtube.com/watch?v=izhFutJiZgo&list=PLVnntJRoP85JHGX7rGDu6LaF3fmDDbqyd&index=2][Bevy Jacque's youtube playlist]]
+
+[[https://github.com/NiklasEi/bevy_game_template][Bevy game template]]
