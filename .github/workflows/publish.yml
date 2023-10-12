@@ -14,7 +14,7 @@ jobs:
       - name: Install Org mode
         run: git clone https://github.com/bzg/org-mode && cd org-mode && make autoloads && sudo make install
       - name: Export Org files to HTML
-        run: emacs --batch --eval "(require 'org)" --eval "(setq org-html-validation-link nil)" --eval "(org-babel-do-load-languages 'org-babel-load-languages '((shell . t)))" --eval "(setq org-confirm-babel-evaluate nil)" --eval "(mapc (lambda (file) (org-export-to-file (org-export-get-backend 'html) file)) (directory-files \"./\" t \"\\.org$\"))"
+        run: emacs --batch --eval "(require 'org)" --eval "(setq org-html-validation-link nil)" --eval "(org-babel-do-load-languages 'org-babel-load-languages '((shell . t)))" --eval "(setq org-confirm-babel-evaluate nil)" --eval "(save-excursion (mapc (lambda (file) (with-current-buffer (find-file-noselect file) (org-html-export-to-html))) (file-expand-wildcards \"*.org\"))))"
       - name: Copy html files
         run: mkdir public && for file in *.org; do mv "$file" "${file%.org}.html";done && cp *.html ./public
       - name: Deploy to GitHub Pages
