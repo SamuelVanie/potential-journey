@@ -1,3 +1,4 @@
+#+SETUPFILE: ./org-html-themes/org/theme-readtheorg.setup
 * How to setup bevy for web based game ?
 
 Bevy is a fast and flexible game engine written in Rust that supports both native and web platforms. In this article, we will show you how to setup Bevy with Trunk, a tool that simplifies the development and deployment of web applications using WebAssembly.

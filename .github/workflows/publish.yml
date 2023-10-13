@@ -13,6 +13,8 @@ jobs:
         run: sudo apt-get install emacs
       - name: Install Org mode
         run: git clone https://github.com/bzg/org-mode && cd org-mode && make autoloads && sudo make install
+      - name: Install themes package
+        run: git clone https://github.com/fniessen/org-html-themes
       - name: Export Org files to HTML
         run: emacs --batch --eval "(require 'org)" --eval "(setq org-html-validation-link nil)" --eval "(org-babel-do-load-languages 'org-babel-load-languages '((shell . t)))" --eval "(setq org-confirm-babel-evaluate nil)" --eval "(save-excursion (mapc (lambda (file) (with-current-buffer (find-file-noselect file) (org-html-export-to-html))) (file-expand-wildcards \"*.org\"))))"
       - name: Copy html files
