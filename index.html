@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Samuel Michael Vanie's blog</title>
+    <style>
+      :root {
+        --primary-color: #1a5f7a;
+        --secondary-color: #57c5b6;
+        --background-color: #f0f8ff;
+        --text-color: #333;
+        --link-color: #159895;
+      }
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+        background-color: var(--background-color);
+        color: var(--text-color);
+      }
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      header {
+        background-color: var(--primary-color);
+        color: white;
+        text-align: center;
+        padding: 1em 0;
+        margin-bottom: 2em;
+      }
+      h1 {
+        margin: 0;
+      }
+      h2 {
+        color: var(--primary-color);
+        border-bottom: 2px solid var(--secondary-color);
+        padding-bottom: 0.5em;
+      }
+      ul {
+        list-style-type: none;
+        padding: 0;
+      }
+      li {
+        margin-bottom: 1em;
+        background-color: white;
+        border-radius: 5px;
+        padding: 1em;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+      }
+      li:hover {
+        transform: translateY(-5px);
+      }
+      a {
+        color: var(--link-color);
+        text-decoration: none;
+        font-weight: bold;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+      footer {
+        text-align: center;
+        margin-top: 2em;
+        padding: 1em 0;
+        background-color: var(--primary-color);
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Samuel Michael Vanie's journey</h1>
+    <p>Here you'll find articles about my programming journey and projects.</p>
+
+    <h2>Articles</h2>
+    <ul>
+      <li>
+        <a href="bevy_rust_setup.html">How to setup a bevy rust environment</a>
+      </li>
+      <li>
+        <a href="debugger.html"
+          >My Journey: Writing a Debugger in Rust for Linux Programs</a
+        >
+      </li>
+      <!-- Add more articles here as you write them -->
+      <!-- <li><a href="article3.html">Title of Article 3</a></li> -->
+    </ul>
+  </body>
+</html>

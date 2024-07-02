@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2024-07-02 Tue 23:25 -->
+<!-- 2024-07-02 Tue 23:38 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>&lrm;</title>
@@ -21,29 +21,29 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgb2280c6">1. How I wrote the vdebugger, a debugger in Rust for Linux Programs ?</a>
+<li><a href="#org4b6bced">1. How I wrote the vdebugger, a debugger in Rust for Linux Programs ?</a>
 <ul>
-<li><a href="#org7a2f466">1.1. Setting Up the Development Environment</a></li>
-<li><a href="#org62d11d5">1.2. Laying the Groundwork</a></li>
-<li><a href="#orgf247d14">1.3. Implementing Basic Debugger Functionality</a>
+<li><a href="#orgd1d30ab">1.1. Setting Up the Development Environment</a></li>
+<li><a href="#org9df2197">1.2. Laying the Groundwork</a></li>
+<li><a href="#org0a3a852">1.3. Implementing Basic Debugger Functionality</a>
 <ul>
-<li><a href="#org8c50f97">1.3.1. Process Creation and Control</a></li>
-<li><a href="#org3f45a79">1.3.2. The Debugger Struct</a></li>
-<li><a href="#org7bfd0e8">1.3.3. The Run Function</a></li>
-<li><a href="#orgbdc3f05">1.3.4. Command Handling</a></li>
-<li><a href="#orgf194e17">1.3.5. Implementing Commands</a></li>
-<li><a href="#orga1a4f2c">1.3.6. Challenges and Learnings</a></li>
+<li><a href="#org13d4b3c">1.3.1. Process Creation and Control</a></li>
+<li><a href="#org851b303">1.3.2. The Debugger Struct</a></li>
+<li><a href="#org2195c27">1.3.3. The Run Function</a></li>
+<li><a href="#orgc553ae9">1.3.4. Command Handling</a></li>
+<li><a href="#orgb46e574">1.3.5. Implementing Commands</a></li>
+<li><a href="#org87832f1">1.3.6. Challenges and Learnings</a></li>
 </ul>
 </li>
-<li><a href="#org7b5d5cc">1.4. Conclusion</a></li>
-<li><a href="#org2034ee7">1.5. References</a></li>
+<li><a href="#orgffd0340">1.4. Conclusion</a></li>
+<li><a href="#orga0bc506">1.5. References</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgb2280c6" class="outline-2">
-<h2 id="orgb2280c6"><span class="section-number-2">1.</span> How I wrote the vdebugger, a debugger in Rust for Linux Programs ?</h2>
+<div id="outline-container-org4b6bced" class="outline-2">
+<h2 id="org4b6bced"><span class="section-number-2">1.</span> How I wrote the vdebugger, a debugger in Rust for Linux Programs ?</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 As a passionate developer always looking to expand my skills, I recently embarked on an exciting project: creating a debugger in Rust for Linux programs. This article chronicles my journey, from setting up a reproducible development environment to implementing the core functionality of the debugger.
@@ -53,8 +53,8 @@ As a passionate developer always looking to expand my skills, I recently embarke
 You can check the project at : <a href="https://github.com/SamuelVanie/vdebugger">the vdebugger repo</a>
 </p>
 </div>
-<div id="outline-container-org7a2f466" class="outline-3">
-<h3 id="org7a2f466"><span class="section-number-3">1.1.</span> Setting Up the Development Environment</h3>
+<div id="outline-container-orgd1d30ab" class="outline-3">
+<h3 id="orgd1d30ab"><span class="section-number-3">1.1.</span> Setting Up the Development Environment</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 I began by creating a robust and reproducible development environment using Nix.
@@ -121,8 +121,8 @@ To run the project and start programming I simply the command <code>nix develop<
 </p>
 </div>
 </div>
-<div id="outline-container-org62d11d5" class="outline-3">
-<h3 id="org62d11d5"><span class="section-number-3">1.2.</span> Laying the Groundwork</h3>
+<div id="outline-container-org9df2197" class="outline-3">
+<h3 id="org9df2197"><span class="section-number-3">1.2.</span> Laying the Groundwork</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 With the environment ready, I dove into the core concepts of debugger development. I quickly realized that a debugger operates as a parent process controlling a child process(the debugee). This led me to search for a Rust crate that could provide functionality similar to the C <code>fork()</code> system call.
@@ -133,12 +133,12 @@ My search led me to the <code>nix</code> crate, which offers Rust bindings for m
 </p>
 </div>
 </div>
-<div id="outline-container-orgf247d14" class="outline-3">
-<h3 id="orgf247d14"><span class="section-number-3">1.3.</span> Implementing Basic Debugger Functionality</h3>
+<div id="outline-container-org0a3a852" class="outline-3">
+<h3 id="org0a3a852"><span class="section-number-3">1.3.</span> Implementing Basic Debugger Functionality</h3>
 <div class="outline-text-3" id="text-1-3">
 </div>
-<div id="outline-container-org8c50f97" class="outline-4">
-<h4 id="org8c50f97"><span class="section-number-4">1.3.1.</span> Process Creation and Control</h4>
+<div id="outline-container-org13d4b3c" class="outline-4">
+<h4 id="org13d4b3c"><span class="section-number-4">1.3.1.</span> Process Creation and Control</h4>
 <div class="outline-text-4" id="text-1-3-1">
 <p>
 In my main function, I implemented the following steps:
@@ -151,8 +151,8 @@ In my main function, I implemented the following steps:
 </ol>
 </div>
 </div>
-<div id="outline-container-org3f45a79" class="outline-4">
-<h4 id="org3f45a79"><span class="section-number-4">1.3.2.</span> The Debugger Struct</h4>
+<div id="outline-container-org851b303" class="outline-4">
+<h4 id="org851b303"><span class="section-number-4">1.3.2.</span> The Debugger Struct</h4>
 <div class="outline-text-4" id="text-1-3-2">
 <p>
 To organize the debugger's functionality and have a better management of the parent process flow, I created a <code>Debugger</code> struct. The fields of this struct are :
@@ -163,8 +163,8 @@ To organize the debugger's functionality and have a better management of the par
 </ul>
 </div>
 </div>
-<div id="outline-container-org7bfd0e8" class="outline-4">
-<h4 id="org7bfd0e8"><span class="section-number-4">1.3.3.</span> The Run Function</h4>
+<div id="outline-container-org2195c27" class="outline-4">
+<h4 id="org2195c27"><span class="section-number-4">1.3.3.</span> The Run Function</h4>
 <div class="outline-text-4" id="text-1-3-3">
 <p>
 The heart of our debugger is the <code>run</code> function. Here's how it operates:
@@ -178,8 +178,8 @@ This ensures that we don't begin debugging until the child process is ready.</li
 </ol>
 </div>
 </div>
-<div id="outline-container-orgbdc3f05" class="outline-4">
-<h4 id="orgbdc3f05"><span class="section-number-4">1.3.4.</span> Command Handling</h4>
+<div id="outline-container-orgc553ae9" class="outline-4">
+<h4 id="orgc553ae9"><span class="section-number-4">1.3.4.</span> Command Handling</h4>
 <div class="outline-text-4" id="text-1-3-4">
 <p>
 To manage the various debugging commands, I implemented the following system:
@@ -201,12 +201,12 @@ This approach provides a flexible and extensible way to add new debugging comman
 </p>
 </div>
 </div>
-<div id="outline-container-orgf194e17" class="outline-4">
-<h4 id="orgf194e17"><span class="section-number-4">1.3.5.</span> Implementing Commands</h4>
+<div id="outline-container-orgb46e574" class="outline-4">
+<h4 id="orgb46e574"><span class="section-number-4">1.3.5.</span> Implementing Commands</h4>
 <div class="outline-text-4" id="text-1-3-5">
 </div>
 <ol class="org-ol">
-<li><a id="org5d60cb5"></a>Continue<br />
+<li><a id="org52fc54f"></a>Continue<br />
 <div class="outline-text-5" id="text-1-3-5-1">
 <p>
 When the user enters the "continue" command, <code>handle_command</code> recognizes it and calls the <code>continue</code> command. The continue function uses the <code>cont</code> function from the nix crate to send a CONTINUE instruction to the debuggee program with its pid.
@@ -217,7 +217,7 @@ This allows the debugged program to continue execution until the next breakpoint
 </p>
 </div>
 </li>
-<li><a id="org4f5e23a"></a>break<br />
+<li><a id="org4e96903"></a>break<br />
 <div class="outline-text-5" id="text-1-3-5-2">
 <p>
 Will come soon&#x2026;
@@ -226,8 +226,8 @@ Will come soon&#x2026;
 </li>
 </ol>
 </div>
-<div id="outline-container-orga1a4f2c" class="outline-4">
-<h4 id="orga1a4f2c"><span class="section-number-4">1.3.6.</span> Challenges and Learnings</h4>
+<div id="outline-container-org87832f1" class="outline-4">
+<h4 id="org87832f1"><span class="section-number-4">1.3.6.</span> Challenges and Learnings</h4>
 <div class="outline-text-4" id="text-1-3-6">
 <p>
 Developing this debugger presented several challenges:
@@ -251,8 +251,8 @@ However, shese challenges provided valuable learning experiences. I gained a dee
 </div>
 </div>
 </div>
-<div id="outline-container-org7b5d5cc" class="outline-3">
-<h3 id="org7b5d5cc"><span class="section-number-3">1.4.</span> Conclusion</h3>
+<div id="outline-container-orgffd0340" class="outline-3">
+<h3 id="orgffd0340"><span class="section-number-3">1.4.</span> Conclusion</h3>
 <div class="outline-text-3" id="text-1-4">
 <p>
 Creating a debugger in Rust for Linux programs has been an enlightening journey. It has deepened my understanding of both Rust and the underlying mechanics of debugging tools. The project showcases the power of Rust in systems programming, demonstrating how it can be used to create robust, safe, and efficient tools for low-level system interactions.
@@ -263,8 +263,8 @@ This experience has not only improved my Rust programming skills but also given 
 </p>
 </div>
 </div>
-<div id="outline-container-org2034ee7" class="outline-3">
-<h3 id="org2034ee7"><span class="section-number-3">1.5.</span> References</h3>
+<div id="outline-container-orga0bc506" class="outline-3">
+<h3 id="orga0bc506"><span class="section-number-3">1.5.</span> References</h3>
 <div class="outline-text-3" id="text-1-5">
 <p>
 <a href="https://blog.tartanllama.xyz/writing-a-linux-debugger-setup/">Writing a linux debugger setup</a>
@@ -282,7 +282,7 @@ This experience has not only improved my Rust programming skills but also given 
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Created: 2024-07-02 Tue 23:25</p>
+<p class="date">Created: 2024-07-02 Tue 23:38</p>
 </div>
 </body>
 </html>
