@@ -122,7 +122,107 @@ This allows the debugged program to continue execution until the next breakpoint
 
 **** break
 
-Will come soon...
+A crucial feature of any debugger is the ability to set and manage breakpoints. In my implementation, I've created a Breakpoint structure that encapsulates all necessary information for each breakpoint. Let's delve into the details of how this is implemented and used within the debugger.
+
+***** The brekpoint structure
+
+The Breakpoint structure contains the following fields:
+
+#+begin_src rust
+pub struct Breakpoint {
+    pid: Pid,
+    addr: *mut c_void,
+    saved_data: i8,
+    enabled: bool,
+}
+#+end_src
+
+
+- pid: The process ID of the debuggee.
+- addr: The memory address where the breakpoint is set.
+- saved_data: The original byte of data at the breakpoint address.
+- enabled: A boolean flag indicating whether the breakpoint is currently active.
+
+
+***** Setting a breakpoint
+
+The process of setting a breakpoint involves several steps:
+
+1. *User Input*: The debugger prompts the user to enter the address where they want to set a breakpoint, typically provided as a hexadecimal string.
+   
+2. *Reading Original Data*: Before setting the breakpoint, the debugger reads the original instruction at the specified address using the ~read~ function, which corresponds to the ~ptrace(PTRACE_PEEKDATA,...)~ function in C.
+
+   #+begin_src rust
+let current_line = ptrace::read(self.pid, addr);
+   #+end_src
+
+3. *Inserting the Breakpoint*: The debugger replaces the least significant byte of the instruction with the int3 interrupt instruction (encoded as 0xCC). This sends a SIGTRAP signal to the process when executed.
+
+   #+begin_src rust
+let int3 = 0xcc;
+let breakpoint_line = (current_line & !0xff) | int3;
+self.saved_data = (current_line & 0xff) as i8;
+   #+end_src
+   
+4. *Writing the Breakpoint*: The modified instruction is written back to the address using the write function from the nix crate.
+
+   #+begin_src rust
+ptrace::write(self.pid, addr as *mut c_void, breakpoint_line as *mut c_void);
+   #+end_src
+
+
+***** Disabling a Breakpoint
+
+The process of disabling a breakpoint essentially reverses the steps taken to set it:
+
+1. *Reading Current Data*: Read the current data at the breakpoint address.
+
+   #+begin_src rust
+let line = ptrace::read(self.pid, self.addr as *mut c_void)?;
+   #+end_src
+
+2. *Restoring Original Instruction*: Compute the restored line by combining the original saved byte with the rest of the current instruction.
+
+   #+begin_src rust
+let restored_line = (line & !0xff) | self.saved_data as i64;
+   #+end_src
+
+3. *Writing Restored Data*: Write the restored instruction back to the address.
+
+   #+begin_src rust
+ptrace::write(self.pid, self.addr as *mut c_void, restored_line as *mut c_void)?;
+   #+end_src
+
+
+4. *Adjusting Program Counter*: After disabling the breakpoint, the program counter is adjusted to go back to the previous line, allowing execution to continue from the correct point.
+
+
+***** Software vs. Hardware Breakpoints
+
+This implementation uses software breakpoints, which offer several advantages:
+
+1. *Unlimited Breakpoints*: Unlike hardware breakpoints, which are limited in number by the CPU architecture, software breakpoints allow for an unlimited number of breakpoints.
+   
+2. *Portability*: Software breakpoints work consistently across different hardware architectures.
+   
+3. *Flexibility*: They can be easily set and unset dynamically during the debugging process.
+
+While hardware breakpoints can be more efficient in some cases, their limited number (often 4 or 8 on most CPUs) makes them less suitable for complex debugging scenarios that require many breakpoints.
+
+
+***** Challenges and Considerations
+
+Implementing breakpoints in this way comes with several challenges:
+
+1. *Atomic Operations*: Ensuring that the process of reading, modifying, and writing instructions is atomic to prevent race conditions.
+   
+2. *Instruction Alignment*: Careful handling is required to ensure that breakpoints are set at the beginning of instructions, especially in architectures with variable-length instructions.
+   
+3. *Performance Impact*: Software breakpoints modify the program's code, which can impact performance, especially with many breakpoints.
+   
+4. *Multi-threading* : Special care is needed when dealing with multi-threaded programs to ensure breakpoints work correctly across all threads.
+   
+5. *Handling Signals* : Proper handling of the SIGTRAP signal is crucial for the debugger to function correctly.
 
 
 *** Challenges and Learnings
