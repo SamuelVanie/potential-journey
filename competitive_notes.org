@@ -1,0 +1,449 @@
+* Competitive Programmer's Handbook (Antti Laaksonen)
+
+
+** Introduction
+
+*** C++ code template
+
+#+begin_src cpp
+#include <bits/stdc++.h>
+#+end_src
+
+Permit to include all of what is in the standard library of C++. vector, algorithm, iostream will be automatically available, no need to import them separately.
+
+
+*** Input/Output
+
+#+begin_src cpp
+  ios::sync_with_stdio(0);
+  cin.tie(0);
+#+end_src
+
+These lines permit to make input and output more efficient. Sometimes these two things are bottlenecks in the program.
+
+If files are used for input and output instead of the default streams, you can use this simple trick, and still use cin and cout as usual :
+
+#+begin_src cpp
+  freopen("input.txt", "r", stdin);
+  freopen("output.txt", "w", stdout);
+#+end_src
+
+
+*** Working with numbers
+
+**** Modular arithmetic
+
+(a+b) mod m = (a mod m + b mod m) mod m
+(a-b) mod m = (a mod m - b mod m) mod m
+(a.b) mod m = (a mod m . b mod m) mod m
+
+
+**** Floating point numbers
+
+- the usual floating point type in competitive programming is *double* (64 bit)
+- But an extension is the 80 bit *long double* type of the g++ compiler (that one is more precise)
+- Usually the required precision will be given in the problem statement
+
+
+It's risky to compare two floating points with the "==" operator because of the precision of the representation that is involved. You can instead use a trick like so :
+
+#+begin_src cpp
+  if(abs(a-b) < 1e-9) {
+    // a and b are equal
+  }
+#+end_src
+
+
+*** Shortening code
+
+
+**** Type names
+
+You can give a shorter name to a datatype like so :
+
+#+begin_src cpp
+  typedef long long ll;
+  typedef vector<int> vi;
+  typedef pair<int, int> pi;
+#+end_src
+
+
+**** Macros
+
+Another way is to use *macros*. A macro means that certain strings in the code will be changed before the compilation.
+You can change some functions names like so :
+
+#+begin_src cpp
+  #define F first
+  #define S second
+  #define PB push_back
+  #define MP make_pair
+#+end_src
+
+So the code below :
+
+#+begin_src cpp
+  v.push_back(make_pair(y1, x1));
+  v.push_back(make_pair(y2, x2));
+  int d = v[i].first+v[i].second;
+#+end_src
+
+can be written like :
+
+#+begin_src cpp
+  v.PB(MP(y1, x1));
+  v.PB(MP(y2, x2));
+  int d = v[i].F + v[i].S;
+#+end_src
+
+You can have parameters :
+
+#+begin_src cpp
+#define REP(i,a,b) for (int i = a; i <= b; i++)
+#+end_src
+
+
+Permit to write
+
+#+begin_src cpp
+  REP(i,1,n) {
+    search(i);
+  }
+#+end_src
+
+
+
+*** Mathematics
+
+**** Sum formulas
+
+$\sum_{x=1}^{n} x$ = $1+2+3+...+n$ = $\frac{n(n+1)}{2}$
+
+$\sum_{x=1}^{n} x^2$ = $1^2 + 2^2 + 3^2 + ... + n^2$ = $\frac{n(n+1)(2n+1)}{6}$
+
+- The sum of n number in an arithmetic progression a+...+b is $\frac{n(a+b)}{2}$
+
+=arithmetic progression= : the difference between two consecutive numbers in the sequence is constant
+=geometric progression= : the ratio between two consecutive numbers in the sequence is constant.
+
+- The sum of numbers in a geometric progression a+ak+ak^2+...+b = $\frac{bk-a}{k-1}$ (the ratio between consecutive numbers is k)
+
+
+ =harmonic sum= : is a sum of the form $\sum_{x=1}^{n} \frac{1}{x}$ = 1 + 1/2 + 1/3 + ... + 1/n
+ An upper bound for a harmonic sum is log_2(n) + 1.
+
+
+ =fibonacci number= : f(n) = $\frac{(1+\sqrt{5})^n - (1-\sqrt{5})^n}{2^n\sqrt{5}}$ (calculate the nth fibonacci number with the *Binet's formula*
+
+
+ - =polynomial= : an algorithm is polynomial if its time complexity is at most O(n^k) where k is a constant.
+
+   
+** Time complexity
+
+
+*** Estimating efficiency
+
+| input size | required time complexity |
+| n <= 10    | O(n!)                    |
+| n <= 20    | O(2^n)                   |
+| n <= 500   | O(n^3)                   |
+| n <= 5000  | O(n^2)                   |
+| n <= 10^6  | O(nlogn) or O(n)         |
+| n is large | O(1) or O(logn)          |
+
+
+
+** Sorting
+
+
+*** O(n^2) algorithms
+
+These are the simplest kind of sorting algorithms. They usually consist of two nested loops.
+
+A famous one is *bubble sort*.
+
+#+begin_src cpp
+  for(int i = 0; i < n; i++) {
+    for (int j = 0; j < n-1; j++) {
+      if (array[j] > array[j+1]) {
+        swap(array[j], array[j+1]);
+        }
+      }
+    }
+#+end_src
+
+
+**** Inversion
+
+To get the complexity of this algorithms you can take into account what is called inversion. Meaning the number of swaps that the algorithms will realize.
+
+| 1 | 2 | 2 | 6 | 3 | 5 | 9 | 8 |
+
+this array has three inversions: (6,3), (6,5) and (9,8).
+An array is completely sorted when there are no inversions.
+
+The largest possible number of inversions occurs if the array is in reverse order. Thus the number is :
+
+$1+2+...+(n-1) = \frac{n(n-1)}{2} = O(n^2)$
+
+
+
+*** O(nlogn) algorithms
+
+There are more efficient algorithm that permits to sort array in O(nlogn). One such algo is *merge sort*
+which is based on recursion.
+
+It works as follow on array[a...b] :
+
+1. If a = b, do not do anything, because the subarray is already sorted.
+2. Calculate the position of the middle element: k = $\lfloor (a+b)/2 \rfloor$
+3. Recursively sort the subarray array[a..k]
+4. Recursively sort the subarray array[k+1...b]
+5. Merge the sorted subarrays array[a..k] and array[k+1...b] into a sorted subarray array[a...b]
+
+So on | 1 | 3 | 6 | 2 | 8 | 2 | 5 | 9 |
+
+the array will be divided into : | 1 | 3 | 6 | 2 |
+and | 8 | 2 | 5 | 9 |
+
+then | 1 | 3 |
+| 6 | 2 |
+| 8 | 2 |
+| 5 | 9 |
+
+then they will be sorted, then merged.
+
+the merging process, just go throught the elements and compares them to know which one should be added to the merged array.
+
+
+*** Sorting lower bounds
+
+Is it possible to sort an array faster than in  O(nlogn) time?
+
+No it is not possible for algorithms that are based on comparing array elements.
+
+To prove that you can use a tree which will show that there's n! ways of sorting the array.
+
+
+*** Counting sort
+
+The lower bound nlogn does not apply to algorithms that do not compare array elements but use some other information. An example of such an algorithm is *couting sort* that sorts an array in O(n) time assuming that every element in the array is an integer between 0..c and c = O(n).
+
+How ?
+
+- The algorithm creates a bookkeeping array, whose indices are elements of the original array.
+- The algorithm interates through the original array and calculates how many times each element appears in the array.
+
+the array | 1 | 3 | 6 | 9 | 9 | 3 | 5 | 9 |
+
+corresponds to the following bookkeping array:
+
+  1   2   3   4   5   6   7   8   9
+
+| 1 | 0 | 2 | 0 | 1 | 1 | 0 | 0 | 3 |
+
+So 1 appears one time in the array, 2 appears zero time, 3 appears two times...
+
+The bookkeping array construction takes O(n) time. Then we can use this to sort the array in O(n).
+
+_NB: It can be used only if the number of element is small enough because we have to create another array._
+
+
+*** Sorting in C++
+
+It is almost never a good idea to use a home-made sorting algorithm in a contest. Use the one provided in C++.
+
+#+begin_src cpp
+  // in increasing order
+  vector<int> v = {4,2,5,3,5,8,3};
+  sort(v.begin(), v.end());
+
+  // in descending order
+  sort(v.rbegin(), v.rend());
+
+  // an ordinary array
+  int n = 7;
+  int a[] = {4, 2, 5, 3, 5, 8, 3};
+  sort(a,a+n);
+
+  // sort a string
+  string s = "monkey";
+  sort(s.begin(), s.end());
+#+end_src
+
+
+**** Comparison operators
+
+The function sort requires that a =comparison operator= is defined for the data type of the elements to be sorted.
+
+So for user-defined struct the function =operator<= should be overridden. It should return =true= is the element is smaller than the parameter and =false= otherwise.
+
+#+begin_src cpp
+  struct P {
+    int x, y;
+    bool operator<(const P &p) {
+      if (x != p.x) return x < p.x;
+      else return y < p.y;
+    }
+  };
+#+end_src
+
+
+You can also give =an external comparision function= to the sort function as a callback function. For example :
+
+#+begin_src cpp
+  bool comp(string a, string b) {
+    if(a.size() != b.size()) return a.size() < b.size();
+    return a < b;
+  }
+
+  sort(v.begin(), v.end(), comp);
+#+end_src
+
+
+
+*** Binary Search
+
+A general method to find an element in an array is to use a simple for loop. But you can use a =binary search= to realize it in O(log n) if the array is already sorted.
+
+**** Method 1 (usual way)
+
+At each step, the search checks the middle element of the active region. If the middle element is the target element, the search terminates. Otherwise, the search recursively continues to the left or right half of the region, depending on the value of the middle element.
+
+
+#+begin_src cpp
+  int a = 0, b = n-1;
+  while (a <= b) {
+    int k = (a+b)/2;
+    if (array[k] == x) {
+      // x found at index k
+    }
+    if (array[k] > x) b = k-1;
+    else a = k+1;
+  }
+#+end_src
+
+Initially the active region is 0...n-1, but after it goes to a...b.
+
+
+**** Method 2 (using an efficient way to iterate through the elements of the array
+
+
+- The search goes through the array from left to right, and the initial jump length is *n/2*.
+- At each step, the jump length will be halved: first n/4, then n/8, n/16, ... until finally the length is 1.
+- After the jumps, either the target element has been found or we know that it does not appear in the array.
+
+
+#+begin_src cpp
+  int k = 0;
+  for (int b = n/2; b >= 1; b /= 2) {
+    while(k+b < n && array[k+b] <= x) k += b;
+  }
+  if (array[k] == x) {
+    // x found at index k
+  }
+#+end_src
+
+
+The complexity is still O(logn) because the code in the while loop is performed at most twoce for each jump length.
+
+
+**** C++ functions
+
+The std library of C++ contains the following functions that are based on binary search and work in logarithmic time:
+
+- =lower_bound= returns a pointer to the firsts array element whose value is at least x.
+- =upper_bound= returns a pointer to the first array element whose value is larger than x.
+- =equal_range= returns both above pointers.
+
+ The functions assume that the array is sorted.
+ If there is no such element, the pointer points to the element after the last array element.
+
+ Find whether an array contains an element with value x :
+
+ #+begin_src cpp
+   auto k = lower_bound(array, array+n, x)-array;
+   if(k<n && array[k] == x) {
+     // x found at index k
+   }
+ #+end_src
+
+ Count the number of elements whose value is x:
+
+ #+begin_src cpp
+   auto a = lower_bound(array, array+n, x);
+   auto b = upper_bound(array, array+n, x);
+   cout << b-a << "\n";
+
+   // or you can use equal_range
+   auto r = equal_range(array, array+n, x);
+   cout << r.second-r.first << "\n";
+ #+end_src
+
+ 
+
+** Data Structures
+
+*** Set structures
+
+In C++ there's two structures for set : *set* and *unordered_set*
+
+- set : use a balanced binary tree and its operation works in O(logn) time.
+- unordered_set : uses hashing function to store the elements, the operations works in O(1)
+
+The function "count" permit to count the number of elements in the set. (it only returns 1 or 0 because a set cannot contain a duplicate element)
+
+There an implementation of a *multiset* that can contain the same element multiple times.
+
+That is the same for the *map* and *unordered_map* in C++.
+
+- You can find an element in a set by using the find function. If it's not in the value will be =s.end()=.
+
+#+begin_src cpp
+  auto it = s.find(x);
+  if(it == s.end()){
+    // x is not found
+  }
+#+end_src
+
+
+*** Deque
+
+Slower than an array but approximately the same, but there are functions to work on them in the front.
+
+#+begin_src cpp
+  deque<int> d;
+  d.push_back(5); // [5]
+  d.push_back(2); // [5,2]
+  d.push_front(3); // [3,5,2]
+#+end_src
+
+
+*** Priority queue
+
+A priority queue maintains a set of elements.
+
+- Insertion and removal take O(logn) time
+- Retrieval takes O(1) time
+- It has the same methods than an ordered set, but it has smaller constant factors. It is implemented using a heap structure that is much simpler than a balanced binary tree used in an ordered set.
+
+  
+** Complete search
+
+
+*** Backtracking
+
+Backtracking is computing a solution by building it recursively starting with an empty solution.
+
+*** Pruning the search
+
+We can add some kind of intelligence to the algorithm to quickly identify the partial solutions that cannot be extended. This pseudo intelligence is just some tiny observations that you can add to quickly discriminate the not useful paths.
+
+*** Meet in the middle
+
+This is a technique where the search space is divided into two parts of about equal size, then the results of the parts are combined together to create the final solution.
+
+
+** Greedy algorithms
+
