@@ -61,6 +61,10 @@ That's all ! The final nix file looks like this :
 
 To run the project and start programming I simply the command ~nix develop~ that permits to access my devShell.
 
+The rust overlay feature permit to automatically build a rust development platform with cargo and the rust compiler.
+Pinning the nix version to the 24 permit to always pull the same version of the rust compiler which is the 1.79 in this case.
+
+
 
 ** Laying the Groundwork
 
@@ -83,8 +87,8 @@ In my main function, I implemented the following steps:
 *** The Debugger Struct
 
 To organize the debugger's functionality and have a better management of the parent process flow, I created a ~Debugger~ struct. The fields of this struct are :
-- ~m_prog_name~: The name of the program being debugged
-- ~m_pid~ : The process ID of the child process we're controlling
+- ~prog_name~: The name of the program being debugged
+- ~pid~ : The process ID of the child process we're controlling
 
   
 *** The Run Function
@@ -101,11 +105,11 @@ The heart of our debugger is the ~run~ function. Here's how it operates:
 
 To manage the various debugging commands, I implemented the following system:
 
-1. Created an enum called ~Command~ with variants representing different debugging actions (e.g., continue, step, breakpoint).
-2. Utilized the ~strum_macros~ crate to easily translate string input from the prompt into the corresponding ~Command~ variant.
+1. Created an enum called ~Command~ with variants representing different debugging actions (e.g., continue, step, break, ...).
+2. Utilized the ~strum_macros~ crate to easily translate string input from the prompt into the corresponding ~Command~ variant. (a command break/Break/BREAK/bReak is translated without taking into account the case to the variant BREAK)
 3. Implemented a ~handle_command~ function that:
-   - Attempts to parse the user input into a ~Command~ variant
-   - If successful, calls the appropriate functino for that command
+   - Attempts to parse the user input into a ~Command~ variant (like in the point 2)
+   - If successful, calls the appropriate function for that command
    - If the input doesn't match any know command, it informs the user that the command doesn't exist
 
 This approach provides a flexible and extensible way to add new debugging commands in the future.
@@ -115,7 +119,7 @@ This approach provides a flexible and extensible way to add new debugging comman
 
 **** Continue
 
-When the user enters the "continue" command, ~handle_command~ recognizes it and calls the ~continue~ command. The continue function uses the ~cont~ function from the nix crate to send a CONTINUE instruction to the debuggee program with its pid.
+When the user enters the "continue" command, ~handle_command~ recognizes it and calls the ~continue~ command. The continue function uses the ~cont~ function from the nix crate to send a CONTINUE instruction to the debuggee program with its pid. (PTRACE_CONT request sent to the tracee)
 
 This allows the debugged program to continue execution until the next breakpoint or until it terminates.
 
@@ -132,7 +136,7 @@ The Breakpoint structure contains the following fields:
 pub struct Breakpoint {
     pid: Pid,
     addr: *mut c_void,
-    saved_data: i8,
+    saved_data: i64,
     enabled: bool,
 }
 #+end_src
@@ -142,6 +146,8 @@ pub struct Breakpoint {
 - addr: The memory address where the breakpoint is set.
 - saved_data: The original byte of data at the breakpoint address.
 - enabled: A boolean flag indicating whether the breakpoint is currently active.
+
+(It may be slightly different in the code because I used dependency injection to be able to test data retrieval).
 
 
 ***** Setting a breakpoint
@@ -161,7 +167,7 @@ let current_line = ptrace::read(self.pid, addr);
    #+begin_src rust
 let int3 = 0xcc;
 let breakpoint_line = (current_line & !0xff) | int3;
-self.saved_data = (current_line & 0xff) as i8;
+self.saved_data = (current_line & 0xff) as i64;
    #+end_src
    
 4. *Writing the Breakpoint*: The modified instruction is written back to the address using the write function from the nix crate.
