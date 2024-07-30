@@ -231,9 +231,77 @@ Implementing breakpoints in this way comes with several challenges:
 5. *Handling Signals* : Proper handling of the SIGTRAP signal is crucial for the debugger to function correctly.
 
 
-*** Challenges and Learnings
+
+**** register
+
+To enable the continuation of execution after hitting a breakpoint, it is essential to reset the program counter to the previous instruction. This involves implementing functionality to manipulate the registers of a program, particularly the program counter. 
+
+***** Register Functions Implementation
+
+The register module provides functionality to interact with the CPU registers of the debugged program. The key components are the Reg enum, the RegDescriptor struct, and functions to get, set, and manipulate register values.
+
+
+#+begin_src rust
+#[derive(Debug, Clone, Copy, PartialEq, EnumString)]
+#[strum(ascii_case_insensitive)]
+pub enum Reg { /*...*/ }
+
+#[derive(Debug, PartialEq, Clone, Copy)]
+pub struct RegDescriptor { /*...*/ }
+
+pub static REGISTERS_DESCRIPTORS: &[RegDescriptor] = &[ /*...*/ ];
+#+end_src
+
+
+- *Reg* : enumerates all the registers available in the CPU
+- *RegDescriptor* : contains metadata about each register, including its name and DWARF index.
+
+
+****** Key functions
+
+- *Register value getters and setters* :
+
+  #+begin_src rust
+pub fn get_register_value(pid: Pid, r: Reg) -> Result<u64, nix::Error> { /*...*/ }
+pub fn set_register_value(pid: Pid, r: Reg, value: u64) -> Result<(), nix::Error> { /*...*/ }
+  #+end_src
+
+
+These functions interact with the actual register values of the debugged process, permitting to modify their values or to retrieve them.
+
+- *Another way of retrieving register value* :
+
+  #+begin_src rust
+pub fn get_register_value_from_dwarf_register(pid: Pid, reg_num: i32) -> Result<u64, nix::Error> { /*...*/ }
+  #+end_src
+
+This function permit to get the register value using its dwarf number.
+
+
+***** Modifying the debugger core logic
+
+- *Introducing a new step_over_breakpoint function* :
+
+  #+begin_src rust
+fn step_over_breakpoint(&mut self) { /*...*/ }
+  #+end_src
+
+This function permits to step over a breakpoint. I start by moving back the program counter to the previous line (because the line where the breakpoint is needs to also be executed). Then I disable the breakpoint which restores the original lines where the breakpoint was (removing the int3 instruction). I finally send a step signal to the debuggee and at the end of the program when the main debugger program takes the control back, I re-enable the breakpoint.
+
+- *Modifying the continue_execution function* :
+
+  To perform the correct logic, I've added a call to the step_over_breakpoint function in the beginning ot the continue_execution. Because the step_over_breakpoint perform verification about the existence of a breakpoint before applying its logic this doesn't affect the code in case there's no breakpoints.
+
+- *Adding new register manipulation commands* :
+
+  To be able to manipulate registers in the debugger, I introduced new commands like =register read= (to get a particular register value), =register write= (to set a particular register value), and =register dump= (to display all registers values).
+
+
+
+***** Challenges and Learnings
 
 Developing this debugger presented several challenges:
+
 
 1. Understanding the intricacies of process control and the ptrace system call.
 2. Mapping C concepts and functinos to their Rust equivalents.
