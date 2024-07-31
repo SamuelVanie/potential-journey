@@ -286,7 +286,7 @@ This function permit to get the register value using its dwarf number.
 fn step_over_breakpoint(&mut self) { /*...*/ }
   #+end_src
 
-This function permits to step over a breakpoint. I start by moving back the program counter to the previous line (because the line where the breakpoint is needs to also be executed). Then I disable the breakpoint which restores the original lines where the breakpoint was (removing the int3 instruction). I finally send a step signal to the debuggee and at the end of the program when the main debugger program takes the control back, I re-enable the breakpoint.
+This function permits to step over a breakpoint. I start by moving back the program counter to the previous line (because the line where the breakpoint is needs to also be executed and the execution of the line with int3 interruption moves the program counter to the next line). Then I disable the breakpoint which restores the original lines where the breakpoint was (removing the int3 instruction). I finally send a step signal to the debuggee and at the end of the program when the main debugger program takes the control back, I re-enable the breakpoint.
 
 - *Modifying the continue_execution function* :
 
