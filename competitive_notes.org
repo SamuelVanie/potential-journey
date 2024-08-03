@@ -3,29 +3,49 @@
 
 ** Collection of interesting functions
 
+*** String manipulation
+
 - =stoul()= : permit to convert a string to its unsigned integer value
 - =stol()= : to signed integer
 - =from_chars(begin, end, variable, base = 10)= : convert string to numeric value, can convert multiple ones (but introduced in C++17)
-- =for_each(begin, end, lambda_funcn)= : permit to apply a function to each of the elements from begin to end of the structure.
-- =for_each_n(begin, number, lambda_func)= : apply a lambda function to the first number elements of the structure.
-- =bitset<sizeoftheparameter>(parameter)= : to convert to a bitset for easy manipulation bits
-- =sort(v.begin(), v.end()) / sort(v.rbegin(), v.rend())= : sort a structure in ascending/descending order
-- =rotate(begin, middle, end)= : rotate the structure by middle-begin amout to the left
-- =pow(base, exponent)= : number raised to another number <cmath>
-- =sqrt(number)= : square root <cmath>
-- =min/max(a,b)= : find min/max between two numbers <algorithm>
-- =swap(val1, val2)= : swap two values, putting val1 in val2 and vice versa <algorithm>
-- =gcd(num1, num2)= : find the gcd of two numbers <algorithm>
+- =regex_matches(string, regex)= : test if the string matches the regex
 - =toupper(ch)= : convert lowercase char to uppercase <cctype> (leave as they are the numbers, uppercase...)
+- =isalpha(char)= : test if a character is alphanumeric <cctype>
+- =isalnum/islower/isupper/isspace= <cctype>
+- =std::to_string(el)= : convert el to string
+
+  
+*** Numbers manipulation
+
+- =sqrt(number)= : square root <cmath>
+- =tgamma(x+1)= : permit to compute factorial of x
+- =gcd(num1, num2)= : find the gcd of two numbers <algorithm>
+- =min/max(a,b)= : find min/max between two numbers <algorithm>
+- =pow(base, exponent)= : number raised to another number <cmath>    
+- =bitset<sizeoftheparameter>(parameter)= : to convert to a bitset for easy manipulation bits  
+
+
+*** Iterable structures manipulation
+
+
+**** Getting info on the struct
+
 - =struct.empty()= : tells if the structure is empty, prefer this to comparing the size of the struct to 0.
 - =struct.begin()/.end()/.rbegin()/.rend()= : return an iterator or a reverse iterator on the struct
 - =min_element/max_element(s.begin(), s.end())= : return iterator on the min/max of the range. Can get the index by substracting to the beginning iterator (s.begin())
-- =erase(iterator)/erase(begin iterator, end iterator)= : delete element or range of element from structure
-- =tgamma(x+1)= : permit to compute factorial of x
 - =unique(begin, end)= : removes consecutive duplicates elements from the range
-- =isalpha(char)= : test if a character is alphanumeric <cctype>
-- =isalnum/islower/isupper/isspace= <cctype>
-- =regex_matches(string, regex)= : test if the string matches the regex
+
+
+**** Mutation functions
+
+- =for_each(begin, end, lambda_funcn)= : permit to apply a function to each of the elements from begin to end of the structure.
+- =for_each_n(begin, number, lambda_func)= : apply a lambda function to the first number elements of the structure.
+- =sort(v.begin(), v.end()) / sort(v.rbegin(), v.rend())= : sort a structure in ascending/descending order
+- =rotate(begin, middle, end)= : rotate the structure by middle-begin amout to the left
+- =swap(val1, val2)= : swap two values, putting val1 in val2 and vice versa <algorithm>
+- =erase(iterator)/erase(begin iterator, end iterator)= : delete element or range of element from structure
+
+
 
 ** Introduction
 
