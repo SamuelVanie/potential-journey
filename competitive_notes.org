@@ -34,7 +34,7 @@
 - =struct.begin()/.end()/.rbegin()/.rend()= : return an iterator or a reverse iterator on the struct
 - =min_element/max_element(s.begin(), s.end())= : return iterator on the min/max of the range. Can get the index by substracting to the beginning iterator (s.begin())
 - =unique(begin, end)= : removes consecutive duplicates elements from the range
-
+- =count(begin, end, char)= : count the number of char in the iterator range
 
 **** Mutation functions
 
