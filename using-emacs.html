@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-01-02 Thu 04:12 -->
+<!-- 2025-01-02 Thu 05:04 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>&lrm;</title>
@@ -199,29 +199,22 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgf89ad35">1. What I've struggle with emacs and how I found solutions</a>
+<li><a href="#org563f2f2">1. Emacs tab</a></li>
+<li><a href="#orgfa0c023">2. Merge my linux and mac configuration</a></li>
+<li><a href="#orgac65060">3. Set transparent background</a></li>
+<li><a href="#org43253ff">4. Set up emacs to load pkgs installed from nix</a>
 <ul>
-<li><a href="#orgdfc2f4c">1.1. Emacs tab</a></li>
-<li><a href="#orge9e34b0">1.2. Merge my linux and mac configuration</a></li>
-<li><a href="#org0d9b45c">1.3. Set transparent background</a></li>
-<li><a href="#org7d43c8b">1.4. Set up emacs to load pkgs installed from nix</a>
-<ul>
-<li><a href="#org3fd9e28">1.4.1. First solution</a></li>
-<li><a href="#org3a1be4b">1.4.2. Second solution</a></li>
+<li><a href="#orgd8e928e">4.1. First solution</a></li>
+<li><a href="#orgad58340">4.2. Second solution</a></li>
 </ul>
 </li>
-</ul>
-</li>
+<li><a href="#org9605077">5. How to code per file</a></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgf89ad35" class="outline-2">
-<h2 id="orgf89ad35"><span class="section-number-2">1.</span> What I've struggle with emacs and how I found solutions</h2>
+<div id="outline-container-org563f2f2" class="outline-2">
+<h2 id="org563f2f2"><span class="section-number-2">1.</span> Emacs tab</h2>
 <div class="outline-text-2" id="text-1">
-</div>
-<div id="outline-container-orgdfc2f4c" class="outline-3">
-<h3 id="orgdfc2f4c"><span class="section-number-3">1.1.</span> Emacs tab</h3>
-<div class="outline-text-3" id="text-1-1">
 <blockquote>
 <p>
 How I manually insert tabs inside emacs ?
@@ -262,9 +255,9 @@ I bound this function to the key <code>C-&lt;tab&gt;</code> so that I can quickl
 </p>
 </div>
 </div>
-<div id="outline-container-orge9e34b0" class="outline-3">
-<h3 id="orge9e34b0"><span class="section-number-3">1.2.</span> Merge my linux and mac configuration</h3>
-<div class="outline-text-3" id="text-1-2">
+<div id="outline-container-orgfa0c023" class="outline-2">
+<h2 id="orgfa0c023"><span class="section-number-2">2.</span> Merge my linux and mac configuration</h2>
+<div class="outline-text-2" id="text-2">
 <blockquote>
 <p>
 How to execute a elisp bloc depending on whether you're on mac or linux ?
@@ -288,7 +281,7 @@ You just have to use a condition depending on what you want to execute on the cu
 Example :
 </p>
 
-<pre class="example" id="orgd693016">
+<pre class="example" id="orgc24bdcb">
 (cond
  ((eq system-type 'darwin)  ;; macOS
   (setq read-process-output-max (* 64 1024)))  ;; 64KB
@@ -305,9 +298,9 @@ Do not forget variable like <code>user-emacs-directory</code> that helps you and
 </blockquote>
 </div>
 </div>
-<div id="outline-container-org0d9b45c" class="outline-3">
-<h3 id="org0d9b45c"><span class="section-number-3">1.3.</span> Set transparent background</h3>
-<div class="outline-text-3" id="text-1-3">
+<div id="outline-container-orgac65060" class="outline-2">
+<h2 id="orgac65060"><span class="section-number-2">3.</span> Set transparent background</h2>
+<div class="outline-text-2" id="text-3">
 <blockquote>
 <p>
 How to set transparent background in emacs ?
@@ -338,9 +331,9 @@ On mac, what worked :
 </div>
 </div>
 </div>
-<div id="outline-container-org7d43c8b" class="outline-3">
-<h3 id="org7d43c8b"><span class="section-number-3">1.4.</span> Set up emacs to load pkgs installed from nix</h3>
-<div class="outline-text-3" id="text-1-4">
+<div id="outline-container-org43253ff" class="outline-2">
+<h2 id="org43253ff"><span class="section-number-2">4.</span> Set up emacs to load pkgs installed from nix</h2>
+<div class="outline-text-2" id="text-4">
 <blockquote>
 <p>
 How to load the packages that you installed from nix inside emacs ?
@@ -351,9 +344,9 @@ We're not talking about command line packages, but emacs packages. Such packages
 </p>
 </blockquote>
 </div>
-<div id="outline-container-org3fd9e28" class="outline-4">
-<h4 id="org3fd9e28"><span class="section-number-4">1.4.1.</span> First solution</h4>
-<div class="outline-text-4" id="text-1-4-1">
+<div id="outline-container-orgd8e928e" class="outline-3">
+<h3 id="orgd8e928e"><span class="section-number-3">4.1.</span> First solution</h3>
+<div class="outline-text-3" id="text-4-1">
 <p>
 The first solution, which is the simplest, is to just open a devshell, in which you've installed and initialize the emacs packages. An example for julia environment
 </p>
@@ -398,9 +391,9 @@ The packages should be present and loaded after your run `emacs &amp;` in the de
 </p>
 </div>
 </div>
-<div id="outline-container-org3a1be4b" class="outline-4">
-<h4 id="org3a1be4b"><span class="section-number-4">1.4.2.</span> Second solution</h4>
-<div class="outline-text-4" id="text-1-4-2">
+<div id="outline-container-orgad58340" class="outline-3">
+<h3 id="orgad58340"><span class="section-number-3">4.2.</span> Second solution</h3>
+<div class="outline-text-3" id="text-4-2">
 <blockquote>
 <p>
 Why bother with this second solution ?
@@ -518,10 +511,33 @@ You can add such call to your .dir-locals.el file inside the root directory of y
 </div>
 </div>
 </div>
+<div id="outline-container-org9605077" class="outline-2">
+<h2 id="org9605077"><span class="section-number-2">5.</span> How to code per file</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+This notes that I take requires me to modify my index.html file each time. I could've use a command to trigger the modification automatically. But the solution that came up first into my mind was to create a snippet that will only be available in that file. This way I can open my file add my new entry and that's it.
+</p>
+
+<p>
+To execute some code on a directory level in emacs you could use a file called <code>.dir-locals.el</code>, to execute code in a per-file basis you use a <code>;; -*- eval: &lt;code&gt; ; -*-</code> on top of that file.
+</p>
+
+<p>
+eval means evaluate, you could set others things, such as the mode, with <code>mode</code> like <code>mode: lisp</code> for example.
+</p>
+
+<p>
+So here's what I wrote on top on my file, it uses the <code>auto-yasnippet</code>'s package variable <code>aya-current</code>  :
+</p>
+
+<p>
+<code>;; -*- eval: (progn (setq aya-current "&lt;li&gt;&lt;a href=\"${1:org-file-name}.html\"&gt;${2:title}&lt;/a&gt;&lt;/li&gt;")); -*-</code>
+</p>
+</div>
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Created: 2025-01-02 Thu 04:12</p>
+<p class="date">Created: 2025-01-02 Thu 05:04</p>
 </div>
 </body>
 </html>
