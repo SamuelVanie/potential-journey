@@ -1,3 +1,4 @@
+#+SETUPFILE: ./org-html-themes/org/theme-readtheorg.setup
 * Emacs tab
 
 #+begin_quote
