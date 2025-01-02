@@ -1,0 +1,214 @@
+* What I've struggle with emacs and how I found solutions
+
+** Emacs tab
+
+#+begin_quote
+How I manually insert tabs inside emacs ?
+#+end_quote
+
+Emacs prevents inserting tabs, I think it's because the key is bound to complete when you set the variable =indent-tabs-mode= to nil.
+
+#+begin_quote
+Why would you set this variable to nil ?
+#+end_quote
+
+This variable permit to complete inside minibuffer or the buffer when you type tab, it's pretty handy as its the default that people are used to from other editors.
+
+
+#+begin_quote
+How to then manually insert your tabs ?
+#+end_quote
+
+You can use the key sequence =C-q <tab>= to insert a tab, but electric-mode will cause you some ugly indentation for the next lines.
+
+The second solution is to use the interactive function =tab-to-tab-stop=. It permit to go to the next tab-stop.
+
+I bound this function to the key =C-<tab>= so that I can quickly insert tabs wherever I want :   ~(global-set-key (kbd "C-<tab>") 'tab-to-tab-stop)~
+
+
+** Merge my linux and mac configuration
+
+#+begin_quote
+How to execute a elisp bloc depending on whether you're on mac or linux ?
+#+end_quote
+
+
+The variable =system-type= is set to your current system.
+
+=darwin= for macos and =gnu/linux= for linux.
+
+You just have to use a condition depending on what you want to execute on the current system.
+
+Example :
+
+#+begin_example
+  (cond
+   ((eq system-type 'darwin)  ;; macOS
+    (setq read-process-output-max (* 64 1024)))  ;; 64KB
+   ((eq system-type 'gnu/linux)  ;; Linux
+    (setq read-process-output-max (* 1024 1024)))  ;; 1MB
+   )
+#+end_example
+
+
+#+begin_quote
+Do not forget variable like =user-emacs-directory= that helps you and diminishes the use of the conditional statements.
+#+end_quote
+
+
+
+** Set transparent background
+
+#+begin_quote
+How to set transparent background in emacs ?
+#+end_quote
+
+
+To set transparent background in emacs, there are two methods, only one works for each systems (in my experience).
+
+On linux, what worked for me :
+#+begin_src emacs-lisp
+    (set-frame-parameter nil 'alpha-background 60)
+    (add-to-list 'default-frame-alist '(alpha-background . 60))
+#+end_src
+
+On mac, what worked :
+#+begin_src emacs-lisp
+    (set-frame-parameter (selected-frame) 'alpha '(92 . 50))
+    (add-to-list 'default-frame-alist '(alpha . (92 . 50))))
+#+end_src
+
+
+** Set up emacs to load pkgs installed from nix
+
+#+begin_quote
+How to load the packages that you installed from nix inside emacs ?
+
+We're not talking about command line packages, but emacs packages. Such packages should not make modification to any path, unless you want an impure environment.
+#+end_quote
+
+
+*** First solution
+
+The first solution, which is the simplest, is to just open a devshell, in which you've installed and initialize the emacs packages. An example for julia environment
+
+
+#+begin_src nix
+{
+  description = "Environment to code in Julia";
+  
+  inputs = {
+    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+    flake-utils.url = "github:numtide/flake-utils";
+  };
+
+  outputs = { self, nixpkgs, flake-utils }:
+    flake-utils.lib.eachDefaultSystem (system:
+      let 
+        pkgs = import nixpkgs { inherit system; };
+      in {
+        devShell = pkgs.mkShell {
+          nativeBuildInputs = with pkgs; [
+            julia-bin
+            emacsPackages.julia-ts-mode
+            bc
+          ];
+
+          shellHook = ''
+            julia -e 'import Pkg; Pkg.add("DebugAdapter")' \
+            julia -e 'import Pkg; Pkg.add("LanguageServer")' \
+            emacs --batch --eval "(progn (package-initialize))" \
+            echo "My julia environment for coding"
+          '';
+        };
+      }
+    );
+}
+#+end_src
+
+The packages should be present and loaded after your run `emacs &` in the dev shell.
+
+
+*** Second solution
+
+#+begin_quote
+Why bother with this second solution ?
+
+While building the dev environment using nix, the first solution demands to quit emacs, make your changes and reload emacs to check if all is correctly setup. That was such a pain that I decided to find a solution. (I hate doing the same things in repitition)
+#+end_quote
+
+
+The second solution involves using packages like =envrc= (the one I use) or =direnv= (an alternative).
+
+I use [[https://github.com/purcell/envrc][envrc]] becauses it loaded the variables from direnv at a buffer level instead of inserting them to emacs global state.
+
+My configuration looks like :
+
+#+begin_src emacs-lisp
+(use-package envrc
+    :config
+    (envrc-global-mode))
+#+end_src
+
+
+For this to work, you should have the direnv binary, an =.envrc= file inside your root dir, and had allowed direnv to automatically load your shell environment. Details here :  [[https://nix.dev/guides/recipes/direnv.html][nix direnv workflow]] and [[https://direnv.net/][direnv documentation]]
+
+ The fact is, with this method, the binary will be inside the path of emacs and you'll be able to use them, but not the emacsPackages, because the load-path will not gets populate with those packages root directories.
+
+The workaround I found for this is to add those directories to the load path with some elisp code. Here is my custom function that does that :
+
+
+#+begin_src emacs-lisp
+(defun smv/add-nix-pkg-to-lpath (PKG_ENV)
+    "Load the PKG_ENV directory to the load path of current emacs session
+    it permits to then require the package"
+    
+    (let ((pkg-nix-path (getenv PKG_ENV)))
+
+      (unless pkg-nix-path
+        (user-error "Environment variable '%s' is not set" PKG_ENV))
+
+      (let ((pkg-suffix "/share/emacs/site-lisp/elpa/"))
+        
+        (string-match "-emacs-\\([^/]+\\)" pkg-nix-path)
+        
+        (let* ((pkg-full-path (match-string 1 pkg-nix-path))
+               (path-to-add (concat pkg-nix-path pkg-suffix pkg-full-path)))
+          (unless (member path-to-add load-path)
+            (add-to-list 'load-path path-to-add))))))
+#+end_src
+
+
+Depending on some environment variable it add the "/share/emacs/site-elisp/elpa/<package-name>" directory of this environment variable to the load path.
+
+The required environment variable here is the nix-path of the package you want to load.
+
+How I use it ?
+
+#+begin_src nix
+    {
+      ...
+            devShell = pkgs.mkShell {
+              nativeBuildInputs = with pkgs; [
+                julia-bin
+                emacsPackages.julia-ts-mode
+                bc
+              ];
+
+              shellHook = ''
+                export EMACS_JULIATS = "${pkgs.emacsPackages.julia-ts-mode}"
+                echo "My julia environment for coding"
+              '';
+            };
+          
+       ...
+    }
+#+end_src
+
+Look at the =shellHook= bloc, I've defined a shell environment variable that will be buffer available when envrc will run direnv.
+
+Then you can call my custom function using this variable as an argument. For example :
+
+~(smv/add-nix-pkg-to-lpath EMACS_JULIATS)~
+
+You can add such call to your .dir-locals.el file inside the root directory of your project and that's it.
