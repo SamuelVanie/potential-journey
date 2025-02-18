@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-01-30 Thu 06:27 -->
+<!-- 2025-02-18 Tue 23:17 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>&lrm;</title>
@@ -23,21 +23,21 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org4b51b6d">1. Emacs tab</a></li>
-<li><a href="#org118f574">2. Merge my linux and mac configuration</a></li>
-<li><a href="#orgb4cd2eb">3. Set transparent background</a></li>
-<li><a href="#org6a518c2">4. Set up emacs to load pkgs installed from nix</a>
+<li><a href="#orge16c798">1. Emacs tab</a></li>
+<li><a href="#org1f91062">2. Merge my linux and mac configuration</a></li>
+<li><a href="#orge1c558e">3. Set transparent background</a></li>
+<li><a href="#org970f14a">4. Set up emacs to load pkgs installed from nix</a>
 <ul>
-<li><a href="#orgafa351a">4.1. First solution</a></li>
-<li><a href="#orgd7cd0a3">4.2. Second solution</a></li>
+<li><a href="#org9770964">4.1. First solution</a></li>
+<li><a href="#org1cd5e9c">4.2. Second solution</a></li>
 </ul>
 </li>
-<li><a href="#orgf59ba55">5. How to code per file</a></li>
+<li><a href="#org3f35691">5. How to code per file</a></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org4b51b6d" class="outline-2">
-<h2 id="org4b51b6d"><span class="section-number-2">1.</span> Emacs tab</h2>
+<div id="outline-container-orge16c798" class="outline-2">
+<h2 id="orge16c798"><span class="section-number-2">1.</span> Emacs tab</h2>
 <div class="outline-text-2" id="text-1">
 <blockquote>
 <p>
@@ -79,8 +79,8 @@ I bound this function to the key <code>C-&lt;tab&gt;</code> so that I can quickl
 </p>
 </div>
 </div>
-<div id="outline-container-org118f574" class="outline-2">
-<h2 id="org118f574"><span class="section-number-2">2.</span> Merge my linux and mac configuration</h2>
+<div id="outline-container-org1f91062" class="outline-2">
+<h2 id="org1f91062"><span class="section-number-2">2.</span> Merge my linux and mac configuration</h2>
 <div class="outline-text-2" id="text-2">
 <blockquote>
 <p>
@@ -105,7 +105,7 @@ You just have to use a condition depending on what you want to execute on the cu
 Example :
 </p>
 
-<pre class="example" id="orgef0f878">
+<pre class="example" id="orgbaa4293">
 (cond
  ((eq system-type 'darwin)  ;; macOS
   (setq read-process-output-max (* 64 1024)))  ;; 64KB
@@ -122,8 +122,8 @@ Do not forget variable like <code>user-emacs-directory</code> that helps you and
 </blockquote>
 </div>
 </div>
-<div id="outline-container-orgb4cd2eb" class="outline-2">
-<h2 id="orgb4cd2eb"><span class="section-number-2">3.</span> Set transparent background</h2>
+<div id="outline-container-orge1c558e" class="outline-2">
+<h2 id="orge1c558e"><span class="section-number-2">3.</span> Set transparent background</h2>
 <div class="outline-text-2" id="text-3">
 <blockquote>
 <p>
@@ -155,8 +155,8 @@ On mac, what worked :
 </div>
 </div>
 </div>
-<div id="outline-container-org6a518c2" class="outline-2">
-<h2 id="org6a518c2"><span class="section-number-2">4.</span> Set up emacs to load pkgs installed from nix</h2>
+<div id="outline-container-org970f14a" class="outline-2">
+<h2 id="org970f14a"><span class="section-number-2">4.</span> Set up emacs to load pkgs installed from nix</h2>
 <div class="outline-text-2" id="text-4">
 <blockquote>
 <p>
@@ -168,8 +168,8 @@ We're not talking about command line packages, but emacs packages. Such packages
 </p>
 </blockquote>
 </div>
-<div id="outline-container-orgafa351a" class="outline-3">
-<h3 id="orgafa351a"><span class="section-number-3">4.1.</span> First solution</h3>
+<div id="outline-container-org9770964" class="outline-3">
+<h3 id="org9770964"><span class="section-number-3">4.1.</span> First solution</h3>
 <div class="outline-text-3" id="text-4-1">
 <p>
 The first solution, which is the simplest, is to just open a devshell, in which you've installed and initialize the emacs packages. An example for julia environment
@@ -215,8 +215,8 @@ The packages should be present and loaded after your run `emacs &amp;` in the de
 </p>
 </div>
 </div>
-<div id="outline-container-orgd7cd0a3" class="outline-3">
-<h3 id="orgd7cd0a3"><span class="section-number-3">4.2.</span> Second solution</h3>
+<div id="outline-container-org1cd5e9c" class="outline-3">
+<h3 id="org1cd5e9c"><span class="section-number-3">4.2.</span> Second solution</h3>
 <div class="outline-text-3" id="text-4-2">
 <blockquote>
 <p>
@@ -335,8 +335,8 @@ You can add such call to your .dir-locals.el file inside the root directory of y
 </div>
 </div>
 </div>
-<div id="outline-container-orgf59ba55" class="outline-2">
-<h2 id="orgf59ba55"><span class="section-number-2">5.</span> How to code per file</h2>
+<div id="outline-container-org3f35691" class="outline-2">
+<h2 id="org3f35691"><span class="section-number-2">5.</span> How to code per file</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 This notes that I take requires me to modify my index.html file each time. I could've use a command to trigger the modification automatically. But the solution that came up first into my mind was to create a snippet that will only be available in that file. This way I can open my file add my new entry and that's it.
@@ -361,7 +361,7 @@ So here's what I wrote on top on my file, it uses the <code>auto-yasnippet</code
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Created: 2025-01-30 Thu 06:27</p>
+<p class="date">Created: 2025-02-18 Tue 23:17</p>
 </div>
 </body>
 </html>
