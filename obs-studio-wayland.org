@@ -1,0 +1,7 @@
+#+SETUPFILE: ./org-html-themes/org/theme-readtheorg.setup
+* Use obs-studio on wayland
+
+I couldn't get obs-studio to work first try, like right after installing it on wayland (arch-linux).
+I wasn't able to see any output.
+
+To fix it, after install it obs-studio, I've installed : =obs-vaapi= and =wlrobs=
