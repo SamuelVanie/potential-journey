@@ -5,3 +5,5 @@ I couldn't get obs-studio to work first try, like right after installing it on w
 I wasn't able to see any output.
 
 To fix it, after install it obs-studio, I've installed : =obs-vaapi= and =wlrobs=
+
+You should be able to then see some new entry about *wayland (dmabuf)*, this is the one you should use to access your displays.
