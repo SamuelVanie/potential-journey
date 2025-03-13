@@ -225,3 +225,12 @@ eval means evaluate, you could set others things, such as the mode, with =mode= 
 So here's what I wrote on top on my file, it uses the =auto-yasnippet='s package variable =aya-current=  :
 
 ~;; -*- eval: (progn (setq aya-current "<li><a href=\"${1:org-file-name}.html\">${2:title}</a></li>")); -*-~
+
+
+* How to scroll inside vterm
+
+vterm has multiple mode, it's not like eshell that permits you to scroll without restriction inside the terminal.
+
+In vterm, you should switch to the copy-mode to be able to scroll inside the terminal.
+
+The default binding for that is : ~C-c C-t~
