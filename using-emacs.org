@@ -240,12 +240,16 @@ The default binding for that is : ~C-c C-t~
 
 * How to find then filter down and replace in emacs
 
-You can find patterns in folders in emacs using =find-grep=, =find-grep-dired= (which will only show the file's names inside a dired buffer), =rgrep=...
-All of these will open a grep buffer which has the =compilation-mode= bindings.
+You can find patterns in folders in Emacs using `find-grep`, `find-grep-dired` (which will only show the file names inside a dired buffer), `rgrep`, and similar commands. All of these will open a grep buffer that utilizes `compilation-mode` bindings.
 
-You could then make that buffer =read-only= using =C-x C-q= then run the command =keep-lines= or =flush-lines= to filter the results. You could also just remove the ones you don't want from the list manually.
+#+begin_quote
+How to filter the results and then perform replacements ?
+#+end_quote
 
-Then go into =wgrep= mode and do your operation to the occurences.
+You can make the grep buffer read-only using `C-x C-q` (which runs `toggle-read-only`) and then use commands like `keep-lines` or `flush-lines` to filter the results. Alternatively, you can manually remove the lines you don't want from the list.
+
+Once you have your desired selection, switch to `wgrep` mode (`wgrep-change-to-wgrep-mode`) to perform operations on the occurrences.
+
 
 * Setting compilation environment variable
 
