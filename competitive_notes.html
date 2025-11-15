@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-04-28 Mon 21:16 -->
+<!-- 2025-11-15 Sat 18:52 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>&lrm;</title>
@@ -70,7 +70,7 @@
   pre.src-haskell:before { content: 'Haskell'; }
   pre.src-hledger:before { content: 'hledger'; }
   pre.src-java:before { content: 'Java'; }
-  pre.src-js:before { content: 'Javascript'; }
+  pre.src-js:before { content: 'JavaScript'; }
   pre.src-latex:before { content: 'LaTeX'; }
   pre.src-ledger:before { content: 'Ledger'; }
   pre.src-lisp:before { content: 'Lisp'; }
@@ -231,84 +231,84 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org868bc29">1. Competitive Programmer's Handbook (Antti Laaksonen)</a>
+<li><a href="#org52ab23b">1. Competitive Programmer's Handbook (Antti Laaksonen)</a>
 <ul>
-<li><a href="#org090d27a">1.1. Collection of interesting functions</a>
+<li><a href="#orgf531ab4">1.1. Collection of interesting functions</a>
 <ul>
-<li><a href="#org14fc685">1.1.1. String manipulation</a></li>
-<li><a href="#orgac4f17e">1.1.2. Numbers manipulation</a></li>
-<li><a href="#org8421267">1.1.3. Iterable structures manipulation</a></li>
+<li><a href="#orga839cdd">1.1.1. String manipulation</a></li>
+<li><a href="#org8f956b7">1.1.2. Numbers manipulation</a></li>
+<li><a href="#org1931234">1.1.3. Iterable structures manipulation</a></li>
 </ul>
 </li>
-<li><a href="#org457a468">1.2. Introduction</a>
+<li><a href="#orge7a9c37">1.2. Introduction</a>
 <ul>
-<li><a href="#org1d99ba8">1.2.1. C++ code template</a></li>
-<li><a href="#org29e65a8">1.2.2. Input/Output</a></li>
-<li><a href="#org703ff84">1.2.3. Working with numbers</a></li>
-<li><a href="#org7248f34">1.2.4. Shortening code</a></li>
-<li><a href="#org6ff5aab">1.2.5. Mathematics</a></li>
+<li><a href="#org8ee0924">1.2.1. C++ code template</a></li>
+<li><a href="#org36ae7c0">1.2.2. Input/Output</a></li>
+<li><a href="#org93d093c">1.2.3. Working with numbers</a></li>
+<li><a href="#org8a8a526">1.2.4. Shortening code</a></li>
+<li><a href="#orgbc4baa8">1.2.5. Mathematics</a></li>
 </ul>
 </li>
-<li><a href="#orga453921">1.3. Time complexity</a>
+<li><a href="#org08c4711">1.3. Time complexity</a>
 <ul>
-<li><a href="#org3519fc5">1.3.1. Estimating efficiency</a></li>
+<li><a href="#org394389f">1.3.1. Estimating efficiency</a></li>
 </ul>
 </li>
-<li><a href="#org7c92df7">1.4. Sorting</a>
+<li><a href="#org1e7221b">1.4. Sorting</a>
 <ul>
-<li><a href="#org1141328">1.4.1. O(n<sup>2</sup>) algorithms</a></li>
-<li><a href="#org17b5570">1.4.2. O(nlogn) algorithms</a></li>
-<li><a href="#orgfda2694">1.4.3. Sorting lower bounds</a></li>
-<li><a href="#org39de665">1.4.4. Counting sort</a></li>
-<li><a href="#orgf10280a">1.4.5. Sorting in C++</a></li>
-<li><a href="#org76ec136">1.4.6. Binary Search</a></li>
+<li><a href="#org7ce3447">1.4.1. O(n<sup>2</sup>) algorithms</a></li>
+<li><a href="#orgcba1c1f">1.4.2. O(nlogn) algorithms</a></li>
+<li><a href="#orgdfe1b2c">1.4.3. Sorting lower bounds</a></li>
+<li><a href="#org5e73a2b">1.4.4. Counting sort</a></li>
+<li><a href="#org1561f6c">1.4.5. Sorting in C++</a></li>
+<li><a href="#orgf028f41">1.4.6. Binary Search</a></li>
 </ul>
 </li>
-<li><a href="#org833d195">1.5. Data Structures</a>
+<li><a href="#org4ec87cb">1.5. Data Structures</a>
 <ul>
-<li><a href="#org51d589f">1.5.1. Set structures</a></li>
-<li><a href="#org100ad4f">1.5.2. Deque</a></li>
-<li><a href="#org62a0523">1.5.3. Priority queue</a></li>
+<li><a href="#org8a363dd">1.5.1. Set structures</a></li>
+<li><a href="#org3b30345">1.5.2. Deque</a></li>
+<li><a href="#orgc988558">1.5.3. Priority queue</a></li>
 </ul>
 </li>
-<li><a href="#org6482227">1.6. Complete search</a>
+<li><a href="#orgf9d3dbf">1.6. Complete search</a>
 <ul>
-<li><a href="#org7cd6765">1.6.1. Backtracking</a></li>
-<li><a href="#org5a2c4c5">1.6.2. Pruning the search</a></li>
-<li><a href="#org6315fb6">1.6.3. Meet in the middle</a></li>
+<li><a href="#org0fbfd3f">1.6.1. Backtracking</a></li>
+<li><a href="#org4ab1ced">1.6.2. Pruning the search</a></li>
+<li><a href="#org39bef9d">1.6.3. Meet in the middle</a></li>
 </ul>
 </li>
-<li><a href="#org262ef83">1.7. Greedy algorithms</a></li>
+<li><a href="#orgd7e4748">1.7. Greedy algorithms</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org868bc29" class="outline-2">
-<h2 id="org868bc29"><span class="section-number-2">1.</span> Competitive Programmer's Handbook (Antti Laaksonen)</h2>
+<div id="outline-container-org52ab23b" class="outline-2">
+<h2 id="org52ab23b"><span class="section-number-2">1.</span> Competitive Programmer's Handbook (Antti Laaksonen)</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-org090d27a" class="outline-3">
-<h3 id="org090d27a"><span class="section-number-3">1.1.</span> Collection of interesting functions</h3>
+<div id="outline-container-orgf531ab4" class="outline-3">
+<h3 id="orgf531ab4"><span class="section-number-3">1.1.</span> Collection of interesting functions</h3>
 <div class="outline-text-3" id="text-1-1">
 </div>
-<div id="outline-container-org14fc685" class="outline-4">
-<h4 id="org14fc685"><span class="section-number-4">1.1.1.</span> String manipulation</h4>
+<div id="outline-container-orga839cdd" class="outline-4">
+<h4 id="orga839cdd"><span class="section-number-4">1.1.1.</span> String manipulation</h4>
 <div class="outline-text-4" id="text-1-1-1">
 <ul class="org-ul">
 <li><code>stoul()</code> : permit to convert a string to its unsigned integer value</li>
 <li><code>stol()</code> : to signed integer</li>
 <li><code>from_chars(begin, end, variable, base = 10)</code> : convert string to numeric value, can convert multiple ones (but introduced in C++17)</li>
 <li><code>regex_matches(string, regex)</code> : test if the string matches the regex</li>
-<li><code>toupper(ch)</code> : convert lowercase char to uppercase &lt;cctype&gt; (leave as they are the numbers, uppercase&#x2026;)</li>
+<li><code>toupper(ch)</code> : convert lowercase char to uppercase &lt;cctype&gt; (leave as they are the numbers, uppercase&hellip;)</li>
 <li><code>isalpha(char)</code> : test if a character is alphanumeric &lt;cctype&gt;</li>
 <li><code>isalnum/islower/isupper/isspace</code> &lt;cctype&gt;</li>
 <li><code>std::to_string(el)</code> : convert el to string</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgac4f17e" class="outline-4">
-<h4 id="orgac4f17e"><span class="section-number-4">1.1.2.</span> Numbers manipulation</h4>
+<div id="outline-container-org8f956b7" class="outline-4">
+<h4 id="org8f956b7"><span class="section-number-4">1.1.2.</span> Numbers manipulation</h4>
 <div class="outline-text-4" id="text-1-1-2">
 <ul class="org-ul">
 <li><code>sqrt(number)</code> : square root &lt;cmath&gt;</li>
@@ -320,12 +320,12 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-org8421267" class="outline-4">
-<h4 id="org8421267"><span class="section-number-4">1.1.3.</span> Iterable structures manipulation</h4>
+<div id="outline-container-org1931234" class="outline-4">
+<h4 id="org1931234"><span class="section-number-4">1.1.3.</span> Iterable structures manipulation</h4>
 <div class="outline-text-4" id="text-1-1-3">
 </div>
 <ol class="org-ol">
-<li><a id="org57a3140"></a>Getting info on the struct<br />
+<li><a id="org12f6557"></a>Getting info on the struct<br />
 <div class="outline-text-5" id="text-1-1-3-1">
 <ul class="org-ul">
 <li><code>struct.empty()</code> : tells if the structure is empty, prefer this to comparing the size of the struct to 0.</li>
@@ -336,7 +336,7 @@
 </ul>
 </div>
 </li>
-<li><a id="org6f8b56b"></a>Mutation functions<br />
+<li><a id="orga228814"></a>Mutation functions<br />
 <div class="outline-text-5" id="text-1-1-3-2">
 <ul class="org-ul">
 <li><code>for_each(begin, end, lambda_funcn)</code> : permit to apply a function to each of the elements from begin to end of the structure.</li>
@@ -351,16 +351,16 @@
 </ol>
 </div>
 </div>
-<div id="outline-container-org457a468" class="outline-3">
-<h3 id="org457a468"><span class="section-number-3">1.2.</span> Introduction</h3>
+<div id="outline-container-orge7a9c37" class="outline-3">
+<h3 id="orge7a9c37"><span class="section-number-3">1.2.</span> Introduction</h3>
 <div class="outline-text-3" id="text-1-2">
 </div>
-<div id="outline-container-org1d99ba8" class="outline-4">
-<h4 id="org1d99ba8"><span class="section-number-4">1.2.1.</span> C++ code template</h4>
+<div id="outline-container-org8ee0924" class="outline-4">
+<h4 id="org8ee0924"><span class="section-number-4">1.2.1.</span> C++ code template</h4>
 <div class="outline-text-4" id="text-1-2-1">
 <div class="org-src-container">
-<pre class="src src-cpp">#include &lt;bits/stdc++.h&gt;
-</pre>
+<pre class="src src-cpp"><code>#include &lt;bits/stdc++.h&gt;
+</code></pre>
 </div>
 
 <p>
@@ -368,13 +368,13 @@ Permit to include all of what is in the standard library of C++. vector, algorit
 </p>
 </div>
 </div>
-<div id="outline-container-org29e65a8" class="outline-4">
-<h4 id="org29e65a8"><span class="section-number-4">1.2.2.</span> Input/Output</h4>
+<div id="outline-container-org36ae7c0" class="outline-4">
+<h4 id="org36ae7c0"><span class="section-number-4">1.2.2.</span> Input/Output</h4>
 <div class="outline-text-4" id="text-1-2-2">
 <div class="org-src-container">
-<pre class="src src-cpp">ios::sync_with_stdio(0);
+<pre class="src src-cpp"><code>ios::sync_with_stdio(0);
 cin.tie(0);
-</pre>
+</code></pre>
 </div>
 
 <p>
@@ -386,18 +386,18 @@ If files are used for input and output instead of the default streams, you can u
 </p>
 
 <div class="org-src-container">
-<pre class="src src-cpp">freopen("input.txt", "r", stdin);
+<pre class="src src-cpp"><code>freopen("input.txt", "r", stdin);
 freopen("output.txt", "w", stdout);
-</pre>
+</code></pre>
 </div>
 </div>
 </div>
-<div id="outline-container-org703ff84" class="outline-4">
-<h4 id="org703ff84"><span class="section-number-4">1.2.3.</span> Working with numbers</h4>
+<div id="outline-container-org93d093c" class="outline-4">
+<h4 id="org93d093c"><span class="section-number-4">1.2.3.</span> Working with numbers</h4>
 <div class="outline-text-4" id="text-1-2-3">
 </div>
 <ol class="org-ol">
-<li><a id="org2f4633f"></a>Modular arithmetic<br />
+<li><a id="orge297f3d"></a>Modular arithmetic<br />
 <div class="outline-text-5" id="text-1-2-3-1">
 <p>
 (a+b) mod m = (a mod m + b mod m) mod m
@@ -406,7 +406,7 @@ freopen("output.txt", "w", stdout);
 </p>
 </div>
 </li>
-<li><a id="org761cd54"></a>Floating point numbers<br />
+<li><a id="orga979da7"></a>Floating point numbers<br />
 <div class="outline-text-5" id="text-1-2-3-2">
 <ul class="org-ul">
 <li>the usual floating point type in competitive programming is <b>double</b> (64 bit)</li>
@@ -420,35 +420,35 @@ It's risky to compare two floating points with the "==" operator because of the 
 </p>
 
 <div class="org-src-container">
-<pre class="src src-cpp">if(abs(a-b) &lt; 1e-9) {
+<pre class="src src-cpp"><code>if(abs(a-b) &lt; 1e-9) {
   // a and b are equal
 }
-</pre>
+</code></pre>
 </div>
 </div>
 </li>
 </ol>
 </div>
-<div id="outline-container-org7248f34" class="outline-4">
-<h4 id="org7248f34"><span class="section-number-4">1.2.4.</span> Shortening code</h4>
+<div id="outline-container-org8a8a526" class="outline-4">
+<h4 id="org8a8a526"><span class="section-number-4">1.2.4.</span> Shortening code</h4>
 <div class="outline-text-4" id="text-1-2-4">
 </div>
 <ol class="org-ol">
-<li><a id="org6e18105"></a>Type names<br />
+<li><a id="org3f97281"></a>Type names<br />
 <div class="outline-text-5" id="text-1-2-4-1">
 <p>
 You can give a shorter name to a datatype like so :
 </p>
 
 <div class="org-src-container">
-<pre class="src src-cpp">typedef long long ll;
+<pre class="src src-cpp"><code>typedef long long ll;
 typedef vector&lt;int&gt; vi;
 typedef pair&lt;int, int&gt; pi;
-</pre>
+</code></pre>
 </div>
 </div>
 </li>
-<li><a id="org8a1b987"></a>Macros<br />
+<li><a id="org327ab09"></a>Macros<br />
 <div class="outline-text-5" id="text-1-2-4-2">
 <p>
 Another way is to use <b>macros</b>. A macro means that certain strings in the code will be changed before the compilation.
@@ -456,11 +456,11 @@ You can change some functions names like so :
 </p>
 
 <div class="org-src-container">
-<pre class="src src-cpp">#define F first
+<pre class="src src-cpp"><code>#define F first
 #define S second
 #define PB push_back
 #define MP make_pair
-</pre>
+</code></pre>
 </div>
 
 <p>
@@ -468,10 +468,10 @@ So the code below :
 </p>
 
 <div class="org-src-container">
-<pre class="src src-cpp">v.push_back(make_pair(y1, x1));
+<pre class="src src-cpp"><code>v.push_back(make_pair(y1, x1));
 v.push_back(make_pair(y2, x2));
 int d = v[i].first+v[i].second;
-</pre>
+</code></pre>
 </div>
 
 <p>
@@ -479,10 +479,10 @@ can be written like :
 </p>
 
 <div class="org-src-container">
-<pre class="src src-cpp">v.PB(MP(y1, x1));
+<pre class="src src-cpp"><code>v.PB(MP(y1, x1));
 v.PB(MP(y2, x2));
 int d = v[i].F + v[i].S;
-</pre>
+</code></pre>
 </div>
 
 <p>
@@ -490,8 +490,8 @@ You can have parameters :
 </p>
 
 <div class="org-src-container">
-<pre class="src src-cpp">#define REP(i,a,b) for (int i = a; i &lt;= b; i++)
-</pre>
+<pre class="src src-cpp"><code>#define REP(i,a,b) for (int i = a; i &lt;= b; i++)
+</code></pre>
 </div>
 
 
@@ -500,21 +500,21 @@ Permit to write
 </p>
 
 <div class="org-src-container">
-<pre class="src src-cpp">REP(i,1,n) {
+<pre class="src src-cpp"><code>REP(i,1,n) {
   search(i);
 }
-</pre>
+</code></pre>
 </div>
 </div>
 </li>
 </ol>
 </div>
-<div id="outline-container-org6ff5aab" class="outline-4">
-<h4 id="org6ff5aab"><span class="section-number-4">1.2.5.</span> Mathematics</h4>
+<div id="outline-container-orgbc4baa8" class="outline-4">
+<h4 id="orgbc4baa8"><span class="section-number-4">1.2.5.</span> Mathematics</h4>
 <div class="outline-text-4" id="text-1-2-5">
 </div>
 <ol class="org-ol">
-<li><a id="org2b42936"></a>Sum formulas<br />
+<li><a id="org5c8c63c"></a>Sum formulas<br />
 <div class="outline-text-5" id="text-1-2-5-1">
 <p>
 \(\sum_{x=1}^{n} x\) = \(1+2+3+...+n\) = \(\frac{n(n+1)}{2}\)
@@ -525,7 +525,7 @@ Permit to write
 </p>
 
 <ul class="org-ul">
-<li>The sum of n number in an arithmetic progression a+&#x2026;+b is \(\frac{n(a+b)}{2}\)</li>
+<li>The sum of n number in an arithmetic progression a+&hellip;+b is \(\frac{n(a+b)}{2}\)</li>
 </ul>
 
 <p>
@@ -534,12 +534,12 @@ Permit to write
 </p>
 
 <ul class="org-ul">
-<li>The sum of numbers in a geometric progression a+ak+ak<sup>2</sup>+&#x2026;+b = \(\frac{bk-a}{k-1}\) (the ratio between consecutive numbers is k)</li>
+<li>The sum of numbers in a geometric progression a+ak+ak<sup>2</sup>+&hellip;+b = \(\frac{bk-a}{k-1}\) (the ratio between consecutive numbers is k)</li>
 </ul>
 
 
 <p>
-<code>harmonic sum</code> : is a sum of the form \(\sum_{x=1}^{n} \frac{1}{x}\) = 1 + 1/2 + 1/3 + &#x2026; + 1/n
+<code>harmonic sum</code> : is a sum of the form \(\sum_{x=1}^{n} \frac{1}{x}\) = 1 + 1/2 + 1/3 + &hellip; + 1/n
 An upper bound for a harmonic sum is log<sub>2</sub>(n) + 1.
 </p>
 
@@ -557,12 +557,12 @@ An upper bound for a harmonic sum is log<sub>2</sub>(n) + 1.
 </ol>
 </div>
 </div>
-<div id="outline-container-orga453921" class="outline-3">
-<h3 id="orga453921"><span class="section-number-3">1.3.</span> Time complexity</h3>
+<div id="outline-container-org08c4711" class="outline-3">
+<h3 id="org08c4711"><span class="section-number-3">1.3.</span> Time complexity</h3>
 <div class="outline-text-3" id="text-1-3">
 </div>
-<div id="outline-container-org3519fc5" class="outline-4">
-<h4 id="org3519fc5"><span class="section-number-4">1.3.1.</span> Estimating efficiency</h4>
+<div id="outline-container-org394389f" class="outline-4">
+<h4 id="org394389f"><span class="section-number-4">1.3.1.</span> Estimating efficiency</h4>
 <div class="outline-text-4" id="text-1-3-1">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -612,12 +612,12 @@ An upper bound for a harmonic sum is log<sub>2</sub>(n) + 1.
 </div>
 </div>
 </div>
-<div id="outline-container-org7c92df7" class="outline-3">
-<h3 id="org7c92df7"><span class="section-number-3">1.4.</span> Sorting</h3>
+<div id="outline-container-org1e7221b" class="outline-3">
+<h3 id="org1e7221b"><span class="section-number-3">1.4.</span> Sorting</h3>
 <div class="outline-text-3" id="text-1-4">
 </div>
-<div id="outline-container-org1141328" class="outline-4">
-<h4 id="org1141328"><span class="section-number-4">1.4.1.</span> O(n<sup>2</sup>) algorithms</h4>
+<div id="outline-container-org7ce3447" class="outline-4">
+<h4 id="org7ce3447"><span class="section-number-4">1.4.1.</span> O(n<sup>2</sup>) algorithms</h4>
 <div class="outline-text-4" id="text-1-4-1">
 <p>
 These are the simplest kind of sorting algorithms. They usually consist of two nested loops.
@@ -628,18 +628,18 @@ A famous one is <b>bubble sort</b>.
 </p>
 
 <div class="org-src-container">
-<pre class="src src-cpp">for(int i = 0; i &lt; n; i++) {
+<pre class="src src-cpp"><code>for(int i = 0; i &lt; n; i++) {
   for (int j = 0; j &lt; n-1; j++) {
     if (array[j] &gt; array[j+1]) {
       swap(array[j], array[j+1]);
       }
     }
   }
-</pre>
+</code></pre>
 </div>
 </div>
 <ol class="org-ol">
-<li><a id="org99c48bc"></a>Inversion<br />
+<li><a id="orgbb656bc"></a>Inversion<br />
 <div class="outline-text-5" id="text-1-4-1-1">
 <p>
 To get the complexity of this algorithms you can take into account what is called inversion. Meaning the number of swaps that the algorithms will realize.
@@ -695,8 +695,8 @@ The largest possible number of inversions occurs if the array is in reverse orde
 </li>
 </ol>
 </div>
-<div id="outline-container-org17b5570" class="outline-4">
-<h4 id="org17b5570"><span class="section-number-4">1.4.2.</span> O(nlogn) algorithms</h4>
+<div id="outline-container-orgcba1c1f" class="outline-4">
+<h4 id="orgcba1c1f"><span class="section-number-4">1.4.2.</span> O(nlogn) algorithms</h4>
 <div class="outline-text-4" id="text-1-4-2">
 <p>
 There are more efficient algorithm that permits to sort array in O(nlogn). One such algo is <b>merge sort</b>
@@ -704,15 +704,15 @@ which is based on recursion.
 </p>
 
 <p>
-It works as follow on array[a&#x2026;b] :
+It works as follow on array[a&hellip;b] :
 </p>
 
 <ol class="org-ol">
 <li>If a = b, do not do anything, because the subarray is already sorted.</li>
 <li>Calculate the position of the middle element: k = \(\lfloor (a+b)/2 \rfloor\)</li>
 <li>Recursively sort the subarray array[a..k]</li>
-<li>Recursively sort the subarray array[k+1&#x2026;b]</li>
-<li>Merge the sorted subarrays array[a..k] and array[k+1&#x2026;b] into a sorted subarray array[a&#x2026;b]</li>
+<li>Recursively sort the subarray array[k+1&hellip;b]</li>
+<li>Merge the sorted subarrays array[a..k] and array[k+1&hellip;b] into a sorted subarray array[a&hellip;b]</li>
 </ol>
 
 <p>
@@ -762,8 +762,8 @@ the merging process, just go throught the elements and compares them to know whi
 </p>
 </div>
 </div>
-<div id="outline-container-orgfda2694" class="outline-4">
-<h4 id="orgfda2694"><span class="section-number-4">1.4.3.</span> Sorting lower bounds</h4>
+<div id="outline-container-orgdfe1b2c" class="outline-4">
+<h4 id="orgdfe1b2c"><span class="section-number-4">1.4.3.</span> Sorting lower bounds</h4>
 <div class="outline-text-4" id="text-1-4-3">
 <p>
 Is it possible to sort an array faster than in  O(nlogn) time?
@@ -778,8 +778,8 @@ To prove that you can use a tree which will show that there's n! ways of sorting
 </p>
 </div>
 </div>
-<div id="outline-container-org39de665" class="outline-4">
-<h4 id="org39de665"><span class="section-number-4">1.4.4.</span> Counting sort</h4>
+<div id="outline-container-org5e73a2b" class="outline-4">
+<h4 id="org5e73a2b"><span class="section-number-4">1.4.4.</span> Counting sort</h4>
 <div class="outline-text-4" id="text-1-4-4">
 <p>
 The lower bound nlogn does not apply to algorithms that do not compare array elements but use some other information. An example of such an algorithm is <b>couting sort</b> that sorts an array in O(n) time assuming that every element in the array is an integer between 0..c and c = O(n).
@@ -844,7 +844,7 @@ corresponds to the following bookkeping array:
 </table>
 
 <p>
-So 1 appears one time in the array, 2 appears zero time, 3 appears two times&#x2026;
+So 1 appears one time in the array, 2 appears zero time, 3 appears two times&hellip;
 </p>
 
 <p>
@@ -856,15 +856,15 @@ The bookkeping array construction takes O(n) time. Then we can use this to sort 
 </p>
 </div>
 </div>
-<div id="outline-container-orgf10280a" class="outline-4">
-<h4 id="orgf10280a"><span class="section-number-4">1.4.5.</span> Sorting in C++</h4>
+<div id="outline-container-org1561f6c" class="outline-4">
+<h4 id="org1561f6c"><span class="section-number-4">1.4.5.</span> Sorting in C++</h4>
 <div class="outline-text-4" id="text-1-4-5">
 <p>
 It is almost never a good idea to use a home-made sorting algorithm in a contest. Use the one provided in C++.
 </p>
 
 <div class="org-src-container">
-<pre class="src src-cpp">// in increasing order
+<pre class="src src-cpp"><code>// in increasing order
 vector&lt;int&gt; v = {4,2,5,3,5,8,3};
 sort(v.begin(), v.end());
 
@@ -879,11 +879,11 @@ sort(a,a+n);
 // sort a string
 string s = "monkey";
 sort(s.begin(), s.end());
-</pre>
+</code></pre>
 </div>
 </div>
 <ol class="org-ol">
-<li><a id="orgf0f8bbf"></a>Comparison operators<br />
+<li><a id="org58c55aa"></a>Comparison operators<br />
 <div class="outline-text-5" id="text-1-4-5-1">
 <p>
 The function sort requires that a <code>comparison operator</code> is defined for the data type of the elements to be sorted.
@@ -894,14 +894,14 @@ So for user-defined struct the function <code>operator&lt;</code> should be over
 </p>
 
 <div class="org-src-container">
-<pre class="src src-cpp">struct P {
+<pre class="src src-cpp"><code>struct P {
   int x, y;
   bool operator&lt;(const P &amp;p) {
     if (x != p.x) return x &lt; p.x;
     else return y &lt; p.y;
   }
 };
-</pre>
+</code></pre>
 </div>
 
 
@@ -910,27 +910,27 @@ You can also give <code>an external comparision function</code> to the sort func
 </p>
 
 <div class="org-src-container">
-<pre class="src src-cpp">bool comp(string a, string b) {
+<pre class="src src-cpp"><code>bool comp(string a, string b) {
   if(a.size() != b.size()) return a.size() &lt; b.size();
   return a &lt; b;
 }
 
 sort(v.begin(), v.end(), comp);
-</pre>
+</code></pre>
 </div>
 </div>
 </li>
 </ol>
 </div>
-<div id="outline-container-org76ec136" class="outline-4">
-<h4 id="org76ec136"><span class="section-number-4">1.4.6.</span> Binary Search</h4>
+<div id="outline-container-orgf028f41" class="outline-4">
+<h4 id="orgf028f41"><span class="section-number-4">1.4.6.</span> Binary Search</h4>
 <div class="outline-text-4" id="text-1-4-6">
 <p>
 A general method to find an element in an array is to use a simple for loop. But you can use a <code>binary search</code> to realize it in O(log n) if the array is already sorted.
 </p>
 </div>
 <ol class="org-ol">
-<li><a id="orge475882"></a>Method 1 (usual way)<br />
+<li><a id="orge68751b"></a>Method 1 (usual way)<br />
 <div class="outline-text-5" id="text-1-4-6-1">
 <p>
 At each step, the search checks the middle element of the active region. If the middle element is the target element, the search terminates. Otherwise, the search recursively continues to the left or right half of the region, depending on the value of the middle element.
@@ -938,7 +938,7 @@ At each step, the search checks the middle element of the active region. If the 
 
 
 <div class="org-src-container">
-<pre class="src src-cpp">int a = 0, b = n-1;
+<pre class="src src-cpp"><code>int a = 0, b = n-1;
 while (a &lt;= b) {
   int k = (a+b)/2;
   if (array[k] == x) {
@@ -947,32 +947,32 @@ while (a &lt;= b) {
   if (array[k] &gt; x) b = k-1;
   else a = k+1;
 }
-</pre>
+</code></pre>
 </div>
 
 <p>
-Initially the active region is 0&#x2026;n-1, but after it goes to a&#x2026;b.
+Initially the active region is 0&hellip;n-1, but after it goes to a&hellip;b.
 </p>
 </div>
 </li>
-<li><a id="orgc4bdea7"></a>Method 2 (using an efficient way to iterate through the elements of the array<br />
+<li><a id="org87407cc"></a>Method 2 (using an efficient way to iterate through the elements of the array<br />
 <div class="outline-text-5" id="text-1-4-6-2">
 <ul class="org-ul">
 <li>The search goes through the array from left to right, and the initial jump length is <b>n/2</b>.</li>
-<li>At each step, the jump length will be halved: first n/4, then n/8, n/16, &#x2026; until finally the length is 1.</li>
+<li>At each step, the jump length will be halved: first n/4, then n/8, n/16, &hellip; until finally the length is 1.</li>
 <li>After the jumps, either the target element has been found or we know that it does not appear in the array.</li>
 </ul>
 
 
 <div class="org-src-container">
-<pre class="src src-cpp">int k = 0;
+<pre class="src src-cpp"><code>int k = 0;
 for (int b = n/2; b &gt;= 1; b /= 2) {
   while(k+b &lt; n &amp;&amp; array[k+b] &lt;= x) k += b;
 }
 if (array[k] == x) {
   // x found at index k
 }
-</pre>
+</code></pre>
 </div>
 
 
@@ -981,7 +981,7 @@ The complexity is still O(logn) because the code in the while loop is performed 
 </p>
 </div>
 </li>
-<li><a id="org6806946"></a>C++ functions<br />
+<li><a id="orgf748f65"></a>C++ functions<br />
 <div class="outline-text-5" id="text-1-4-6-3">
 <p>
 The std library of C++ contains the following functions that are based on binary search and work in logarithmic time:
@@ -1004,11 +1004,11 @@ Find whether an array contains an element with value x :
 </p>
 
 <div class="org-src-container">
-<pre class="src src-cpp">auto k = lower_bound(array, array+n, x)-array;
+<pre class="src src-cpp"><code>auto k = lower_bound(array, array+n, x)-array;
 if(k&lt;n &amp;&amp; array[k] == x) {
   // x found at index k
 }
-</pre>
+</code></pre>
 </div>
 
 <p>
@@ -1016,14 +1016,14 @@ Count the number of elements whose value is x:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-cpp">auto a = lower_bound(array, array+n, x);
+<pre class="src src-cpp"><code>auto a = lower_bound(array, array+n, x);
 auto b = upper_bound(array, array+n, x);
 cout &lt;&lt; b-a &lt;&lt; "\n";
 
 // or you can use equal_range
 auto r = equal_range(array, array+n, x);
 cout &lt;&lt; r.second-r.first &lt;&lt; "\n";
-</pre>
+</code></pre>
 </div></li>
 </ul>
 </div>
@@ -1031,12 +1031,12 @@ cout &lt;&lt; r.second-r.first &lt;&lt; "\n";
 </ol>
 </div>
 </div>
-<div id="outline-container-org833d195" class="outline-3">
-<h3 id="org833d195"><span class="section-number-3">1.5.</span> Data Structures</h3>
+<div id="outline-container-org4ec87cb" class="outline-3">
+<h3 id="org4ec87cb"><span class="section-number-3">1.5.</span> Data Structures</h3>
 <div class="outline-text-3" id="text-1-5">
 </div>
-<div id="outline-container-org51d589f" class="outline-4">
-<h4 id="org51d589f"><span class="section-number-4">1.5.1.</span> Set structures</h4>
+<div id="outline-container-org8a363dd" class="outline-4">
+<h4 id="org8a363dd"><span class="section-number-4">1.5.1.</span> Set structures</h4>
 <div class="outline-text-4" id="text-1-5-1">
 <p>
 In C++ there's two structures for set : <b>set</b> and <b>unordered<sub>set</sub></b>
@@ -1064,32 +1064,32 @@ That is the same for the <b>map</b> and <b>unordered<sub>map</sub></b> in C++.
 </ul>
 
 <div class="org-src-container">
-<pre class="src src-cpp">auto it = s.find(x);
+<pre class="src src-cpp"><code>auto it = s.find(x);
 if(it == s.end()){
   // x is not found
 }
-</pre>
+</code></pre>
 </div>
 </div>
 </div>
-<div id="outline-container-org100ad4f" class="outline-4">
-<h4 id="org100ad4f"><span class="section-number-4">1.5.2.</span> Deque</h4>
+<div id="outline-container-org3b30345" class="outline-4">
+<h4 id="org3b30345"><span class="section-number-4">1.5.2.</span> Deque</h4>
 <div class="outline-text-4" id="text-1-5-2">
 <p>
 Slower than an array but approximately the same, but there are functions to work on them in the front.
 </p>
 
 <div class="org-src-container">
-<pre class="src src-cpp">deque&lt;int&gt; d;
+<pre class="src src-cpp"><code>deque&lt;int&gt; d;
 d.push_back(5); // [5]
 d.push_back(2); // [5,2]
 d.push_front(3); // [3,5,2]
-</pre>
+</code></pre>
 </div>
 </div>
 </div>
-<div id="outline-container-org62a0523" class="outline-4">
-<h4 id="org62a0523"><span class="section-number-4">1.5.3.</span> Priority queue</h4>
+<div id="outline-container-orgc988558" class="outline-4">
+<h4 id="orgc988558"><span class="section-number-4">1.5.3.</span> Priority queue</h4>
 <div class="outline-text-4" id="text-1-5-3">
 <p>
 A priority queue maintains a set of elements.
@@ -1103,28 +1103,28 @@ A priority queue maintains a set of elements.
 </div>
 </div>
 </div>
-<div id="outline-container-org6482227" class="outline-3">
-<h3 id="org6482227"><span class="section-number-3">1.6.</span> Complete search</h3>
+<div id="outline-container-orgf9d3dbf" class="outline-3">
+<h3 id="orgf9d3dbf"><span class="section-number-3">1.6.</span> Complete search</h3>
 <div class="outline-text-3" id="text-1-6">
 </div>
-<div id="outline-container-org7cd6765" class="outline-4">
-<h4 id="org7cd6765"><span class="section-number-4">1.6.1.</span> Backtracking</h4>
+<div id="outline-container-org0fbfd3f" class="outline-4">
+<h4 id="org0fbfd3f"><span class="section-number-4">1.6.1.</span> Backtracking</h4>
 <div class="outline-text-4" id="text-1-6-1">
 <p>
 Backtracking is computing a solution by building it recursively starting with an empty solution.
 </p>
 </div>
 </div>
-<div id="outline-container-org5a2c4c5" class="outline-4">
-<h4 id="org5a2c4c5"><span class="section-number-4">1.6.2.</span> Pruning the search</h4>
+<div id="outline-container-org4ab1ced" class="outline-4">
+<h4 id="org4ab1ced"><span class="section-number-4">1.6.2.</span> Pruning the search</h4>
 <div class="outline-text-4" id="text-1-6-2">
 <p>
 We can add some kind of intelligence to the algorithm to quickly identify the partial solutions that cannot be extended. This pseudo intelligence is just some tiny observations that you can add to quickly discriminate the not useful paths.
 </p>
 </div>
 </div>
-<div id="outline-container-org6315fb6" class="outline-4">
-<h4 id="org6315fb6"><span class="section-number-4">1.6.3.</span> Meet in the middle</h4>
+<div id="outline-container-org39bef9d" class="outline-4">
+<h4 id="org39bef9d"><span class="section-number-4">1.6.3.</span> Meet in the middle</h4>
 <div class="outline-text-4" id="text-1-6-3">
 <p>
 This is a technique where the search space is divided into two parts of about equal size, then the results of the parts are combined together to create the final solution.
@@ -1132,13 +1132,13 @@ This is a technique where the search space is divided into two parts of about eq
 </div>
 </div>
 </div>
-<div id="outline-container-org262ef83" class="outline-3">
-<h3 id="org262ef83"><span class="section-number-3">1.7.</span> Greedy algorithms</h3>
+<div id="outline-container-orgd7e4748" class="outline-3">
+<h3 id="orgd7e4748"><span class="section-number-3">1.7.</span> Greedy algorithms</h3>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Created: 2025-04-28 Mon 21:16</p>
+<p class="date">Created: 2025-11-15 Sat 18:52</p>
 </div>
 </body>
 </html>

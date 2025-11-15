@@ -3,19 +3,21 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-04-28 Mon 21:16 -->
+<!-- 2025-11-15 Sat 18:52 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Working inside emacs</title>
 <meta name="generator" content="Org Mode" />
 <link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/htmlize.css"/>
 <link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/readtheorg.css"/>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/code-copy.css"/>
 <link rel="stylesheet" type="text/css" href="src/readtheorg_theme/css/search.css"/>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/lib/js/jquery.stickytableheaders.min.js"></script>
 <script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/search.js"></script>
 <script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/readtheorg.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/code-copy.js"></script>
 </head>
 <body>
 <div id="content" class="content">
@@ -24,23 +26,24 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org20bdc13">1. Emacs tab</a></li>
-<li><a href="#org7921e10">2. Merge my linux and mac configuration</a></li>
-<li><a href="#orga79ab56">3. Set transparent background</a></li>
-<li><a href="#org4de6b75">4. Set up emacs to load pkgs installed from nix</a>
+<li><a href="#orge0ddb0f">1. Emacs tab</a></li>
+<li><a href="#org6ffcc21">2. Merge my linux and mac configuration</a></li>
+<li><a href="#orga545c46">3. Set transparent background</a></li>
+<li><a href="#org5b8251a">4. Set up emacs to load pkgs installed from nix</a>
 <ul>
-<li><a href="#org342d3ae">4.1. First solution</a></li>
-<li><a href="#org515b488">4.2. Second solution</a></li>
+<li><a href="#org835ad55">4.1. First solution</a></li>
+<li><a href="#orgaa61e6e">4.2. Second solution</a></li>
 </ul>
 </li>
-<li><a href="#orgd03949e">5. How to code per file</a></li>
-<li><a href="#org36aae44">6. How to scroll inside vterm</a></li>
-<li><a href="#orge0a6e9e">7. Setting compilation environment variable</a></li>
+<li><a href="#orgf29a0d7">5. How to code per file</a></li>
+<li><a href="#org3589124">6. How to scroll inside vterm</a></li>
+<li><a href="#orgf11d50f">7. How to find then filter down and replace in emacs</a></li>
+<li><a href="#orgfd1b8e6">8. Setting compilation environment variable</a></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org20bdc13" class="outline-2">
-<h2 id="org20bdc13"><span class="section-number-2">1.</span> Emacs tab</h2>
+<div id="outline-container-orge0ddb0f" class="outline-2">
+<h2 id="orge0ddb0f"><span class="section-number-2">1.</span> Emacs tab</h2>
 <div class="outline-text-2" id="text-1">
 <blockquote>
 <p>
@@ -82,8 +85,8 @@ I bound this function to the key <code>C-&lt;tab&gt;</code> so that I can quickl
 </p>
 </div>
 </div>
-<div id="outline-container-org7921e10" class="outline-2">
-<h2 id="org7921e10"><span class="section-number-2">2.</span> Merge my linux and mac configuration</h2>
+<div id="outline-container-org6ffcc21" class="outline-2">
+<h2 id="org6ffcc21"><span class="section-number-2">2.</span> Merge my linux and mac configuration</h2>
 <div class="outline-text-2" id="text-2">
 <blockquote>
 <p>
@@ -108,7 +111,7 @@ You just have to use a condition depending on what you want to execute on the cu
 Example :
 </p>
 
-<pre class="example" id="orgb25bc99">
+<pre class="example" id="orgc87039d">
 (cond
  ((eq system-type 'darwin)  ;; macOS
   (setq read-process-output-max (* 64 1024)))  ;; 64KB
@@ -125,8 +128,8 @@ Do not forget variable like <code>user-emacs-directory</code> that helps you and
 </blockquote>
 </div>
 </div>
-<div id="outline-container-orga79ab56" class="outline-2">
-<h2 id="orga79ab56"><span class="section-number-2">3.</span> Set transparent background</h2>
+<div id="outline-container-orga545c46" class="outline-2">
+<h2 id="orga545c46"><span class="section-number-2">3.</span> Set transparent background</h2>
 <div class="outline-text-2" id="text-3">
 <blockquote>
 <p>
@@ -143,23 +146,23 @@ To set transparent background in emacs, there are two methods, only one works fo
 On linux, what worked for me :
 </p>
 <div class="org-src-container">
-<pre class="src src-emacs-lisp">(set-frame-parameter nil 'alpha-background 60)
+<pre class="src src-emacs-lisp"><code>(set-frame-parameter nil 'alpha-background 60)
 (add-to-list 'default-frame-alist '(alpha-background . 60))
-</pre>
+</code></pre>
 </div>
 
 <p>
 On mac, what worked :
 </p>
 <div class="org-src-container">
-<pre class="src src-emacs-lisp">(set-frame-parameter (selected-frame) 'alpha '(92 . 50))
+<pre class="src src-emacs-lisp"><code>(set-frame-parameter (selected-frame) 'alpha '(92 . 50))
 (add-to-list 'default-frame-alist '(alpha . (92 . 50))))
-</pre>
+</code></pre>
 </div>
 </div>
 </div>
-<div id="outline-container-org4de6b75" class="outline-2">
-<h2 id="org4de6b75"><span class="section-number-2">4.</span> Set up emacs to load pkgs installed from nix</h2>
+<div id="outline-container-org5b8251a" class="outline-2">
+<h2 id="org5b8251a"><span class="section-number-2">4.</span> Set up emacs to load pkgs installed from nix</h2>
 <div class="outline-text-2" id="text-4">
 <blockquote>
 <p>
@@ -171,8 +174,8 @@ We're not talking about command line packages, but emacs packages. Such packages
 </p>
 </blockquote>
 </div>
-<div id="outline-container-org342d3ae" class="outline-3">
-<h3 id="org342d3ae"><span class="section-number-3">4.1.</span> First solution</h3>
+<div id="outline-container-org835ad55" class="outline-3">
+<h3 id="org835ad55"><span class="section-number-3">4.1.</span> First solution</h3>
 <div class="outline-text-3" id="text-4-1">
 <p>
 The first solution, which is the simplest, is to just open a devshell, in which you've installed and initialize the emacs packages. An example for julia environment
@@ -180,7 +183,7 @@ The first solution, which is the simplest, is to just open a devshell, in which 
 
 
 <div class="org-src-container">
-<pre class="src src-nix">{
+<pre class="src src-nix"><code>{
   description = "Environment to code in Julia";
 
   inputs = {
@@ -210,7 +213,7 @@ The first solution, which is the simplest, is to just open a devshell, in which 
       }
     );
 }
-</pre>
+</code></pre>
 </div>
 
 <p>
@@ -218,8 +221,8 @@ The packages should be present and loaded after your run `emacs &amp;` in the de
 </p>
 </div>
 </div>
-<div id="outline-container-org515b488" class="outline-3">
-<h3 id="org515b488"><span class="section-number-3">4.2.</span> Second solution</h3>
+<div id="outline-container-orgaa61e6e" class="outline-3">
+<h3 id="orgaa61e6e"><span class="section-number-3">4.2.</span> Second solution</h3>
 <div class="outline-text-3" id="text-4-2">
 <blockquote>
 <p>
@@ -245,10 +248,10 @@ My configuration looks like :
 </p>
 
 <div class="org-src-container">
-<pre class="src src-emacs-lisp">(use-package envrc
+<pre class="src src-emacs-lisp"><code>(use-package envrc
     :config
     (envrc-global-mode))
-</pre>
+</code></pre>
 </div>
 
 
@@ -266,7 +269,7 @@ The workaround I found for this is to add those directories to the load path wit
 
 
 <div class="org-src-container">
-<pre class="src src-emacs-lisp">(defun smv/add-nix-pkg-to-lpath (PKG_ENV)
+<pre class="src src-emacs-lisp"><code>(defun smv/add-nix-pkg-to-lpath (PKG_ENV)
     "Load the PKG_ENV directory to the load path of current emacs session
     it permits to then require the package"
 
@@ -283,7 +286,7 @@ The workaround I found for this is to add those directories to the load path wit
                (path-to-add (concat pkg-nix-path pkg-suffix pkg-full-path)))
           (unless (member path-to-add load-path)
             (add-to-list 'load-path path-to-add))))))
-</pre>
+</code></pre>
 </div>
 
 
@@ -300,7 +303,7 @@ How I use it ?
 </p>
 
 <div class="org-src-container">
-<pre class="src src-nix">{
+<pre class="src src-nix"><code>{
   ...
         devShell = pkgs.mkShell {
           nativeBuildInputs = with pkgs; [
@@ -317,7 +320,7 @@ How I use it ?
 
    ...
 }
-</pre>
+</code></pre>
 </div>
 
 <p>
@@ -338,8 +341,8 @@ You can add such call to your .dir-locals.el file inside the root directory of y
 </div>
 </div>
 </div>
-<div id="outline-container-orgd03949e" class="outline-2">
-<h2 id="orgd03949e"><span class="section-number-2">5.</span> How to code per file</h2>
+<div id="outline-container-orgf29a0d7" class="outline-2">
+<h2 id="orgf29a0d7"><span class="section-number-2">5.</span> How to code per file</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 This notes that I take requires me to modify my index.html file each time. I could've use a command to trigger the modification automatically. But the solution that came up first into my mind was to create a snippet that will only be available in that file. This way I can open my file add my new entry and that's it.
@@ -362,8 +365,8 @@ So here's what I wrote on top on my file, it uses the <code>auto-yasnippet</code
 </p>
 </div>
 </div>
-<div id="outline-container-org36aae44" class="outline-2">
-<h2 id="org36aae44"><span class="section-number-2">6.</span> How to scroll inside vterm</h2>
+<div id="outline-container-org3589124" class="outline-2">
+<h2 id="org3589124"><span class="section-number-2">6.</span> How to scroll inside vterm</h2>
 <div class="outline-text-2" id="text-6">
 <p>
 vterm has multiple mode, it's not like eshell that permits you to scroll without restriction inside the terminal.
@@ -378,9 +381,31 @@ The default binding for that is : <code>C-c C-t</code>
 </p>
 </div>
 </div>
-<div id="outline-container-orge0a6e9e" class="outline-2">
-<h2 id="orge0a6e9e"><span class="section-number-2">7.</span> Setting compilation environment variable</h2>
+<div id="outline-container-orgf11d50f" class="outline-2">
+<h2 id="orgf11d50f"><span class="section-number-2">7.</span> How to find then filter down and replace in emacs</h2>
 <div class="outline-text-2" id="text-7">
+<p>
+You can find patterns in folders in Emacs using `find-grep`, `find-grep-dired` (which will only show the file names inside a dired buffer), `rgrep`, and similar commands. All of these will open a grep buffer that utilizes `compilation-mode` bindings.
+</p>
+
+<blockquote>
+<p>
+How to filter the results and then perform replacements ?
+</p>
+</blockquote>
+
+<p>
+You can make the grep buffer read-only using `C-x C-q` (which runs `toggle-read-only`) and then use commands like `keep-lines` or `flush-lines` to filter the results. Alternatively, you can manually remove the lines you don't want from the list.
+</p>
+
+<p>
+Once you have your desired selection, switch to `wgrep` mode (`wgrep-change-to-wgrep-mode`) to perform operations on the occurrences.
+</p>
+</div>
+</div>
+<div id="outline-container-orgfd1b8e6" class="outline-2">
+<h2 id="orgfd1b8e6"><span class="section-number-2">8.</span> Setting compilation environment variable</h2>
+<div class="outline-text-2" id="text-8">
 <p>
 When you're coding inside emacs you might want to run some commands using the project-compile command, which is really powerfull.
 Sometimes you might want to set some compilation environment that is only needed during this command evaluation process, you don't need that variable outside. For example you might want to add some path to the PYTHONPATH for your project to correctly run.
@@ -405,7 +430,7 @@ instead of : <code>(setq compilation-environment '("PYTHONPATH=$PYTHONPATH:./src
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Created: 2025-04-28 Mon 21:16</p>
+<p class="date">Created: 2025-11-15 Sat 18:52</p>
 </div>
 </body>
 </html>
