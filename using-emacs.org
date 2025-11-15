@@ -1,4 +1,6 @@
 #+SETUPFILE: ./org-html-themes/org/theme-readtheorg.setup
+#+title: Working inside emacs
+
 * Emacs tab
 
 #+begin_quote
@@ -244,3 +246,16 @@ All of these will open a grep buffer which has the =compilation-mode= bindings.
 You could then make that buffer =read-only= using =C-x C-q= then run the command =keep-lines= or =flush-lines= to filter the results. You could also just remove the ones you don't want from the list manually.
 
 Then go into =wgrep= mode and do your operation to the occurences.
+
+* Setting compilation environment variable
+
+When you're coding inside emacs you might want to run some commands using the project-compile command, which is really powerfull.
+Sometimes you might want to set some compilation environment that is only needed during this command evaluation process, you don't need that variable outside. For example you might want to add some path to the PYTHONPATH for your project to correctly run.
+
+To set those kind of commands, pay attention to the fact that using the "$PYTHONPATH" formula will not work. Prefer setting the environment by retrieving the variable value then add the new string to it.
+
+What I mean is :
+
+Prefer : ~(setq compilation-environment (list (concat "PYTHONPATH=" (getenv "PYTHONPATH") ":" (expand-file-name "./src"))))~ or ~(setq compilation-environment (list (concat "PYTHONPATH=" (getenv "PYTHONPATH") ":./src")))~
+
+instead of : ~(setq compilation-environment '("PYTHONPATH=$PYTHONPATH:./src"))~
