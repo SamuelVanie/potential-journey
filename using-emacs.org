@@ -85,11 +85,11 @@ On mac, what worked :
 #+begin_quote
 How to load the packages that you installed from nix inside emacs ?
 
-We're not talking about command line packages, but emacs packages. Such packages should not make modification to any path, unless you want an impure environment.
+We're not talking about binaries, but emacs packages. Such packages should not make modification to any path, unless you want an impure environment.
 #+end_quote
 
 
-** First solution
+** First solution [deprecated]
 
 The first solution, which is the simplest, is to just open a devshell, in which you've installed and initialize the emacs packages. An example for julia environment
 
@@ -215,6 +215,58 @@ Then you can call my custom function using this variable as an argument. For exa
 You can add such call to your .dir-locals.el file inside the root directory of your project and that's it.
 
 
+
+
+
+
+
+** Third solution
+
+The last solution involves [[https://www.jetify.com/docs/devbox/installing-devbox][devbox]], it's a wrapper around nix that you could use without knowing the nix language. It's pretty cool if you only use nix as an dev environment manager.
+
+After the initialization of devbox in your project, you should generate the direnv file : [[https://www.jetify.com/docs/devbox/ide-configuration/direnv][generate direnv]]
+
+The approach here will be to take advantage of the environment variable [[https://emacsdocs.org/docs/elisp/Library-Search][EMACSLOADPATH]]. This variable is used to build the load-path at emacs' start.
+
+I wrote this script that you could add to your devbox init_hook, such that it's ran when you enter the shell.
+
+#+begin_src shell
+  EMACS_LOAD_PATHS=''
+  for pkg in $(printenv buildInputs | tr ' ' '\\n' | grep -E 'emacs.*-mode');
+  do
+      PKG_NAME=$(basename $pkg | awk -F- '{ printf "%s-%s", $3, $4 }')
+      PKG_VERSION=$(devbox info emacsPackages.$PKG_NAME 2>/dev/null | awk '{print $2}' || echo '')
+      if [ -n "$PKG_VERSION" ]; then
+  	EMACS_LOAD_PATHS="$pkg/share/emacs/site-lisp/elpa/$PKG_NAME-$PKG_VERSION:$EMACS_LOAD_PATHS"
+      fi
+  done
+  export EMACSLOADPATH="$EMACS_LOAD_PATHS$EMACSLOADPATH"
+  echo "✓ Emacs packages loaded"
+#+end_src
+
+To be able to do that in the most efficient way, what I've done, is just to create a new snippet that contains this code snippet.
+
+This command will go through the packages that you've added and add the emacs' ones to the environment variable EMACSLOADPATH.
+
+At this point of time running emacs in the devshell created by devbox should permit to get the emacs packages. We should now make it such that the same thing is done even in the current instance of emacs.
+
+At the time of writing this I use =direnv-mode= now.
+With direnv-mode, I can run the interactive command =direnv-update-environment= and that will run direnv and inject the variables into the emacs' global variables list.
+So the thing to do is just to advice after this command. This will permit to add the paths to the load-path.
+I've written this code snippet that you can add to your configuration :
+
+#+begin_src emacs-lisp
+  (with-eval-after-load 'direnv
+    (advice-add 'direnv-update-environment :after
+                (lambda (&rest _)
+  		(when (getenv "EMACSLOADPATH")
+                    (let ((paths (split-string (getenv "EMACSLOADPATH") ":")))
+                      (dolist (path (reverse paths))
+                        (add-to-list 'load-path path)))))))
+#+end_src
+
+
+And that is it. Running =direnv-update-environment= will also add the paths in EMACSLOADPATH to the current load-path of emacs.
 
 * How to code per file
 
