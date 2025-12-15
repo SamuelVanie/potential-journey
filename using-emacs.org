@@ -331,3 +331,10 @@ After you've finished, you can type =C-M-c= to leave that recursive state and yo
 [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Keyboard-Macro-Query.html][The documentation for what I've explained]]
 
 
+*** Editing macros interactively
+
+You can edit macros interactively, meaning while playing it.
+The shortcut for that is : =C-x C-k SPC=
+
+[[https://www.gnu.org/software/emacs/manual/html_node/emacs/Keyboard-Macro-Step_002dEdit.html][stepwise editing macros]]
+
