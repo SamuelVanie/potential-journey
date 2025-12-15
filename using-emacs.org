@@ -315,3 +315,19 @@ What I mean is :
 Prefer : ~(setq compilation-environment (list (concat "PYTHONPATH=" (getenv "PYTHONPATH") ":" (expand-file-name "./src"))))~ or ~(setq compilation-environment (list (concat "PYTHONPATH=" (getenv "PYTHONPATH") ":./src")))~
 
 instead of : ~(setq compilation-environment '("PYTHONPATH=$PYTHONPATH:./src"))~
+
+
+
+* Working with macros
+
+
+** Executing macros with variations
+
+While recording macros, you can use the command =C-x q= to stop at some point.
+This command when you type it in the macro will not do anything but when you will play back the macro emacs will ask you wheter you want to continue the macro or not.
+To this question you can answer =C-r= which will make emacs enter in a recursive edit mode where you can do things outside of the macro, like typing a particular piece of text.
+After you've finished, you can type =C-M-c= to leave that recursive state and you will be prompted whether or not you want the macro to continue its execution.
+
+[[https://www.gnu.org/software/emacs/manual/html_node/emacs/Keyboard-Macro-Query.html][The documentation for what I've explained]]
+
+
