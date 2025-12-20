@@ -244,6 +244,21 @@ I wrote this script that you could add to your devbox init_hook, such that it's 
   echo "✓ Emacs packages loaded"
 #+end_src
 
+
+Or a more reliable one, as it doesn't depends on finding the version and concatenating =/share/emacs/site-lisp/elpa=
+
+#+begin_src shell
+      EMACS_LOAD_PATHS='',
+      for pkg in $(printenv buildInputs | tr ' ' '\\n' | grep -E 'emacs.*-mode'); do,
+        LONGEST_PATH=$(find $pkg -name '*.el' -type f -exec dirname {} \\; 2>/dev/null | awk '{ print length, $0 }' | sort -rn | head -1 | cut -d' ' -f2-),
+        if [ -n $LONGEST_PATH ]; then,
+          EMACS_LOAD_PATHS=$LONGEST_PATH:$EMACS_LOAD_PATHS,
+        fi,
+      done,
+      export EMACSLOADPATH=$EMACS_LOAD_PATHS$EMACSLOADPATH,
+      echo "✓ Emacs packages loaded"
+#+end_src
+
 To be able to do that in the most efficient way, what I've done, is just to create a new snippet that contains this code snippet.
 
 This command will go through the packages that you've added and add the emacs' ones to the environment variable EMACSLOADPATH.
@@ -343,3 +358,12 @@ The shortcut for that is : =C-x C-k SPC=
 
 You can reorganize the macros' kill ring.
 Start by listing them with : =list-keyboard-macros= and here it's you can modify them
+
+
+** Building a new ts mode
+
+I'm taking inspiration on the go-ts-mode, so I'll use that as my reference to look for information and understand each parts of the ~500 lines of code project.
+
+- An Emacs Lisp syntax table defines how Emacs interprets characters for various syntactic purposes like highlighting, navigation (e.g., `forward-word`), and commenting. It assigns a "syntax class" and other properties to each character.
+
+
