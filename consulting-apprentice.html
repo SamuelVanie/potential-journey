@@ -6,7 +6,7 @@
 <!-- 2026-04-20 Mon 07:08 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>&lrm;</title>
+<title>My job as a consultant</title>
 <meta name="generator" content="Org Mode" />
 <link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/htmlize.css"/>
 <link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/readtheorg.css"/>
@@ -52,58 +52,30 @@ addBanner();
 </head>
 <body>
 <div id="content" class="content">
+<h1 class="title">My job as a consultant</h1>
 <div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org343c6e5">1. Hash tables</a>
-<ul>
-<li><a href="#org6620153">1.1. Simple insertion steps</a></li>
-</ul>
-</li>
+<li><a href="#org125dd95">1. What to keep in mind ?</a></li>
+<li><a href="#org8ff3d03">2. What to work on ?</a></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org343c6e5" class="outline-2">
-<h2 id="org343c6e5"><span class="section-number-2">1.</span> Hash tables</h2>
+<div id="outline-container-org125dd95" class="outline-2">
+<h2 id="org125dd95"><span class="section-number-2">1.</span> What to keep in mind ?</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
-<li>Hash table maps keys to value for highly efficient lookup.</li>
-<li>There are two ways to implements them :
-<dl class="org-dl">
-<dt>Using an array and a linked list</dt><dd>take more space / more efficient, lookup time is O(1) if the number of collision of not too high <span class="underline">O(n) in that case.</span></dd>
-<dt>Using binary search tree</dt><dd>optimize on the space size / lookup in order / lookup in O(logn)</dd>
-</dl></li>
+<li>Always prepare questions for meetings, that will permit to gather as much information possible from the client and will permit him to mature his idea</li>
 </ul>
 </div>
-<div id="outline-container-org6620153" class="outline-3">
-<h3 id="org6620153"><span class="section-number-3">1.1.</span> Simple insertion steps</h3>
-<div class="outline-text-3" id="text-1-1">
-<ol class="org-ol">
-<li>First, <b>compute the key's hash code</b> to make correspondance with its place in our datastructure. (<i>Two different keys could have the same hash code, because there may be an infinite number of keys and a finite number of places where to store your keys' values</i>)</li>
-<li><b>Map the hash code to an index</b> in the array (first method). You could do that using something like <code>hash(key) % array_length</code>. (<i>Two different hash codes could map to the same index</i>)</li>
-<li>At the index, you store a <b>linked list</b> of keys and values pairs. <b>Because of collisions of keys</b> (two keys having the same hash code, or two hash code mapping to the same index) we use linked list.</li>
-</ol>
-
-
-<div class="note" id="org7d90bb2">
-<p>
-To retrieve the value pair by its key, you repeat this process.
-</p>
-<ol class="org-ol">
-<li>Compute the hash code from the key</li>
-<li>Compute the index from the hash code</li>
-<li>Search through the linked list for the value with this key.</li>
-</ol>
-
 </div>
-
-
-
-<p>
-<code>(page 100)</code>
-</p>
-</div>
+<div id="outline-container-org8ff3d03" class="outline-2">
+<h2 id="org8ff3d03"><span class="section-number-2">2.</span> What to work on ?</h2>
+<div class="outline-text-2" id="text-2">
+<ul class="org-ul">
+<li>Presentation skill. Freestyle presentation should be as smooth as possible, maybe establish some pattern that you'll be using universally for all your presentation.</li>
+</ul>
 </div>
 </div>
 </div>
