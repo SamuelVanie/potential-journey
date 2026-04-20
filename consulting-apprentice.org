@@ -1,0 +1,8 @@
+#+SETUPFILE: ./org-html-themes/org/theme-readtheorg.setup
+#+title: My job as a consultant
+
+* What to keep in mind ?
+- Always prepare questions for meetings, that will permit to gather as much information possible from the client and will permit him to mature his idea
+
+* What to work on ?
+- Presentation skill. Freestyle presentation should be as smooth as possible, maybe establish some pattern that you'll be using universally for all your presentation.
