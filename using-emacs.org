@@ -318,6 +318,27 @@ You can make the grep buffer read-only using `C-x C-q` (which runs `toggle-read-
 Once you have your desired selection, switch to `wgrep` mode (`wgrep-change-to-wgrep-mode`) to perform operations on the occurrences.
 
 
+
+* How to search for patterns in files in emacs using consult
+
+Consult is the search package that you use.
+
+How to look for some pattern into some precise list of files
+You can use the prefix command with ~consult-grep~ and ~consult-ripgrep~. Then you can list the different files you want to look into, comma-separated, and here it is.
+
+You can also use directly filtering patterns, as those commands support the command line parameters their utility uses.
+For example you can search in all files ending with =.org= by typing in the consult-ripgrep prompt :
+
+#+begin_example
+#foo bar --glob=*.org or #foo bar -g *.org: Search into org files 
+#foo bar --glob=!*.org or #foo bar -g !*.org: Search into non org files
+#.* -F: Treat input as fixed string, and not as regular expression.
+#foo bar -s: Treat input as case sensitive (-s), insensitive (-i), or smart case (-S).
+#foo bar --context=2 or #foo bar -C2: Include two lines of context.
+#foo bar --hidden or #foo bar -.: Search hidden files.
+#+end_example
+
+
 * Setting compilation environment variable
 
 When you're coding inside emacs you might want to run some commands using the project-compile command, which is really powerfull.
