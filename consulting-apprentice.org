@@ -1,4 +1,4 @@
-#+SETUPFILE: ./org-html-themes/org/theme-readtheorg.setup
+#+SETUPFILE: ./org-html-themes/org/html-theme-readtheorg.setup
 #+title: My job as a consultant
 
 * What to keep in mind ?

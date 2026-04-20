@@ -1,4 +1,6 @@
-#+SETUPFILE: ./org-html-themes/org/theme-readtheorg.setup
+#+SETUPFILE: ./org-html-themes/org/html-theme-readtheorg.setup
+#+title: Obs-studio on wayland
+
 * Use obs-studio on wayland
 
 I couldn't get obs-studio to work first try, like right after installing it on wayland (arch-linux).
