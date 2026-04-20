@@ -353,6 +353,13 @@ The shortcut for that is : =C-x C-k SPC=
 
 [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Keyboard-Macro-Step_002dEdit.html][stepwise editing macros]]
 
+** Switching between macros
+
+As the previous point said, a macro ring exists. You are able to jump between one macro you've recorded or another without having to save them before and bind them.
+To do that :
+=C-x C-k C-n= => ~kmacro-cycle-ring-next~
+=C-x C-k C-p= => ~kmacro-cycle-ring-previous~
+
 
 ** Reorganizing macros
 
