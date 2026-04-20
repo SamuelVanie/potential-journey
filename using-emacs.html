@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2026-04-20 Mon 09:59 -->
+<!-- 2026-04-20 Mon 22:53 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Working inside emacs</title>
@@ -26,34 +26,35 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orga40dfa4">1. Emacs tab</a></li>
-<li><a href="#orgdc03594">2. Merge my linux and mac configuration</a></li>
-<li><a href="#org6015269">3. Set transparent background</a></li>
-<li><a href="#orgc216ad5">4. Set up emacs to load pkgs installed from nix</a>
+<li><a href="#org09a33dd">1. Emacs tab</a></li>
+<li><a href="#orga5d792a">2. Merge my linux and mac configuration</a></li>
+<li><a href="#orgb7825a0">3. Set transparent background</a></li>
+<li><a href="#org5a75ddc">4. Set up emacs to load pkgs installed from nix</a>
 <ul>
-<li><a href="#org7d9a9d2">4.1. First solution [deprecated]</a></li>
-<li><a href="#orgf603b62">4.2. Second solution</a></li>
-<li><a href="#orge9453c5">4.3. Third solution</a></li>
+<li><a href="#orgc1d3c18">4.1. First solution [deprecated]</a></li>
+<li><a href="#org592ed63">4.2. Second solution</a></li>
+<li><a href="#org13aa662">4.3. Third solution</a></li>
 </ul>
 </li>
-<li><a href="#org27a8259">5. How to code per file</a></li>
-<li><a href="#org575f28d">6. How to scroll inside vterm</a></li>
-<li><a href="#orgd983f25">7. How to find then filter down and replace in emacs</a></li>
-<li><a href="#orgec16f46">8. Setting compilation environment variable</a></li>
-<li><a href="#org374061b">9. Working with macros</a>
+<li><a href="#org6589288">5. How to code per file</a></li>
+<li><a href="#org55bfc52">6. How to scroll inside vterm</a></li>
+<li><a href="#org47f127b">7. How to find then filter down and replace in emacs</a></li>
+<li><a href="#orga19fe53">8. How to search for patterns in files in emacs using consult</a></li>
+<li><a href="#org291919d">9. Setting compilation environment variable</a></li>
+<li><a href="#org5ba6b72">10. Working with macros</a>
 <ul>
-<li><a href="#orgc37fd68">9.1. Executing macros with variations</a></li>
-<li><a href="#org91d64ff">9.2. Editing macros interactively</a></li>
-<li><a href="#org9a1392e">9.3. Switching between macros</a></li>
-<li><a href="#org1110fdd">9.4. Reorganizing macros</a></li>
-<li><a href="#org72142d1">9.5. Building a new ts mode</a></li>
+<li><a href="#orgd34e24b">10.1. Executing macros with variations</a></li>
+<li><a href="#org22be171">10.2. Editing macros interactively</a></li>
+<li><a href="#org1c7db83">10.3. Switching between macros</a></li>
+<li><a href="#org1c84200">10.4. Reorganizing macros</a></li>
+<li><a href="#org1a78641">10.5. Building a new ts mode</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orga40dfa4" class="outline-2">
-<h2 id="orga40dfa4"><span class="section-number-2">1.</span> Emacs tab</h2>
+<div id="outline-container-org09a33dd" class="outline-2">
+<h2 id="org09a33dd"><span class="section-number-2">1.</span> Emacs tab</h2>
 <div class="outline-text-2" id="text-1">
 <blockquote>
 <p>
@@ -95,8 +96,8 @@ I bound this function to the key <code>C-&lt;tab&gt;</code> so that I can quickl
 </p>
 </div>
 </div>
-<div id="outline-container-orgdc03594" class="outline-2">
-<h2 id="orgdc03594"><span class="section-number-2">2.</span> Merge my linux and mac configuration</h2>
+<div id="outline-container-orga5d792a" class="outline-2">
+<h2 id="orga5d792a"><span class="section-number-2">2.</span> Merge my linux and mac configuration</h2>
 <div class="outline-text-2" id="text-2">
 <blockquote>
 <p>
@@ -121,7 +122,7 @@ You just have to use a condition depending on what you want to execute on the cu
 Example :
 </p>
 
-<pre class="example" id="orgf8a3c9c">
+<pre class="example" id="org97b1e75">
 (cond
  ((eq system-type 'darwin)  ;; macOS
   (setq read-process-output-max (* 64 1024)))  ;; 64KB
@@ -138,8 +139,8 @@ Do not forget variable like <code>user-emacs-directory</code> that helps you and
 </blockquote>
 </div>
 </div>
-<div id="outline-container-org6015269" class="outline-2">
-<h2 id="org6015269"><span class="section-number-2">3.</span> Set transparent background</h2>
+<div id="outline-container-orgb7825a0" class="outline-2">
+<h2 id="orgb7825a0"><span class="section-number-2">3.</span> Set transparent background</h2>
 <div class="outline-text-2" id="text-3">
 <blockquote>
 <p>
@@ -171,8 +172,8 @@ On mac, what worked :
 </div>
 </div>
 </div>
-<div id="outline-container-orgc216ad5" class="outline-2">
-<h2 id="orgc216ad5"><span class="section-number-2">4.</span> Set up emacs to load pkgs installed from nix</h2>
+<div id="outline-container-org5a75ddc" class="outline-2">
+<h2 id="org5a75ddc"><span class="section-number-2">4.</span> Set up emacs to load pkgs installed from nix</h2>
 <div class="outline-text-2" id="text-4">
 <blockquote>
 <p>
@@ -184,8 +185,8 @@ We're not talking about binaries, but emacs packages. Such packages should not m
 </p>
 </blockquote>
 </div>
-<div id="outline-container-org7d9a9d2" class="outline-3">
-<h3 id="org7d9a9d2"><span class="section-number-3">4.1.</span> First solution [deprecated]</h3>
+<div id="outline-container-orgc1d3c18" class="outline-3">
+<h3 id="orgc1d3c18"><span class="section-number-3">4.1.</span> First solution [deprecated]</h3>
 <div class="outline-text-3" id="text-4-1">
 <p>
 The first solution, which is the simplest, is to just open a devshell, in which you've installed and initialize the emacs packages. An example for julia environment
@@ -231,8 +232,8 @@ The packages should be present and loaded after your run `emacs &amp;` in the de
 </p>
 </div>
 </div>
-<div id="outline-container-orgf603b62" class="outline-3">
-<h3 id="orgf603b62"><span class="section-number-3">4.2.</span> Second solution</h3>
+<div id="outline-container-org592ed63" class="outline-3">
+<h3 id="org592ed63"><span class="section-number-3">4.2.</span> Second solution</h3>
 <div class="outline-text-3" id="text-4-2">
 <blockquote>
 <p>
@@ -350,8 +351,8 @@ You can add such call to your .dir-locals.el file inside the root directory of y
 </p>
 </div>
 </div>
-<div id="outline-container-orge9453c5" class="outline-3">
-<h3 id="orge9453c5"><span class="section-number-3">4.3.</span> Third solution</h3>
+<div id="outline-container-org13aa662" class="outline-3">
+<h3 id="org13aa662"><span class="section-number-3">4.3.</span> Third solution</h3>
 <div class="outline-text-3" id="text-4-3">
 <p>
 The last solution involves <a href="https://www.jetify.com/docs/devbox/installing-devbox">devbox</a>, it's a wrapper around nix that you could use without knowing the nix language. It's pretty cool if you only use nix as an dev environment manager.
@@ -439,8 +440,8 @@ And that is it. Running <code>direnv-update-environment</code> will also add the
 </div>
 </div>
 </div>
-<div id="outline-container-org27a8259" class="outline-2">
-<h2 id="org27a8259"><span class="section-number-2">5.</span> How to code per file</h2>
+<div id="outline-container-org6589288" class="outline-2">
+<h2 id="org6589288"><span class="section-number-2">5.</span> How to code per file</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 This notes that I take requires me to modify my index.html file each time. I could've use a command to trigger the modification automatically. But the solution that came up first into my mind was to create a snippet that will only be available in that file. This way I can open my file add my new entry and that's it.
@@ -463,8 +464,8 @@ So here's what I wrote on top on my file, it uses the <code>auto-yasnippet</code
 </p>
 </div>
 </div>
-<div id="outline-container-org575f28d" class="outline-2">
-<h2 id="org575f28d"><span class="section-number-2">6.</span> How to scroll inside vterm</h2>
+<div id="outline-container-org55bfc52" class="outline-2">
+<h2 id="org55bfc52"><span class="section-number-2">6.</span> How to scroll inside vterm</h2>
 <div class="outline-text-2" id="text-6">
 <p>
 vterm has multiple mode, it's not like eshell that permits you to scroll without restriction inside the terminal.
@@ -479,8 +480,8 @@ The default binding for that is : <code>C-c C-t</code>
 </p>
 </div>
 </div>
-<div id="outline-container-orgd983f25" class="outline-2">
-<h2 id="orgd983f25"><span class="section-number-2">7.</span> How to find then filter down and replace in emacs</h2>
+<div id="outline-container-org47f127b" class="outline-2">
+<h2 id="org47f127b"><span class="section-number-2">7.</span> How to find then filter down and replace in emacs</h2>
 <div class="outline-text-2" id="text-7">
 <p>
 You can find patterns in folders in Emacs using `find-grep`, `find-grep-dired` (which will only show the file names inside a dired buffer), `rgrep`, and similar commands. All of these will open a grep buffer that utilizes `compilation-mode` bindings.
@@ -501,9 +502,36 @@ Once you have your desired selection, switch to `wgrep` mode (`wgrep-change-to-w
 </p>
 </div>
 </div>
-<div id="outline-container-orgec16f46" class="outline-2">
-<h2 id="orgec16f46"><span class="section-number-2">8.</span> Setting compilation environment variable</h2>
+<div id="outline-container-orga19fe53" class="outline-2">
+<h2 id="orga19fe53"><span class="section-number-2">8.</span> How to search for patterns in files in emacs using consult</h2>
 <div class="outline-text-2" id="text-8">
+<p>
+Consult is the search package that you use.
+</p>
+
+<p>
+How to look for some pattern into some precise list of files
+You can use the prefix command with <code>consult-grep</code> and <code>consult-ripgrep</code>. Then you can list the different files you want to look into, comma-separated, and here it is.
+</p>
+
+<p>
+You can also use directly filtering patterns, as those commands support the command line parameters their utility uses.
+For example you can search in all files ending with <code>.org</code> by typing in the consult-ripgrep prompt :
+</p>
+
+<pre class="example" id="orgb32a9b6">
+#foo bar --glob=*.org or #foo bar -g *.org: Search into org files 
+#foo bar --glob=!*.org or #foo bar -g !*.org: Search into non org files
+#.* -F: Treat input as fixed string, and not as regular expression.
+#foo bar -s: Treat input as case sensitive (-s), insensitive (-i), or smart case (-S).
+#foo bar --context=2 or #foo bar -C2: Include two lines of context.
+#foo bar --hidden or #foo bar -.: Search hidden files.
+</pre>
+</div>
+</div>
+<div id="outline-container-org291919d" class="outline-2">
+<h2 id="org291919d"><span class="section-number-2">9.</span> Setting compilation environment variable</h2>
+<div class="outline-text-2" id="text-9">
 <p>
 When you're coding inside emacs you might want to run some commands using the project-compile command, which is really powerfull.
 Sometimes you might want to set some compilation environment that is only needed during this command evaluation process, you don't need that variable outside. For example you might want to add some path to the PYTHONPATH for your project to correctly run.
@@ -526,13 +554,13 @@ instead of : <code>(setq compilation-environment '("PYTHONPATH=$PYTHONPATH:./src
 </p>
 </div>
 </div>
-<div id="outline-container-org374061b" class="outline-2">
-<h2 id="org374061b"><span class="section-number-2">9.</span> Working with macros</h2>
-<div class="outline-text-2" id="text-9">
+<div id="outline-container-org5ba6b72" class="outline-2">
+<h2 id="org5ba6b72"><span class="section-number-2">10.</span> Working with macros</h2>
+<div class="outline-text-2" id="text-10">
 </div>
-<div id="outline-container-orgc37fd68" class="outline-3">
-<h3 id="orgc37fd68"><span class="section-number-3">9.1.</span> Executing macros with variations</h3>
-<div class="outline-text-3" id="text-9-1">
+<div id="outline-container-orgd34e24b" class="outline-3">
+<h3 id="orgd34e24b"><span class="section-number-3">10.1.</span> Executing macros with variations</h3>
+<div class="outline-text-3" id="text-10-1">
 <p>
 While recording macros, you can use the command <code>C-x q</code> to stop at some point.
 This command when you type it in the macro will not do anything but when you will play back the macro emacs will ask you wheter you want to continue the macro or not.
@@ -545,9 +573,9 @@ After you've finished, you can type <code>C-M-c</code> to leave that recursive s
 </p>
 </div>
 </div>
-<div id="outline-container-org91d64ff" class="outline-3">
-<h3 id="org91d64ff"><span class="section-number-3">9.2.</span> Editing macros interactively</h3>
-<div class="outline-text-3" id="text-9-2">
+<div id="outline-container-org22be171" class="outline-3">
+<h3 id="org22be171"><span class="section-number-3">10.2.</span> Editing macros interactively</h3>
+<div class="outline-text-3" id="text-10-2">
 <p>
 You can edit macros interactively, meaning while playing it.
 The shortcut for that is : <code>C-x C-k SPC</code>
@@ -558,9 +586,9 @@ The shortcut for that is : <code>C-x C-k SPC</code>
 </p>
 </div>
 </div>
-<div id="outline-container-org9a1392e" class="outline-3">
-<h3 id="org9a1392e"><span class="section-number-3">9.3.</span> Switching between macros</h3>
-<div class="outline-text-3" id="text-9-3">
+<div id="outline-container-org1c7db83" class="outline-3">
+<h3 id="org1c7db83"><span class="section-number-3">10.3.</span> Switching between macros</h3>
+<div class="outline-text-3" id="text-10-3">
 <p>
 As the previous point said, a macro ring exists. You are able to jump between one macro you've recorded or another without having to save them before and bind them.
 To do that :
@@ -569,18 +597,18 @@ To do that :
 </p>
 </div>
 </div>
-<div id="outline-container-org1110fdd" class="outline-3">
-<h3 id="org1110fdd"><span class="section-number-3">9.4.</span> Reorganizing macros</h3>
-<div class="outline-text-3" id="text-9-4">
+<div id="outline-container-org1c84200" class="outline-3">
+<h3 id="org1c84200"><span class="section-number-3">10.4.</span> Reorganizing macros</h3>
+<div class="outline-text-3" id="text-10-4">
 <p>
 You can reorganize the macros' kill ring.
 Start by listing them with : <code>list-keyboard-macros</code> and here it's you can modify them
 </p>
 </div>
 </div>
-<div id="outline-container-org72142d1" class="outline-3">
-<h3 id="org72142d1"><span class="section-number-3">9.5.</span> Building a new ts mode</h3>
-<div class="outline-text-3" id="text-9-5">
+<div id="outline-container-org1a78641" class="outline-3">
+<h3 id="org1a78641"><span class="section-number-3">10.5.</span> Building a new ts mode</h3>
+<div class="outline-text-3" id="text-10-5">
 <p>
 I'm taking inspiration on the go-ts-mode, so I'll use that as my reference to look for information and understand each parts of the ~500 lines of code project.
 </p>
@@ -593,7 +621,7 @@ I'm taking inspiration on the go-ts-mode, so I'll use that as my reference to lo
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Created: 2026-04-20 Mon 09:59</p>
+<p class="date">Created: 2026-04-20 Mon 22:53</p>
 </div>
 </body>
 </html>
