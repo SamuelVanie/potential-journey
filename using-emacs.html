@@ -1,61 +1,98 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2026-05-23 Sat 14:55 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<!-- 2026-05-23 Sat 15:05 -->
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Working inside emacs</title>
 <meta name="generator" content="Org Mode" />
-<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/htmlize.css"/>
-<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/readtheorg.css"/>
-<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/code-copy.css"/>
-<link rel="stylesheet" type="text/css" href="src/readtheorg_theme/css/search.css"/>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/lib/js/jquery.stickytableheaders.min.js"></script>
-<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/search.js"></script>
-<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/readtheorg.js"></script>
-<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/code-copy.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0d1117;--surface:#161b22;--surface2:#1c2129;--border:#30363d;--text:#e6edf3;--text-muted:#8b949e;--accent:#58a6ff;--green:#3fb950;--purple:#bc8cff;--orange:#d29922;--red:#f85149}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--bg);color:var(--text);line-height:1.75;font-size:16px}
+#content{max-width:820px;margin:0 auto;padding:3rem 2rem}
+#table-of-contents{position:fixed;left:0;top:0;width:260px;height:100vh;overflow-y:auto;background:var(--surface);border-right:1px solid var(--border);padding:2rem 1.2rem;font-size:0.85rem}
+#table-of-contents h2{font-family:'JetBrains Mono',monospace;font-size:0.75rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted);margin-bottom:1rem}
+#table-of-contents ul{list-style:none;padding-left:0}
+#table-of-contents li{margin-bottom:0.4rem}
+#table-of-contents li ul{padding-left:1rem;margin-top:0.4rem}
+#table-of-contents a{color:var(--text-muted);text-decoration:none;transition:color 0.2s}
+#table-of-contents a:hover{color:var(--accent)}
+@media(min-width:1100px){#content{margin-left:280px}}
+@media(max-width:1099px){#table-of-contents{position:relative;width:100%;height:auto;border-right:none;border-bottom:1px solid var(--border);margin-bottom:2rem}}
+h1.title{font-size:2.4rem;font-weight:700;margin-bottom:0.5rem;background:linear-gradient(135deg,var(--accent),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+h2,h3,h4,h5,h6{font-weight:600;margin-top:2.5rem;margin-bottom:1rem;color:var(--text)}
+h2{font-size:1.6rem;padding-bottom:0.5rem;border-bottom:1px solid var(--border)}
+h3{font-size:1.3rem}
+h4{font-size:1.1rem;color:var(--text-muted)}
+p{margin-bottom:1.2rem}
+a{color:var(--accent);text-decoration:none;transition:color 0.2s}
+a:hover{color:var(--purple);text-decoration:underline}
+ul,ol{margin-bottom:1.2rem;padding-left:1.5rem}
+li{margin-bottom:0.4rem}
+code{font-family:'JetBrains Mono',monospace;font-size:0.88em;background:var(--surface2);border:1px solid var(--border);border-radius:4px;padding:0.15em 0.4em;color:var(--orange)}
+pre{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1.2rem 1.5rem;overflow-x:auto;margin-bottom:1.5rem;font-size:0.88rem;line-height:1.6}
+pre code{background:none;border:none;padding:0;color:var(--text);font-size:inherit}
+.org-src-container{position:relative;margin-bottom:1.5rem}
+.org-src-container>pre{margin:0}
+.org-src-container label{position:absolute;top:0.5rem;right:0.8rem;font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.05em}
+blockquote{border-left:3px solid var(--accent);background:var(--surface);padding:1rem 1.5rem;margin:1.5rem 0;border-radius:0 6px 6px 0;color:var(--text-muted);font-style:italic}
+table{border-collapse:collapse;width:100%;margin-bottom:1.5rem;font-size:0.9rem}
+th,td{border:1px solid var(--border);padding:0.6rem 1rem;text-align:left}
+th{background:var(--surface);font-weight:600;color:var(--text-muted)}
+tr:nth-child(even){background:var(--surface2)}
+img{max-width:100%;border-radius:8px;border:1px solid var(--border)}
+.tag span{font-family:'JetBrains Mono',monospace;font-size:0.75rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:0.1em 0.5em;color:var(--green)}
+.timestamp{font-family:'JetBrains Mono',monospace;color:var(--text-muted);font-size:0.85rem}
+#postamble{margin-top:4rem;padding-top:2rem;border-top:1px solid var(--border);text-align:center;color:var(--text-muted);font-size:0.8rem;font-family:'JetBrains Mono',monospace}
+::selection{background:rgba(88,166,255,0.3)}
+::-webkit-scrollbar{width:8px;height:8px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--border);border-radius:4px}
+::-webkit-scrollbar-thumb:hover{background:var(--text-muted)}
+</style>
 </head>
 <body>
 <div id="content" class="content">
+<header>
 <h1 class="title">Working inside emacs</h1>
-<div id="table-of-contents" role="doc-toc">
+</header><nav id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org65c9cf1">1. Emacs tab</a></li>
-<li><a href="#orgf4e6921">2. Merge my linux and mac configuration</a></li>
-<li><a href="#orga2198bf">3. Set transparent background</a></li>
-<li><a href="#org1ba71c8">4. Set up emacs to load pkgs installed from nix</a>
+<li><a href="#orga97d8ea">Emacs tab</a></li>
+<li><a href="#org84151e0">Merge my linux and mac configuration</a></li>
+<li><a href="#orge09c589">Set transparent background</a></li>
+<li><a href="#org1ef5385">Set up emacs to load pkgs installed from nix</a>
 <ul>
-<li><a href="#org883cf70">4.1. First solution [deprecated]</a></li>
-<li><a href="#org44d53e3">4.2. Second solution</a></li>
-<li><a href="#org109b885">4.3. Third solution</a></li>
+<li><a href="#orgad24518">First solution [deprecated]</a></li>
+<li><a href="#org8b98e8b">Second solution</a></li>
+<li><a href="#orga65a78f">Third solution</a></li>
 </ul>
 </li>
-<li><a href="#org0d82392">5. How to code per file</a></li>
-<li><a href="#org16356e7">6. How to scroll inside vterm</a></li>
-<li><a href="#org63b06b6">7. How to find then filter down and replace in emacs</a></li>
-<li><a href="#org559270a">8. How to search for patterns in files in emacs using consult</a></li>
-<li><a href="#org8831da9">9. Setting compilation environment variable</a></li>
-<li><a href="#org506eab3">10. Working with macros</a>
+<li><a href="#org4281535">How to code per file</a></li>
+<li><a href="#org55750be">How to scroll inside vterm</a></li>
+<li><a href="#org3cff23e">How to find then filter down and replace in emacs</a></li>
+<li><a href="#org0dec746">How to search for patterns in files in emacs using consult</a></li>
+<li><a href="#orgea490a1">Setting compilation environment variable</a></li>
+<li><a href="#org73726d2">Working with macros</a>
 <ul>
-<li><a href="#orgbd1760a">10.1. Executing macros with variations</a></li>
-<li><a href="#org46dc5b2">10.2. Editing macros interactively</a></li>
-<li><a href="#orgc558a75">10.3. Switching between macros</a></li>
-<li><a href="#orgb51f38c">10.4. Reorganizing macros</a></li>
-<li><a href="#org8a2f98a">10.5. Building a new ts mode</a></li>
+<li><a href="#org48c92a9">Executing macros with variations</a></li>
+<li><a href="#orgb22995b">Editing macros interactively</a></li>
+<li><a href="#orgd315da9">Switching between macros</a></li>
+<li><a href="#org068441c">Reorganizing macros</a></li>
+<li><a href="#org82d0997">Building a new ts mode</a></li>
 </ul>
 </li>
 </ul>
 </div>
-</div>
-<div id="outline-container-org65c9cf1" class="outline-2">
-<h2 id="org65c9cf1"><span class="section-number-2">1.</span> Emacs tab</h2>
-<div class="outline-text-2" id="text-1">
+</nav>
+<div id="outline-container-orga97d8ea" class="outline-2">
+<h2 id="orga97d8ea">Emacs tab</h2>
+<div class="outline-text-2" id="text-orga97d8ea">
 <blockquote>
 <p>
 How I manually insert tabs inside emacs ?
@@ -96,9 +133,9 @@ I bound this function to the key <code>C-&lt;tab&gt;</code> so that I can quickl
 </p>
 </div>
 </div>
-<div id="outline-container-orgf4e6921" class="outline-2">
-<h2 id="orgf4e6921"><span class="section-number-2">2.</span> Merge my linux and mac configuration</h2>
-<div class="outline-text-2" id="text-2">
+<div id="outline-container-org84151e0" class="outline-2">
+<h2 id="org84151e0">Merge my linux and mac configuration</h2>
+<div class="outline-text-2" id="text-org84151e0">
 <blockquote>
 <p>
 How to execute a elisp bloc depending on whether you're on mac or linux ?
@@ -122,7 +159,7 @@ You just have to use a condition depending on what you want to execute on the cu
 Example :
 </p>
 
-<pre class="example" id="org7bdd8bc">
+<pre class="example" id="org2783a1a">
 (cond
  ((eq system-type 'darwin)  ;; macOS
   (setq read-process-output-max (* 64 1024)))  ;; 64KB
@@ -139,9 +176,9 @@ Do not forget variable like <code>user-emacs-directory</code> that helps you and
 </blockquote>
 </div>
 </div>
-<div id="outline-container-orga2198bf" class="outline-2">
-<h2 id="orga2198bf"><span class="section-number-2">3.</span> Set transparent background</h2>
-<div class="outline-text-2" id="text-3">
+<div id="outline-container-orge09c589" class="outline-2">
+<h2 id="orge09c589">Set transparent background</h2>
+<div class="outline-text-2" id="text-orge09c589">
 <blockquote>
 <p>
 How to set transparent background in emacs ?
@@ -172,9 +209,9 @@ On mac, what worked :
 </div>
 </div>
 </div>
-<div id="outline-container-org1ba71c8" class="outline-2">
-<h2 id="org1ba71c8"><span class="section-number-2">4.</span> Set up emacs to load pkgs installed from nix</h2>
-<div class="outline-text-2" id="text-4">
+<div id="outline-container-org1ef5385" class="outline-2">
+<h2 id="org1ef5385">Set up emacs to load pkgs installed from nix</h2>
+<div class="outline-text-2" id="text-org1ef5385">
 <blockquote>
 <p>
 How to load the packages that you installed from nix inside emacs ?
@@ -185,9 +222,9 @@ We're not talking about binaries, but emacs packages. Such packages should not m
 </p>
 </blockquote>
 </div>
-<div id="outline-container-org883cf70" class="outline-3">
-<h3 id="org883cf70"><span class="section-number-3">4.1.</span> First solution [deprecated]</h3>
-<div class="outline-text-3" id="text-4-1">
+<div id="outline-container-orgad24518" class="outline-3">
+<h3 id="orgad24518">First solution [deprecated]</h3>
+<div class="outline-text-3" id="text-orgad24518">
 <p>
 The first solution, which is the simplest, is to just open a devshell, in which you've installed and initialize the emacs packages. An example for julia environment
 </p>
@@ -232,9 +269,9 @@ The packages should be present and loaded after your run `emacs &amp;` in the de
 </p>
 </div>
 </div>
-<div id="outline-container-org44d53e3" class="outline-3">
-<h3 id="org44d53e3"><span class="section-number-3">4.2.</span> Second solution</h3>
-<div class="outline-text-3" id="text-4-2">
+<div id="outline-container-org8b98e8b" class="outline-3">
+<h3 id="org8b98e8b">Second solution</h3>
+<div class="outline-text-3" id="text-org8b98e8b">
 <blockquote>
 <p>
 Why bother with this second solution ?
@@ -351,9 +388,9 @@ You can add such call to your .dir-locals.el file inside the root directory of y
 </p>
 </div>
 </div>
-<div id="outline-container-org109b885" class="outline-3">
-<h3 id="org109b885"><span class="section-number-3">4.3.</span> Third solution</h3>
-<div class="outline-text-3" id="text-4-3">
+<div id="outline-container-orga65a78f" class="outline-3">
+<h3 id="orga65a78f">Third solution</h3>
+<div class="outline-text-3" id="text-orga65a78f">
 <p>
 The last solution involves <a href="https://www.jetify.com/docs/devbox/installing-devbox">devbox</a>, it's a wrapper around nix that you could use without knowing the nix language. It's pretty cool if you only use nix as an dev environment manager.
 </p>
@@ -440,9 +477,9 @@ And that is it. Running <code>direnv-update-environment</code> will also add the
 </div>
 </div>
 </div>
-<div id="outline-container-org0d82392" class="outline-2">
-<h2 id="org0d82392"><span class="section-number-2">5.</span> How to code per file</h2>
-<div class="outline-text-2" id="text-5">
+<div id="outline-container-org4281535" class="outline-2">
+<h2 id="org4281535">How to code per file</h2>
+<div class="outline-text-2" id="text-org4281535">
 <p>
 This notes that I take requires me to modify my index.html file each time. I could've use a command to trigger the modification automatically. But the solution that came up first into my mind was to create a snippet that will only be available in that file. This way I can open my file add my new entry and that's it.
 </p>
@@ -464,9 +501,9 @@ So here's what I wrote on top on my file, it uses the <code>auto-yasnippet</code
 </p>
 </div>
 </div>
-<div id="outline-container-org16356e7" class="outline-2">
-<h2 id="org16356e7"><span class="section-number-2">6.</span> How to scroll inside vterm</h2>
-<div class="outline-text-2" id="text-6">
+<div id="outline-container-org55750be" class="outline-2">
+<h2 id="org55750be">How to scroll inside vterm</h2>
+<div class="outline-text-2" id="text-org55750be">
 <p>
 vterm has multiple mode, it's not like eshell that permits you to scroll without restriction inside the terminal.
 </p>
@@ -480,9 +517,9 @@ The default binding for that is : <code>C-c C-t</code>
 </p>
 </div>
 </div>
-<div id="outline-container-org63b06b6" class="outline-2">
-<h2 id="org63b06b6"><span class="section-number-2">7.</span> How to find then filter down and replace in emacs</h2>
-<div class="outline-text-2" id="text-7">
+<div id="outline-container-org3cff23e" class="outline-2">
+<h2 id="org3cff23e">How to find then filter down and replace in emacs</h2>
+<div class="outline-text-2" id="text-org3cff23e">
 <p>
 You can find patterns in folders in Emacs using `find-grep`, `find-grep-dired` (which will only show the file names inside a dired buffer), `rgrep`, and similar commands. All of these will open a grep buffer that utilizes `compilation-mode` bindings.
 </p>
@@ -502,9 +539,9 @@ Once you have your desired selection, switch to `wgrep` mode (`wgrep-change-to-w
 </p>
 </div>
 </div>
-<div id="outline-container-org559270a" class="outline-2">
-<h2 id="org559270a"><span class="section-number-2">8.</span> How to search for patterns in files in emacs using consult</h2>
-<div class="outline-text-2" id="text-8">
+<div id="outline-container-org0dec746" class="outline-2">
+<h2 id="org0dec746">How to search for patterns in files in emacs using consult</h2>
+<div class="outline-text-2" id="text-org0dec746">
 <p>
 Consult is the search package that you use.
 </p>
@@ -519,7 +556,7 @@ You can also use directly filtering patterns, as those commands support the comm
 For example you can search in all files ending with <code>.org</code> by typing in the consult-ripgrep prompt :
 </p>
 
-<pre class="example" id="org08cdcab">
+<pre class="example" id="org1240d57">
 #foo bar --glob=*.org or #foo bar -g *.org: Search into org files 
 #foo bar --glob=!*.org or #foo bar -g !*.org: Search into non org files
 #.* -F: Treat input as fixed string, and not as regular expression.
@@ -529,9 +566,9 @@ For example you can search in all files ending with <code>.org</code> by typing 
 </pre>
 </div>
 </div>
-<div id="outline-container-org8831da9" class="outline-2">
-<h2 id="org8831da9"><span class="section-number-2">9.</span> Setting compilation environment variable</h2>
-<div class="outline-text-2" id="text-9">
+<div id="outline-container-orgea490a1" class="outline-2">
+<h2 id="orgea490a1">Setting compilation environment variable</h2>
+<div class="outline-text-2" id="text-orgea490a1">
 <p>
 When you're coding inside emacs you might want to run some commands using the project-compile command, which is really powerfull.
 Sometimes you might want to set some compilation environment that is only needed during this command evaluation process, you don't need that variable outside. For example you might want to add some path to the PYTHONPATH for your project to correctly run.
@@ -554,13 +591,13 @@ instead of : <code>(setq compilation-environment '("PYTHONPATH=$PYTHONPATH:./src
 </p>
 </div>
 </div>
-<div id="outline-container-org506eab3" class="outline-2">
-<h2 id="org506eab3"><span class="section-number-2">10.</span> Working with macros</h2>
-<div class="outline-text-2" id="text-10">
+<div id="outline-container-org73726d2" class="outline-2">
+<h2 id="org73726d2">Working with macros</h2>
+<div class="outline-text-2" id="text-org73726d2">
 </div>
-<div id="outline-container-orgbd1760a" class="outline-3">
-<h3 id="orgbd1760a"><span class="section-number-3">10.1.</span> Executing macros with variations</h3>
-<div class="outline-text-3" id="text-10-1">
+<div id="outline-container-org48c92a9" class="outline-3">
+<h3 id="org48c92a9">Executing macros with variations</h3>
+<div class="outline-text-3" id="text-org48c92a9">
 <p>
 While recording macros, you can use the command <code>C-x q</code> to stop at some point.
 This command when you type it in the macro will not do anything but when you will play back the macro emacs will ask you wheter you want to continue the macro or not.
@@ -573,9 +610,9 @@ After you've finished, you can type <code>C-M-c</code> to leave that recursive s
 </p>
 </div>
 </div>
-<div id="outline-container-org46dc5b2" class="outline-3">
-<h3 id="org46dc5b2"><span class="section-number-3">10.2.</span> Editing macros interactively</h3>
-<div class="outline-text-3" id="text-10-2">
+<div id="outline-container-orgb22995b" class="outline-3">
+<h3 id="orgb22995b">Editing macros interactively</h3>
+<div class="outline-text-3" id="text-orgb22995b">
 <p>
 You can edit macros interactively, meaning while playing it.
 The shortcut for that is : <code>C-x C-k SPC</code>
@@ -586,9 +623,9 @@ The shortcut for that is : <code>C-x C-k SPC</code>
 </p>
 </div>
 </div>
-<div id="outline-container-orgc558a75" class="outline-3">
-<h3 id="orgc558a75"><span class="section-number-3">10.3.</span> Switching between macros</h3>
-<div class="outline-text-3" id="text-10-3">
+<div id="outline-container-orgd315da9" class="outline-3">
+<h3 id="orgd315da9">Switching between macros</h3>
+<div class="outline-text-3" id="text-orgd315da9">
 <p>
 As the previous point said, a macro ring exists. You are able to jump between one macro you've recorded or another without having to save them before and bind them.
 To do that :
@@ -597,18 +634,18 @@ To do that :
 </p>
 </div>
 </div>
-<div id="outline-container-orgb51f38c" class="outline-3">
-<h3 id="orgb51f38c"><span class="section-number-3">10.4.</span> Reorganizing macros</h3>
-<div class="outline-text-3" id="text-10-4">
+<div id="outline-container-org068441c" class="outline-3">
+<h3 id="org068441c">Reorganizing macros</h3>
+<div class="outline-text-3" id="text-org068441c">
 <p>
 You can reorganize the macros' kill ring.
 Start by listing them with : <code>list-keyboard-macros</code> and here it's you can modify them
 </p>
 </div>
 </div>
-<div id="outline-container-org8a2f98a" class="outline-3">
-<h3 id="org8a2f98a"><span class="section-number-3">10.5.</span> Building a new ts mode</h3>
-<div class="outline-text-3" id="text-10-5">
+<div id="outline-container-org82d0997" class="outline-3">
+<h3 id="org82d0997">Building a new ts mode</h3>
+<div class="outline-text-3" id="text-org82d0997">
 <p>
 I'm taking inspiration on the go-ts-mode, so I'll use that as my reference to look for information and understand each parts of the ~500 lines of code project.
 </p>
@@ -621,7 +658,7 @@ I'm taking inspiration on the go-ts-mode, so I'll use that as my reference to lo
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Created: 2026-05-23 Sat 14:55</p>
+<p class="date">Created: 2026-05-23 Sat 15:05</p>
 </div>
 </body>
 </html>

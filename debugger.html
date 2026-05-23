@@ -1,53 +1,81 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2026-05-23 Sat 14:55 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<!-- 2026-05-23 Sat 15:05 -->
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>&lrm;</title>
 <meta name="generator" content="Org Mode" />
-<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/htmlize.css"/>
-<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/readtheorg.css"/>
-<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/code-copy.css"/>
-<link rel="stylesheet" type="text/css" href="src/readtheorg_theme/css/search.css"/>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/lib/js/jquery.stickytableheaders.min.js"></script>
-<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/search.js"></script>
-<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/readtheorg.js"></script>
-<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/code-copy.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0d1117;--surface:#161b22;--surface2:#1c2129;--border:#30363d;--text:#e6edf3;--text-muted:#8b949e;--accent:#58a6ff;--green:#3fb950;--purple:#bc8cff;--orange:#d29922;--red:#f85149}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--bg);color:var(--text);line-height:1.75;font-size:16px}
+#content{max-width:820px;margin:0 auto;padding:3rem 2rem}
+#table-of-contents{position:fixed;left:0;top:0;width:260px;height:100vh;overflow-y:auto;background:var(--surface);border-right:1px solid var(--border);padding:2rem 1.2rem;font-size:0.85rem}
+#table-of-contents h2{font-family:'JetBrains Mono',monospace;font-size:0.75rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted);margin-bottom:1rem}
+#table-of-contents ul{list-style:none;padding-left:0}
+#table-of-contents li{margin-bottom:0.4rem}
+#table-of-contents li ul{padding-left:1rem;margin-top:0.4rem}
+#table-of-contents a{color:var(--text-muted);text-decoration:none;transition:color 0.2s}
+#table-of-contents a:hover{color:var(--accent)}
+@media(min-width:1100px){#content{margin-left:280px}}
+@media(max-width:1099px){#table-of-contents{position:relative;width:100%;height:auto;border-right:none;border-bottom:1px solid var(--border);margin-bottom:2rem}}
+h1.title{font-size:2.4rem;font-weight:700;margin-bottom:0.5rem;background:linear-gradient(135deg,var(--accent),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+h2,h3,h4,h5,h6{font-weight:600;margin-top:2.5rem;margin-bottom:1rem;color:var(--text)}
+h2{font-size:1.6rem;padding-bottom:0.5rem;border-bottom:1px solid var(--border)}
+h3{font-size:1.3rem}
+h4{font-size:1.1rem;color:var(--text-muted)}
+p{margin-bottom:1.2rem}
+a{color:var(--accent);text-decoration:none;transition:color 0.2s}
+a:hover{color:var(--purple);text-decoration:underline}
+ul,ol{margin-bottom:1.2rem;padding-left:1.5rem}
+li{margin-bottom:0.4rem}
+code{font-family:'JetBrains Mono',monospace;font-size:0.88em;background:var(--surface2);border:1px solid var(--border);border-radius:4px;padding:0.15em 0.4em;color:var(--orange)}
+pre{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1.2rem 1.5rem;overflow-x:auto;margin-bottom:1.5rem;font-size:0.88rem;line-height:1.6}
+pre code{background:none;border:none;padding:0;color:var(--text);font-size:inherit}
+.org-src-container{position:relative;margin-bottom:1.5rem}
+.org-src-container>pre{margin:0}
+.org-src-container label{position:absolute;top:0.5rem;right:0.8rem;font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.05em}
+blockquote{border-left:3px solid var(--accent);background:var(--surface);padding:1rem 1.5rem;margin:1.5rem 0;border-radius:0 6px 6px 0;color:var(--text-muted);font-style:italic}
+table{border-collapse:collapse;width:100%;margin-bottom:1.5rem;font-size:0.9rem}
+th,td{border:1px solid var(--border);padding:0.6rem 1rem;text-align:left}
+th{background:var(--surface);font-weight:600;color:var(--text-muted)}
+tr:nth-child(even){background:var(--surface2)}
+img{max-width:100%;border-radius:8px;border:1px solid var(--border)}
+.tag span{font-family:'JetBrains Mono',monospace;font-size:0.75rem;background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:0.1em 0.5em;color:var(--green)}
+.timestamp{font-family:'JetBrains Mono',monospace;color:var(--text-muted);font-size:0.85rem}
+#postamble{margin-top:4rem;padding-top:2rem;border-top:1px solid var(--border);text-align:center;color:var(--text-muted);font-size:0.8rem;font-family:'JetBrains Mono',monospace}
+::selection{background:rgba(88,166,255,0.3)}
+::-webkit-scrollbar{width:8px;height:8px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--border);border-radius:4px}
+::-webkit-scrollbar-thumb:hover{background:var(--text-muted)}
+</style>
 </head>
 <body>
 <div id="content" class="content">
-<div id="table-of-contents" role="doc-toc">
+<nav id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org4f4dc30">1. How I wrote the vdebugger, a debugger in Rust for Linux Programs ?</a>
+<li><a href="#org5c1c1e0">How I wrote the vdebugger, a debugger in Rust for Linux Programs ?</a>
 <ul>
-<li><a href="#org2187905">1.1. Setting Up the Development Environment</a></li>
-<li><a href="#org7cc8ad9">1.2. Laying the Groundwork</a></li>
-<li><a href="#orgbf56266">1.3. Implementing Basic Debugger Functionality</a>
-<ul>
-<li><a href="#org8632095">1.3.1. Process Creation and Control</a></li>
-<li><a href="#orgc573e12">1.3.2. The Debugger Struct</a></li>
-<li><a href="#org1556b77">1.3.3. The Run Function</a></li>
-<li><a href="#orgf624bbd">1.3.4. Command Handling</a></li>
-<li><a href="#org6794bc1">1.3.5. Implementing Commands</a></li>
-</ul>
-</li>
-<li><a href="#org6026757">1.4. Conclusion</a></li>
-<li><a href="#org5336fa7">1.5. References</a></li>
+<li><a href="#org8eb1641">Setting Up the Development Environment</a></li>
+<li><a href="#orged07a05">Laying the Groundwork</a></li>
+<li><a href="#orgbe0448d">Implementing Basic Debugger Functionality</a></li>
+<li><a href="#org6b27101">Conclusion</a></li>
+<li><a href="#orgf9d3d00">References</a></li>
 </ul>
 </li>
 </ul>
 </div>
-</div>
-<div id="outline-container-org4f4dc30" class="outline-2">
-<h2 id="org4f4dc30"><span class="section-number-2">1.</span> How I wrote the vdebugger, a debugger in Rust for Linux Programs ?</h2>
-<div class="outline-text-2" id="text-1">
+</nav>
+<div id="outline-container-org5c1c1e0" class="outline-2">
+<h2 id="org5c1c1e0">How I wrote the vdebugger, a debugger in Rust for Linux Programs ?</h2>
+<div class="outline-text-2" id="text-org5c1c1e0">
 <p>
 As a passionate developer always looking to expand my skills, I recently embarked on an exciting project: creating a debugger in Rust for Linux programs. This article chronicles my journey, from setting up a reproducible development environment to implementing the core functionality of the debugger.
 </p>
@@ -56,9 +84,9 @@ As a passionate developer always looking to expand my skills, I recently embarke
 You can check the project at : <a href="https://github.com/SamuelVanie/vdebugger">the vdebugger repo</a>
 </p>
 </div>
-<div id="outline-container-org2187905" class="outline-3">
-<h3 id="org2187905"><span class="section-number-3">1.1.</span> Setting Up the Development Environment</h3>
-<div class="outline-text-3" id="text-1-1">
+<div id="outline-container-org8eb1641" class="outline-3">
+<h3 id="org8eb1641">Setting Up the Development Environment</h3>
+<div class="outline-text-3" id="text-org8eb1641">
 <p>
 I began by creating a robust and reproducible development environment using Nix.
 Here's how I set it up&hellip;
@@ -129,9 +157,9 @@ Pinning the nix version to the 24 permit to always pull the same version of the 
 </p>
 </div>
 </div>
-<div id="outline-container-org7cc8ad9" class="outline-3">
-<h3 id="org7cc8ad9"><span class="section-number-3">1.2.</span> Laying the Groundwork</h3>
-<div class="outline-text-3" id="text-1-2">
+<div id="outline-container-orged07a05" class="outline-3">
+<h3 id="orged07a05">Laying the Groundwork</h3>
+<div class="outline-text-3" id="text-orged07a05">
 <p>
 With the environment ready, I dove into the core concepts of debugger development. I quickly realized that a debugger operates as a parent process controlling a child process(the debugee). This led me to search for a Rust crate that could provide functionality similar to the C <code>fork()</code> system call.
 </p>
@@ -141,13 +169,13 @@ My search led me to the <code>nix</code> crate, which offers Rust bindings for m
 </p>
 </div>
 </div>
-<div id="outline-container-orgbf56266" class="outline-3">
-<h3 id="orgbf56266"><span class="section-number-3">1.3.</span> Implementing Basic Debugger Functionality</h3>
-<div class="outline-text-3" id="text-1-3">
+<div id="outline-container-orgbe0448d" class="outline-3">
+<h3 id="orgbe0448d">Implementing Basic Debugger Functionality</h3>
+<div class="outline-text-3" id="text-orgbe0448d">
 </div>
-<div id="outline-container-org8632095" class="outline-4">
-<h4 id="org8632095"><span class="section-number-4">1.3.1.</span> Process Creation and Control</h4>
-<div class="outline-text-4" id="text-1-3-1">
+<div id="outline-container-orgc57e06e" class="outline-4">
+<h4 id="orgc57e06e">Process Creation and Control</h4>
+<div class="outline-text-4" id="text-orgc57e06e">
 <p>
 In my main function, I implemented the following steps:
 </p>
@@ -159,9 +187,9 @@ In my main function, I implemented the following steps:
 </ol>
 </div>
 </div>
-<div id="outline-container-orgc573e12" class="outline-4">
-<h4 id="orgc573e12"><span class="section-number-4">1.3.2.</span> The Debugger Struct</h4>
-<div class="outline-text-4" id="text-1-3-2">
+<div id="outline-container-org27ec2eb" class="outline-4">
+<h4 id="org27ec2eb">The Debugger Struct</h4>
+<div class="outline-text-4" id="text-org27ec2eb">
 <p>
 To organize the debugger's functionality and have a better management of the parent process flow, I created a <code>Debugger</code> struct. The fields of this struct are :
 </p>
@@ -171,9 +199,9 @@ To organize the debugger's functionality and have a better management of the par
 </ul>
 </div>
 </div>
-<div id="outline-container-org1556b77" class="outline-4">
-<h4 id="org1556b77"><span class="section-number-4">1.3.3.</span> The Run Function</h4>
-<div class="outline-text-4" id="text-1-3-3">
+<div id="outline-container-org74408c0" class="outline-4">
+<h4 id="org74408c0">The Run Function</h4>
+<div class="outline-text-4" id="text-org74408c0">
 <p>
 The heart of our debugger is the <code>run</code> function. Here's how it operates:
 </p>
@@ -186,9 +214,9 @@ This ensures that we don't begin debugging until the child process is ready.</li
 </ol>
 </div>
 </div>
-<div id="outline-container-orgf624bbd" class="outline-4">
-<h4 id="orgf624bbd"><span class="section-number-4">1.3.4.</span> Command Handling</h4>
-<div class="outline-text-4" id="text-1-3-4">
+<div id="outline-container-orgfaccaa9" class="outline-4">
+<h4 id="orgfaccaa9">Command Handling</h4>
+<div class="outline-text-4" id="text-orgfaccaa9">
 <p>
 To manage the various debugging commands, I implemented the following system:
 </p>
@@ -209,13 +237,13 @@ This approach provides a flexible and extensible way to add new debugging comman
 </p>
 </div>
 </div>
-<div id="outline-container-org6794bc1" class="outline-4">
-<h4 id="org6794bc1"><span class="section-number-4">1.3.5.</span> Implementing Commands</h4>
-<div class="outline-text-4" id="text-1-3-5">
+<div id="outline-container-org1be43a2" class="outline-4">
+<h4 id="org1be43a2">Implementing Commands</h4>
+<div class="outline-text-4" id="text-org1be43a2">
 </div>
-<ol class="org-ol">
-<li><a id="orgdfca0b8"></a>Continue<br />
-<div class="outline-text-5" id="text-1-3-5-1">
+<ul class="org-ul">
+<li><a id="org2216223"></a>Continue<br>
+<div class="outline-text-5" id="text-org2216223">
 <p>
 When the user enters the "continue" command, <code>handle_command</code> recognizes it and calls the <code>continue</code> command. The continue function uses the <code>cont</code> function from the nix crate to send a CONTINUE instruction to the debuggee program with its pid. (PTRACE<sub>CONT</sub> request sent to the tracee)
 </p>
@@ -225,15 +253,15 @@ This allows the debugged program to continue execution until the next breakpoint
 </p>
 </div>
 </li>
-<li><a id="org79c166d"></a>break<br />
-<div class="outline-text-5" id="text-1-3-5-2">
+<li><a id="org587c469"></a>break<br>
+<div class="outline-text-5" id="text-org587c469">
 <p>
 A crucial feature of any debugger is the ability to set and manage breakpoints. In my implementation, I've created a Breakpoint structure that encapsulates all necessary information for each breakpoint. Let's delve into the details of how this is implemented and used within the debugger.
 </p>
 </div>
-<ol class="org-ol">
-<li><a id="orgdad05e5"></a>The brekpoint structure<br />
-<div class="outline-text-6" id="text-1-3-5-2-1">
+<ul class="org-ul">
+<li><a id="org530b613"></a>The brekpoint structure<br>
+<div class="outline-text-6" id="text-org530b613">
 <p>
 The Breakpoint structure contains the following fields:
 </p>
@@ -261,8 +289,8 @@ The Breakpoint structure contains the following fields:
 </p>
 </div>
 </li>
-<li><a id="orgc7020a5"></a>Setting a breakpoint<br />
-<div class="outline-text-6" id="text-1-3-5-2-2">
+<li><a id="orge44a3f3"></a>Setting a breakpoint<br>
+<div class="outline-text-6" id="text-orge44a3f3">
 <p>
 The process of setting a breakpoint involves several steps:
 </p>
@@ -301,8 +329,8 @@ self.saved_data = (current_line &amp; 0xff) as i64;
 </ol>
 </div>
 </li>
-<li><a id="org6e4eefe"></a>Disabling a Breakpoint<br />
-<div class="outline-text-6" id="text-1-3-5-2-3">
+<li><a id="org6bfb6d9"></a>Disabling a Breakpoint<br>
+<div class="outline-text-6" id="text-org6bfb6d9">
 <p>
 The process of disabling a breakpoint essentially reverses the steps taken to set it:
 </p>
@@ -342,8 +370,8 @@ The process of disabling a breakpoint essentially reverses the steps taken to se
 </ol>
 </div>
 </li>
-<li><a id="org0934b7d"></a>Software vs. Hardware Breakpoints<br />
-<div class="outline-text-6" id="text-1-3-5-2-4">
+<li><a id="org00e7cd9"></a>Software vs. Hardware Breakpoints<br>
+<div class="outline-text-6" id="text-org00e7cd9">
 <p>
 This implementation uses software breakpoints, which offer several advantages:
 </p>
@@ -361,8 +389,8 @@ While hardware breakpoints can be more efficient in some cases, their limited nu
 </p>
 </div>
 </li>
-<li><a id="org7f3d4a0"></a>Challenges and Considerations<br />
-<div class="outline-text-6" id="text-1-3-5-2-5">
+<li><a id="org173e5e3"></a>Challenges and Considerations<br>
+<div class="outline-text-6" id="text-org173e5e3">
 <p>
 Implementing breakpoints in this way comes with several challenges:
 </p>
@@ -380,17 +408,17 @@ Implementing breakpoints in this way comes with several challenges:
 </ol>
 </div>
 </li>
-</ol>
+</ul>
 </li>
-<li><a id="org6d1285f"></a>register<br />
-<div class="outline-text-5" id="text-1-3-5-3">
+<li><a id="org44de9bf"></a>register<br>
+<div class="outline-text-5" id="text-org44de9bf">
 <p>
 To enable the continuation of execution after hitting a breakpoint, it is essential to reset the program counter to the previous instruction. This involves implementing functionality to manipulate the registers of a program, particularly the program counter. 
 </p>
 </div>
-<ol class="org-ol">
-<li><a id="org0b7e6da"></a>Register Functions Implementation<br />
-<div class="outline-text-6" id="text-1-3-5-3-1">
+<ul class="org-ul">
+<li><a id="orgb052fd9"></a>Register Functions Implementation<br>
+<div class="outline-text-6" id="text-orgb052fd9">
 <p>
 The register module provides functionality to interact with the CPU registers of the debugged program. The key components are the Reg enum, the RegDescriptor struct, and functions to get, set, and manipulate register values.
 </p>
@@ -414,9 +442,9 @@ pub static REGISTERS_DESCRIPTORS: &amp;[RegDescriptor] = &amp;[ /*...*/ ];
 <li><b>RegDescriptor</b> : contains metadata about each register, including its name and DWARF index.</li>
 </ul>
 </div>
-<ol class="org-ol">
-<li><a id="org6d801d5"></a>Key functions<br />
-<div class="outline-text-7" id="text-1-3-5-3-1-1">
+<ul class="org-ul">
+<li><a id="org9ff072b"></a>Key functions<br>
+<div class="outline-text-7" id="text-org9ff072b">
 <ul class="org-ul">
 <li><p>
 <b>Register value getters and setters</b> :
@@ -450,10 +478,10 @@ This function permit to get the register value using its dwarf number.
 </p>
 </div>
 </li>
-</ol>
+</ul>
 </li>
-<li><a id="orgca7ab7b"></a>Modifying the debugger core logic<br />
-<div class="outline-text-6" id="text-1-3-5-3-2">
+<li><a id="orgcc439dc"></a>Modifying the debugger core logic<br>
+<div class="outline-text-6" id="text-orgcc439dc">
 <ul class="org-ul">
 <li><p>
 <b>Introducing a new step<sub>over</sub><sub>breakpoint</sub> function</b> :
@@ -488,8 +516,8 @@ To be able to manipulate registers in the debugger, I introduced new commands li
 </ul>
 </div>
 </li>
-<li><a id="orga54460a"></a>Challenges and Learnings<br />
-<div class="outline-text-6" id="text-1-3-5-3-3">
+<li><a id="orgd975a1f"></a>Challenges and Learnings<br>
+<div class="outline-text-6" id="text-orgd975a1f">
 <p>
 Developing this debugger presented several challenges:
 </p>
@@ -512,14 +540,14 @@ However, shese challenges provided valuable learning experiences. I gained a dee
 </ul>
 </div>
 </li>
-</ol>
+</ul>
 </li>
-</ol>
+</ul>
 </div>
 </div>
-<div id="outline-container-org6026757" class="outline-3">
-<h3 id="org6026757"><span class="section-number-3">1.4.</span> Conclusion</h3>
-<div class="outline-text-3" id="text-1-4">
+<div id="outline-container-org6b27101" class="outline-3">
+<h3 id="org6b27101">Conclusion</h3>
+<div class="outline-text-3" id="text-org6b27101">
 <p>
 Creating a debugger in Rust for Linux programs has been an enlightening journey. It has deepened my understanding of both Rust and the underlying mechanics of debugging tools. The project showcases the power of Rust in systems programming, demonstrating how it can be used to create robust, safe, and efficient tools for low-level system interactions.
 </p>
@@ -529,9 +557,9 @@ This experience has not only improved my Rust programming skills but also given 
 </p>
 </div>
 </div>
-<div id="outline-container-org5336fa7" class="outline-3">
-<h3 id="org5336fa7"><span class="section-number-3">1.5.</span> References</h3>
-<div class="outline-text-3" id="text-1-5">
+<div id="outline-container-orgf9d3d00" class="outline-3">
+<h3 id="orgf9d3d00">References</h3>
+<div class="outline-text-3" id="text-orgf9d3d00">
 <p>
 <a href="https://blog.tartanllama.xyz/writing-a-linux-debugger-setup/">Writing a linux debugger setup</a>
 </p>
@@ -548,7 +576,7 @@ This experience has not only improved my Rust programming skills but also given 
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Created: 2026-05-23 Sat 14:55</p>
+<p class="date">Created: 2026-05-23 Sat 15:05</p>
 </div>
 </body>
 </html>
