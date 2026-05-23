@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2026-05-23 Sat 15:05 -->
+<!-- 2026-05-23 Sat 15:18 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Obs-studio on wayland</title>
@@ -53,7 +53,11 @@ img{max-width:100%;border-radius:8px;border:1px solid var(--border)}
 ::-webkit-scrollbar-track{background:var(--bg)}
 ::-webkit-scrollbar-thumb{background:var(--border);border-radius:4px}
 ::-webkit-scrollbar-thumb:hover{background:var(--text-muted)}
+nav.back-home{position:fixed;top:1.2rem;right:1.5rem;z-index:999}
+nav.back-home a{font-family:'JetBrains Mono',monospace;font-size:0.8rem;color:var(--text-muted);background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:0.4rem 0.8rem;text-decoration:none;transition:all 0.2s}
+nav.back-home a:hover{color:var(--accent);border-color:var(--accent);text-decoration:none}
 </style>
+<nav class="back-home"><a href="index.html">← Home</a></nav>
 </head>
 <body>
 <div id="content" class="content">
@@ -63,13 +67,13 @@ img{max-width:100%;border-radius:8px;border:1px solid var(--border)}
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgd82fb83">Use obs-studio on wayland</a></li>
+<li><a href="#org7e3f29e">Use obs-studio on wayland</a></li>
 </ul>
 </div>
 </nav>
-<div id="outline-container-orgd82fb83" class="outline-2">
-<h2 id="orgd82fb83">Use obs-studio on wayland</h2>
-<div class="outline-text-2" id="text-orgd82fb83">
+<div id="outline-container-org7e3f29e" class="outline-2">
+<h2 id="org7e3f29e">Use obs-studio on wayland</h2>
+<div class="outline-text-2" id="text-org7e3f29e">
 <p>
 I couldn't get obs-studio to work first try, like right after installing it on wayland (arch-linux).
 I wasn't able to see any output.
@@ -86,7 +90,7 @@ You should be able to then see some new entry about <b>wayland (dmabuf)</b>, thi
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Created: 2026-05-23 Sat 15:05</p>
+<p class="date">Created: 2026-05-23 Sat 15:18</p>
 </div>
 </body>
 </html>

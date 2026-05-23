@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2026-05-23 Sat 15:05 -->
+<!-- 2026-05-23 Sat 15:18 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>&lrm;</title>
@@ -53,7 +53,11 @@ img{max-width:100%;border-radius:8px;border:1px solid var(--border)}
 ::-webkit-scrollbar-track{background:var(--bg)}
 ::-webkit-scrollbar-thumb{background:var(--border);border-radius:4px}
 ::-webkit-scrollbar-thumb:hover{background:var(--text-muted)}
+nav.back-home{position:fixed;top:1.2rem;right:1.5rem;z-index:999}
+nav.back-home a{font-family:'JetBrains Mono',monospace;font-size:0.8rem;color:var(--text-muted);background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:0.4rem 0.8rem;text-decoration:none;transition:all 0.2s}
+nav.back-home a:hover{color:var(--accent);border-color:var(--accent);text-decoration:none}
 </style>
+<nav class="back-home"><a href="index.html">← Home</a></nav>
 </head>
 <body>
 <div id="content" class="content">
@@ -61,17 +65,17 @@ img{max-width:100%;border-radius:8px;border:1px solid var(--border)}
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org3431d2d">Hash tables</a>
+<li><a href="#org410817d">Hash tables</a>
 <ul>
-<li><a href="#org36dbb25">Simple insertion steps</a></li>
+<li><a href="#org43e39d8">Simple insertion steps</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </nav>
-<div id="outline-container-org3431d2d" class="outline-2">
-<h2 id="org3431d2d">Hash tables</h2>
-<div class="outline-text-2" id="text-org3431d2d">
+<div id="outline-container-org410817d" class="outline-2">
+<h2 id="org410817d">Hash tables</h2>
+<div class="outline-text-2" id="text-org410817d">
 <ul class="org-ul">
 <li>Hash table maps keys to value for highly efficient lookup.</li>
 <li>There are two ways to implements them :
@@ -81,9 +85,9 @@ img{max-width:100%;border-radius:8px;border:1px solid var(--border)}
 </dl></li>
 </ul>
 </div>
-<div id="outline-container-org36dbb25" class="outline-3">
-<h3 id="org36dbb25">Simple insertion steps</h3>
-<div class="outline-text-3" id="text-org36dbb25">
+<div id="outline-container-org43e39d8" class="outline-3">
+<h3 id="org43e39d8">Simple insertion steps</h3>
+<div class="outline-text-3" id="text-org43e39d8">
 <ol class="org-ol">
 <li>First, <b>compute the key's hash code</b> to make correspondance with its place in our datastructure. (<i>Two different keys could have the same hash code, because there may be an infinite number of keys and a finite number of places where to store your keys' values</i>)</li>
 <li><b>Map the hash code to an index</b> in the array (first method). You could do that using something like <code>hash(key) % array_length</code>. (<i>Two different hash codes could map to the same index</i>)</li>
@@ -91,7 +95,7 @@ img{max-width:100%;border-radius:8px;border:1px solid var(--border)}
 </ol>
 
 
-<div class="note" id="org1c6afde">
+<div class="note" id="orgf9f1e11">
 <p>
 To retrieve the value pair by its key, you repeat this process.
 </p>
@@ -113,7 +117,7 @@ To retrieve the value pair by its key, you repeat this process.
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Created: 2026-05-23 Sat 15:05</p>
+<p class="date">Created: 2026-05-23 Sat 15:18</p>
 </div>
 </body>
 </html>
