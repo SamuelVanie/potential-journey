@@ -6,91 +6,164 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Samuel Michael Vanie's blog</title>
     <style>
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@300;400;600&display=swap');
+
       :root {
-        --primary-color: #1a5f7a;
-        --secondary-color: #57c5b6;
-        --background-color: #f0f8ff;
-        --text-color: #333;
-        --link-color: #159895;
+        --bg: #0d1117;
+        --surface: #161b22;
+        --border: #30363d;
+        --text: #e6edf3;
+        --text-muted: #8b949e;
+        --accent: #58a6ff;
+        --accent-glow: rgba(88, 166, 255, 0.15);
+        --green: #3fb950;
+        --purple: #bc8cff;
       }
+
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+
       body {
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-        line-height: 1.6;
-        margin: 0;
-        padding: 0;
-        background-color: var(--background-color);
-        color: var(--text-color);
+        font-family: 'Inter', -apple-system, sans-serif;
+        background-color: var(--bg);
+        color: var(--text);
+        line-height: 1.7;
+        min-height: 100vh;
       }
+
       .container {
-        max-width: 800px;
+        max-width: 720px;
         margin: 0 auto;
-        padding: 20px;
+        padding: 4rem 2rem;
       }
+
       header {
-        background-color: var(--primary-color);
-        color: white;
-        text-align: center;
-        padding: 1em 0;
-        margin-bottom: 2em;
+        margin-bottom: 4rem;
       }
+
+      .greeting {
+        font-family: 'JetBrains Mono', monospace;
+        color: var(--green);
+        font-size: 0.9rem;
+        margin-bottom: 0.5rem;
+        opacity: 0.9;
+      }
+
+      .greeting::before {
+        content: '$ ';
+        color: var(--text-muted);
+      }
+
       h1 {
-        margin: 0;
+        font-size: 2.2rem;
+        font-weight: 600;
+        margin-bottom: 0.75rem;
+        background: linear-gradient(135deg, var(--accent), var(--purple));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
       }
+
+      .subtitle {
+        color: var(--text-muted);
+        font-size: 1.05rem;
+        max-width: 500px;
+      }
+
       h2 {
-        color: var(--primary-color);
-        border-bottom: 2px solid var(--secondary-color);
-        padding-bottom: 0.5em;
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--text-muted);
+        margin-bottom: 1.5rem;
+        padding-bottom: 0.75rem;
+        border-bottom: 1px solid var(--border);
       }
+
+      h2::before {
+        content: '// ';
+        color: var(--border);
+      }
+
       ul {
-        list-style-type: none;
-        padding: 0;
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
       }
+
       li {
-        margin-bottom: 1em;
-        background-color: white;
-        border-radius: 5px;
-        padding: 1em;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s ease;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        transition: all 0.2s ease;
       }
+
       li:hover {
-        transform: translateY(-5px);
+        border-color: var(--accent);
+        box-shadow: 0 0 20px var(--accent-glow);
+        transform: translateX(4px);
       }
-      a {
-        color: var(--link-color);
+
+      li a {
+        display: block;
+        padding: 1.1rem 1.4rem;
+        color: var(--text);
         text-decoration: none;
-        font-weight: bold;
+        font-weight: 400;
+        font-size: 1rem;
+        position: relative;
       }
-      a:hover {
-        text-decoration: underline;
+
+      li a::after {
+        content: '→';
+        position: absolute;
+        right: 1.4rem;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--text-muted);
+        opacity: 0;
+        transition: opacity 0.2s ease, transform 0.2s ease;
       }
+
+      li:hover a::after {
+        opacity: 1;
+        transform: translateY(-50%) translateX(3px);
+      }
+
+      li:hover a {
+        color: var(--accent);
+      }
+
       footer {
+        margin-top: 4rem;
+        padding-top: 2rem;
+        border-top: 1px solid var(--border);
         text-align: center;
-        margin-top: 2em;
-        padding: 1em 0;
-        background-color: var(--primary-color);
-        color: white;
+        color: var(--text-muted);
+        font-size: 0.85rem;
+        font-family: 'JetBrains Mono', monospace;
       }
     </style>
   </head>
   <body>
-    <h1>Samuel Michael Vanie's journey</h1>
-    <p>Here you'll find articles about my programming journey and projects.</p>
+    <div class="container">
+      <header>
+        <p class="greeting">whoami</p>
+        <h1>Samuel Michael Vanie</h1>
+        <p class="subtitle">Articles about my programming journey, projects, and the tools I use.</p>
+      </header>
 
-    <h2>Articles</h2>
-    <ul>
-      <li>
-        <a href="bevy_rust_setup.html">How to setup a bevy rust environment</a>
-      </li>
-      <li>
-        <a href="debugger.html"
-          >My Journey: Writing a Debugger in Rust for Linux Programs</a
-        >
-      </li>
-      <!-- Add more articles here as you write them -->
-      <li><a href="using-emacs.html">Enter the cult of emacs</a></li>
-      <li><a href="obs-studio-wayland.html">Make obs-studio work on wayland</a></ul>
-      <li><a href="consulting-apprentice.html">My job as a consultant</a></li>   
-    </ul>
+      <h2>Articles</h2>
+      <ul>
+        <li><a href="bevy_rust_setup.html">How to setup a Bevy Rust environment</a></li>
+        <li><a href="debugger.html">My Journey: Writing a Debugger in Rust for Linux Programs</a></li>
+        <li><a href="using-emacs.html">Enter the cult of Emacs</a></li>
+        <li><a href="obs-studio-wayland.html">Make OBS Studio work on Wayland</a></li>
+        <li><a href="consulting-apprentice.html">My job as a consultant</a></li>
+      </ul>
+
+      <footer>built with curiosity & caffeine</footer>
+    </div>
   </body>
 </html>
