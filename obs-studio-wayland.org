@@ -1,4 +1,4 @@
-#+SETUPFILE: ./org-html-themes/org/html-theme-readtheorg.setup
+#+SETUPFILE: ./org/theme-dark-dev.setup
 #+title: Obs-studio on wayland
 
 * Use obs-studio on wayland
