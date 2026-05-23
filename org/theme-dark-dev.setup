@@ -45,6 +45,10 @@
 #+HTML_HEAD: ::-webkit-scrollbar-track{background:var(--bg)}
 #+HTML_HEAD: ::-webkit-scrollbar-thumb{background:var(--border);border-radius:4px}
 #+HTML_HEAD: ::-webkit-scrollbar-thumb:hover{background:var(--text-muted)}
+#+HTML_HEAD: nav.back-home{position:fixed;top:1.2rem;right:1.5rem;z-index:999}
+#+HTML_HEAD: nav.back-home a{font-family:'JetBrains Mono',monospace;font-size:0.8rem;color:var(--text-muted);background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:0.4rem 0.8rem;text-decoration:none;transition:all 0.2s}
+#+HTML_HEAD: nav.back-home a:hover{color:var(--accent);border-color:var(--accent);text-decoration:none}
 #+HTML_HEAD: </style>
+#+HTML_HEAD: <nav class="back-home"><a href="index.html">← Home</a></nav>
 #+OPTIONS: html-style:nil html5-fancy:t num:nil toc:2
 #+HTML_DOCTYPE: html5
