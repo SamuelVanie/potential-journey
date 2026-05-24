@@ -6,3 +6,12 @@
 
 * What to work on ?
 - Presentation skill. Freestyle presentation should be as smooth as possible, maybe establish some pattern that you'll be using universally for all your presentation.
+
+* Experience with uncompetent people
+For the first time of my life, I loose, I was kept as the consultant for the mission.
+I had to team up with someone which is supposed to have more handful experiences than me. During the interview with the client I think I did my job (the others present at that interview agreed on this). Only that guy with which I teamed up, stated that the client's stack was the one he had mastered. 5 years of experience, supposed to be the techlead on the mission, supposed to be the tech stack that you've mastered, he was not capable of telling the different kinds of frontend applications that exists at this point of time (SPA, server rendered, ...). I'm still wondering what happened. Issue is he said "I don't know" to the majority of the questions of the client which I think was worrying.
+
+What lesson I keep :
+- Even if you don't know, that shouldn't be your answer, you have to reassure the client. Our company has a handful of competent people, is this setting maybe I can just state that people who has the knowledge will help me.
+- Always keep refreshing the basics of computing, I cannot grow like that one person.
+
