@@ -4,7 +4,7 @@
 <!-- 2026-06-06 Sat 20:59 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Obs-studio on wayland</title>
+<title>&lrm;</title>
 <meta name="generator" content="Org Mode" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -61,30 +61,96 @@ nav.back-home a:hover{color:var(--accent);border-color:var(--accent);text-decora
 </head>
 <body>
 <div id="content" class="content">
-<header>
-<h1 class="title">Obs-studio on wayland</h1>
-</header><nav id="table-of-contents" role="doc-toc">
+<nav id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org37f0b97">Use obs-studio on wayland</a></li>
+<li><a href="#orgc9a7129">How does frontend frameworks are built exactly ?</a></li>
+<li><a href="#orgbcaa87e">Templating</a></li>
 </ul>
 </div>
 </nav>
-<div id="outline-container-org37f0b97" class="outline-2">
-<h2 id="org37f0b97">Use obs-studio on wayland</h2>
-<div class="outline-text-2" id="text-org37f0b97">
+<div id="outline-container-orgc9a7129" class="outline-2">
+<h2 id="orgc9a7129">How does frontend frameworks are built exactly ?</h2>
+<div class="outline-text-2" id="text-orgc9a7129">
 <p>
-I couldn't get obs-studio to work first try, like right after installing it on wayland (arch-linux).
-I wasn't able to see any output.
+<a href="https://mfrachet.github.io/create-frontend-framework/vdom/existing.html">frontend frameworks by mfrachet</a>
 </p>
 
 <p>
-To fix it, after install it obs-studio, I've installed : <code>obs-vaapi</code> and <code>wlrobs</code>
+I'm not a frontend developer. I hate that. But I love programming. So even the stuff I hate has their places in my heart.
 </p>
 
 <p>
-You should be able to then see some new entry about <b>wayland (dmabuf)</b>, this is the one you should use to access your displays.
+It's the weekend, I don't want to work on any project, just want to chill out. So I decided to read more about some terminologies (<code>repository, service, controllers, etc</code>) : things you know but still need to revise from time to time (exactly like DSA).
+</p>
+
+<p>
+Then while reading I thought about React and how are frontend framework are built.
+</p>
+
+<p>
+That's the story my future self, for us to never forget this we decided to write down what we've learned.
+</p>
+</div>
+</div>
+<div id="outline-container-orgbcaa87e" class="outline-2">
+<h2 id="orgbcaa87e">Templating</h2>
+<div class="outline-text-2" id="text-orgbcaa87e">
+<p>
+Template are one of the core elements of frontend frameworks.
+</p>
+
+<p>
+They permit to inject data, to reuse components, to build interfaces faster while injecting the data.
+</p>
+
+<p>
+Every frontend frameworks has their template engine, but the book I read used the simple example of the interpolation operator in js.
+</p>
+
+<p>
+Interpolation permits to contatenate more easily strings. In js they permits to add data's value directly into string, to manipulate strings into a certain manner using tagged interpolation.
+</p>
+
+<p>
+The latter is the system upon we base our implementation.
+</p>
+
+<p>
+Something like that :
+</p>
+
+<div class="org-src-container">
+<pre class="src src-js"><code>const createElement = tagName =&gt; (strings, ...args) =&gt; ({
+  type: tagName,
+  template: strings.reduce((acc, currentString, index) =&gt; `${acc}${currentString}${args[index] || ''}`, "")
+});
+
+export const div = createElement("div");
+export const p = createElement("p");
+</code></pre>
+</div>
+
+<p>
+With the type and content here, we can just do a check and inject the element into the DOM :
+</p>
+
+<div class="org-src-container">
+<pre class="src src-js"><code>export const User = ({ firstName, lastName }) =&gt; div`Hello ${firstName} ${lastName}`;
+
+import { div } from "./framework/element";
+import { User } from "./src/user";
+
+const firstName = "Anne-Marie";
+const lastName = "Koffi";
+
+init("#app", User({ firstName, lastName }));
+</code></pre>
+</div>
+
+<p>
+Here it's we have a component into our template system which is called div, which will return "Hello Sam Van"
 </p>
 </div>
 </div>
