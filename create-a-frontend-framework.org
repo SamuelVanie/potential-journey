@@ -1,0 +1,54 @@
+#+SETUPFILE: ./org/theme-dark-dev.setup
+* How does frontend frameworks are built exactly ?
+[[https://mfrachet.github.io/create-frontend-framework/vdom/existing.html][frontend frameworks by mfrachet]]
+
+I'm not a frontend developer. I hate that. But I love programming. So even the stuff I hate has their places in my heart.
+
+It's the weekend, I don't want to work on any project, just want to chill out. So I decided to read more about some terminologies (=repository, service, controllers, etc=) : things you know but still need to revise from time to time (exactly like DSA).
+
+Then while reading I thought about React and how are frontend framework are built.
+
+That's the story my future self, for us to never forget this we decided to write down what we've learned.
+
+
+* Templating
+
+Template are one of the core elements of frontend frameworks.
+
+They permit to inject data, to reuse components, to build interfaces faster while injecting the data.
+
+Every frontend frameworks has their template engine, but the book I read used the simple example of the interpolation operator in js.
+
+Interpolation permits to contatenate more easily strings. In js they permits to add data's value directly into string, to manipulate strings into a certain manner using tagged interpolation.
+
+The latter is the system upon we base our implementation.
+
+Something like that :
+
+#+begin_src js
+const createElement = tagName => (strings, ...args) => ({
+  type: tagName,
+  template: strings.reduce((acc, currentString, index) => `${acc}${currentString}${args[index] || ''}`, "")
+});
+
+export const div = createElement("div");
+export const p = createElement("p");
+#+end_src
+
+With the type and content here, we can just do a check and inject the element into the DOM :
+
+#+begin_src js
+  export const User = ({ firstName, lastName }) => div`Hello ${firstName} ${lastName}`;
+
+  import { div } from "./framework/element";
+  import { User } from "./src/user";
+
+  const firstName = "Anne-Marie";
+  const lastName = "Koffi";
+
+  init("#app", User({ firstName, lastName }));
+#+end_src
+
+Here it's we have a component into our template system which is called div, which will return "Hello Sam Van"
+
+
