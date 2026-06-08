@@ -17,9 +17,9 @@ Template are one of the core elements of frontend frameworks.
 
 They permit to inject data, to reuse components, to build interfaces faster while injecting the data.
 
-Every frontend frameworks has their template engine, but the book I read used the simple example of the interpolation operator in js.
+Every frontend frameworks has their template engine, but the book I read used the simple example of the interpolation operator (also called template literals) in js.
 
-Interpolation permits to contatenate more easily strings. In js they permits to add data's value directly into string, to manipulate strings into a certain manner using tagged interpolation.
+Template literals permits to contatenate more easily strings. In js they permits to add data's value directly into string, to manipulate strings into a certain manner using custom functions : when using a function instead of the simple template literals, it's tagged template literals that you're manipulating.
 
 The latter is the system upon we base our implementation.
 
@@ -51,4 +51,12 @@ With the type and content here, we can just do a check and inject the element in
 
 Here it's we have a component into our template system which is called div, which will return "Hello Sam Van"
 
+
+* What's virtual DOM
+
+As we saw in the previous section, we often need to inject new elements into the DOM. The virtual DOM is a copy of the DOM that we keep into the framework to do DOM manipulation and at some point of time we update the real DOM using the elements of that virtual DOM (this process is called =reconcialation=).
+
+We do that because manipulating the real DOM takes time that we cannot afford.
+
+snabbdom : a library that permits to do that for us
 
