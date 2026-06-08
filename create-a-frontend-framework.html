@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2026-06-06 Sat 20:59 -->
+<!-- 2026-06-08 Mon 05:49 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>&lrm;</title>
@@ -65,14 +65,15 @@ nav.back-home a:hover{color:var(--accent);border-color:var(--accent);text-decora
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgc9a7129">How does frontend frameworks are built exactly ?</a></li>
-<li><a href="#orgbcaa87e">Templating</a></li>
+<li><a href="#org99b82b0">How does frontend frameworks are built exactly ?</a></li>
+<li><a href="#org1d883ab">Templating</a></li>
+<li><a href="#orgd80fff0">What's virtual DOM</a></li>
 </ul>
 </div>
 </nav>
-<div id="outline-container-orgc9a7129" class="outline-2">
-<h2 id="orgc9a7129">How does frontend frameworks are built exactly ?</h2>
-<div class="outline-text-2" id="text-orgc9a7129">
+<div id="outline-container-org99b82b0" class="outline-2">
+<h2 id="org99b82b0">How does frontend frameworks are built exactly ?</h2>
+<div class="outline-text-2" id="text-org99b82b0">
 <p>
 <a href="https://mfrachet.github.io/create-frontend-framework/vdom/existing.html">frontend frameworks by mfrachet</a>
 </p>
@@ -94,9 +95,9 @@ That's the story my future self, for us to never forget this we decided to write
 </p>
 </div>
 </div>
-<div id="outline-container-orgbcaa87e" class="outline-2">
-<h2 id="orgbcaa87e">Templating</h2>
-<div class="outline-text-2" id="text-orgbcaa87e">
+<div id="outline-container-org1d883ab" class="outline-2">
+<h2 id="org1d883ab">Templating</h2>
+<div class="outline-text-2" id="text-org1d883ab">
 <p>
 Template are one of the core elements of frontend frameworks.
 </p>
@@ -106,11 +107,11 @@ They permit to inject data, to reuse components, to build interfaces faster whil
 </p>
 
 <p>
-Every frontend frameworks has their template engine, but the book I read used the simple example of the interpolation operator in js.
+Every frontend frameworks has their template engine, but the book I read used the simple example of the interpolation operator (also called template literals) in js.
 </p>
 
 <p>
-Interpolation permits to contatenate more easily strings. In js they permits to add data's value directly into string, to manipulate strings into a certain manner using tagged interpolation.
+Template literals permits to contatenate more easily strings. In js they permits to add data's value directly into string, to manipulate strings into a certain manner using custom functions : when using a function instead of the simple template literals, it's tagged template literals that you're manipulating.
 </p>
 
 <p>
@@ -154,9 +155,25 @@ Here it's we have a component into our template system which is called div, whic
 </p>
 </div>
 </div>
+<div id="outline-container-orgd80fff0" class="outline-2">
+<h2 id="orgd80fff0">What's virtual DOM</h2>
+<div class="outline-text-2" id="text-orgd80fff0">
+<p>
+As we saw in the previous section, we often need to inject new elements into the DOM. The virtual DOM is a copy of the DOM that we keep into the framework to do DOM manipulation and at some point of time we update the real DOM using the elements of that virtual DOM (this process is called <code>reconcialation</code>).
+</p>
+
+<p>
+We do that because manipulating the real DOM takes time that we cannot afford.
+</p>
+
+<p>
+snabbdom : a library that permits to do that for us
+</p>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Created: 2026-06-06 Sat 20:59</p>
+<p class="date">Created: 2026-06-08 Mon 05:49</p>
 </div>
 </body>
 </html>

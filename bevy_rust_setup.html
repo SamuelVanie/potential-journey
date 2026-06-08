@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2026-06-06 Sat 20:59 -->
+<!-- 2026-06-08 Mon 05:49 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>&lrm;</title>
@@ -65,31 +65,31 @@ nav.back-home a:hover{color:var(--accent);border-color:var(--accent);text-decora
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgc7dfad1">How to setup bevy for web based game ?</a>
+<li><a href="#org0f77f1c">How to setup bevy for web based game ?</a>
 <ul>
-<li><a href="#orgcf829fa">Prerequisites</a></li>
-<li><a href="#org1f2af1f">Creating a Bevy Project</a></li>
-<li><a href="#org3dd1ca6">Writing Some Code</a></li>
-<li><a href="#org1dab8b5">Building and Running the Game</a></li>
-<li><a href="#org9095246">Result</a></li>
-<li><a href="#org99d3987">Deploying the Game</a></li>
-<li><a href="#org84ff51a">Conclusion</a></li>
-<li><a href="#org414c847">References</a></li>
+<li><a href="#org0ae5291">Prerequisites</a></li>
+<li><a href="#orgca39278">Creating a Bevy Project</a></li>
+<li><a href="#orgb9f4a21">Writing Some Code</a></li>
+<li><a href="#orgb1a6b26">Building and Running the Game</a></li>
+<li><a href="#org9fcbc14">Result</a></li>
+<li><a href="#orgdba2032">Deploying the Game</a></li>
+<li><a href="#orgca12678">Conclusion</a></li>
+<li><a href="#orgac6ad99">References</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </nav>
-<div id="outline-container-orgc7dfad1" class="outline-2">
-<h2 id="orgc7dfad1">How to setup bevy for web based game ?</h2>
-<div class="outline-text-2" id="text-orgc7dfad1">
+<div id="outline-container-org0f77f1c" class="outline-2">
+<h2 id="org0f77f1c">How to setup bevy for web based game ?</h2>
+<div class="outline-text-2" id="text-org0f77f1c">
 <p>
 Bevy is a fast and flexible game engine written in Rust that supports both native and web platforms. In this article, we will show you how to setup Bevy with Trunk, a tool that simplifies the development and deployment of web applications using WebAssembly.
 </p>
 </div>
-<div id="outline-container-orgcf829fa" class="outline-3">
-<h3 id="orgcf829fa">Prerequisites</h3>
-<div class="outline-text-3" id="text-orgcf829fa">
+<div id="outline-container-org0ae5291" class="outline-3">
+<h3 id="org0ae5291">Prerequisites</h3>
+<div class="outline-text-3" id="text-org0ae5291">
 <p>
 Before we start, we need to install some tools and dependencies:
 </p>
@@ -103,9 +103,9 @@ Before we start, we need to install some tools and dependencies:
 </ul>
 </div>
 </div>
-<div id="outline-container-org1f2af1f" class="outline-3">
-<h3 id="org1f2af1f">Creating a Bevy Project</h3>
-<div class="outline-text-3" id="text-org1f2af1f">
+<div id="outline-container-orgca39278" class="outline-3">
+<h3 id="orgca39278">Creating a Bevy Project</h3>
+<div class="outline-text-3" id="text-orgca39278">
 <p>
 Next, we need to create a new Bevy project using Cargo, the Rust package manager. We can use the following command:
 </p>
@@ -135,9 +135,9 @@ Here, we specify that we want to use Bevy version 0.11, which added out of the t
 </p>
 </div>
 </div>
-<div id="outline-container-org3dd1ca6" class="outline-3">
-<h3 id="org3dd1ca6">Writing Some Code</h3>
-<div class="outline-text-3" id="text-org3dd1ca6">
+<div id="outline-container-orgb9f4a21" class="outline-3">
+<h3 id="orgb9f4a21">Writing Some Code</h3>
+<div class="outline-text-3" id="text-orgb9f4a21">
 <p>
 Now that we have our project set up, we can write some code to load a simple asset in our Bevy project and run it. For this example, we will use an asset file that I downloaded on the internet. You should start by creating an <code>asset</code> folder at the root of your project (<code>bevy_web_game/asset</code>). You can copy and paste the code from there into your <code>src/main.rs</code> file, or write or your own logic.
 </p>
@@ -228,9 +228,9 @@ Creating a camera that will be spawn at the center of the screen. <b>The (0,0) p
 </div>
 </div>
 </div>
-<div id="outline-container-org1dab8b5" class="outline-3">
-<h3 id="org1dab8b5">Building and Running the Game</h3>
-<div class="outline-text-3" id="text-org1dab8b5">
+<div id="outline-container-orgb1a6b26" class="outline-3">
+<h3 id="orgb1a6b26">Building and Running the Game</h3>
+<div class="outline-text-3" id="text-orgb1a6b26">
 <p>
 To build our game for the web, we need to use Trunk. Trunk provides a simple command line interface that automates the process of compiling our Rust code to WebAssembly, generating JavaScript bindings, bundling assets, and serving our application on a local server.
 </p>
@@ -290,17 +290,17 @@ Trunk also supports live reloading, which means that any changes we make to our 
 </p>
 </div>
 </div>
-<div id="outline-container-org9095246" class="outline-3">
-<h3 id="org9095246">Result</h3>
-<div class="outline-text-3" id="text-org9095246">
+<div id="outline-container-org9fcbc14" class="outline-3">
+<h3 id="org9fcbc14">Result</h3>
+<div class="outline-text-3" id="text-org9fcbc14">
 </div>
-<div id="outline-container-org6ab5eae" class="outline-4">
-<h4 id="org6ab5eae"><span class="todo TODO">TODO</span> ADD the image of the project (the cloud hosted image should be ready)</h4>
+<div id="outline-container-orgc352527" class="outline-4">
+<h4 id="orgc352527"><span class="todo TODO">TODO</span> ADD the image of the project (the cloud hosted image should be ready)</h4>
 </div>
 </div>
-<div id="outline-container-org99d3987" class="outline-3">
-<h3 id="org99d3987">Deploying the Game</h3>
-<div class="outline-text-3" id="text-org99d3987">
+<div id="outline-container-orgdba2032" class="outline-3">
+<h3 id="orgdba2032">Deploying the Game</h3>
+<div class="outline-text-3" id="text-orgdba2032">
 <p>
 To deploy our game to the web, we need to host our dist folder on some server that supports static files. There are many options for this, such as GitHub Pages, Netlify, Firebase Hosting, etc.
 </p>
@@ -314,17 +314,17 @@ After that, GitHub will generate a URL for our game that looks something like th
 </p>
 </div>
 </div>
-<div id="outline-container-org84ff51a" class="outline-3">
-<h3 id="org84ff51a">Conclusion</h3>
-<div class="outline-text-3" id="text-org84ff51a">
+<div id="outline-container-orgca12678" class="outline-3">
+<h3 id="orgca12678">Conclusion</h3>
+<div class="outline-text-3" id="text-orgca12678">
 <p>
 In this article, we have shown you how to setup Bevy with Trunk for web game programming. We have created a simple Bevy binary app and deployed it to the web using GitHub Pages. We hope this article has been helpful and inspiring for you to create your own web games using Bevy and Rust.
 </p>
 </div>
 </div>
-<div id="outline-container-org414c847" class="outline-3">
-<h3 id="org414c847">References</h3>
-<div class="outline-text-3" id="text-org414c847">
+<div id="outline-container-orgac6ad99" class="outline-3">
+<h3 id="orgac6ad99">References</h3>
+<div class="outline-text-3" id="text-orgac6ad99">
 <p>
 <a href="https://trunkrs.dev/#install">trunk doc</a>
 </p>
@@ -341,7 +341,7 @@ In this article, we have shown you how to setup Bevy with Trunk for web game pro
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Created: 2026-06-06 Sat 20:59</p>
+<p class="date">Created: 2026-06-08 Mon 05:49</p>
 </div>
 </body>
 </html>
