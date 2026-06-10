@@ -15,3 +15,18 @@ What lesson I keep :
 - Even if you don't know, that shouldn't be your answer, you have to reassure the client. Our company has a handful of competent people, is this setting maybe I can just state that people who has the knowledge will help me.
 - Always keep refreshing the basics of computing, I cannot grow like that one person.
 
+
+
+* What's DDD ?
+- Apparently it's just some framework, a method that permits to the non-technical side and the technical side of the company to communicate without ambiguity and build together a maintainable solution.
+
+- =Domain= : this is the perimeter of the company with its differents subdomains, its terms, its jargon, it goals
+- =subdomain= : this is just some part of the domain representing a functional zone
+- subdomains could be =core, generic, specific=
+  * =core= : a subdomain that corresponds to the market of the company, its target, whatever it produces
+  * =generic= : a subdomain that is something typical on the market and has already available solutions that we could use as-is (eg: IT service, RH, ...)
+  * =specific= : corresponds to something that is typical on the market but doesn't have pre-existing solutions. We will need to do custom development. With keeping in mind that we should reuse as much as possible and save cost. Could even delegate to humans some parts instead of automating.
+
+- =Bonded Context= : when we add the =ubiquitous language= and delimit elements of the subdomains that should evolve together and are related, we have a bounded context.
+
+- =agreggate= : Entity + Value Object. The operations goes through it and its =agreggate root=.
