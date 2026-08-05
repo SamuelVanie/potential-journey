@@ -388,10 +388,13 @@ You can reorganize the macros' kill ring.
 Start by listing them with : =list-keyboard-macros= and here it's you can modify them
 
 
-** Building a new ts mode
+* Building a new ts mode
 
 I'm taking inspiration on the go-ts-mode, so I'll use that as my reference to look for information and understand each parts of the ~500 lines of code project.
 
 - An Emacs Lisp syntax table defines how Emacs interprets characters for various syntactic purposes like highlighting, navigation (e.g., `forward-word`), and commenting. It assigns a "syntax class" and other properties to each character.
 
 
+* Lsp mode in java
+
+While working with lsp-mode and lsp-java in emacs, you may face some cryptic jdtls java errors, please bro, when that happens try to update the version of jdtls which is downloaded through the =lsp-java-jdt-download-url= (or similar). You'll just have to provide the proper link and test. You should do that before any configuration rabbit hole.

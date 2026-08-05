@@ -1,6 +1,12 @@
 #+SETUPFILE: ./org/theme-dark-dev.setup
 #+title: My job as a consultant
 
+
+* Some terminologies
+- =dto= : Data Transfer Object. Class that represents the shape of an object that will travel on the internet in the http requests.
+- =fonctionnal= : linked to the job. Could be considered like some kind of opposite to technical
+
+
 * What to keep in mind ?
 - Always prepare questions for meetings, that will permit to gather as much information possible from the client and will permit him to mature his idea
 
@@ -30,3 +36,8 @@ What lesson I keep :
 - =Bonded Context= : when we add the =ubiquitous language= and delimit elements of the subdomains that should evolve together and are related, we have a bounded context.
 
 - =agreggate= : Entity + Value Object. The operations goes through it and its =agreggate root=.
+
+
+* NestJS best practices
+
+- Use classes instead of interfaces for classes in NestJS for Dtos
