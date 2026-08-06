@@ -410,7 +410,7 @@ A full example of configuration that I've used for a project :
 
     ;; I've tried multiple version until one work
     ;; the one that was considering both the packages of the current project and the one from the default java libraries
-    (setq lsp-java-jdt-download-url "https://www.eclipse.org/downloads/download.php?file=jdtls/milestones/1.30.0/jdt-language-server-1.30.0-202311301503.tar.gz")
+    (setq lsp-java-jdt-download-url "https://www.eclipse.org/downloads/download.php?file=jdtls/milestones/1.32.0/jdt-language-server-1.32.0-202402011424.tar.gz")
 
     (add-hook 'lsp-mode-hook #'lsp-lens-mode)
     (add-hook 'java-ts-mode-hook #'lsp-java-boot-lens-mode)
