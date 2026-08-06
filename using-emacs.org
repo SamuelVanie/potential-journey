@@ -398,3 +398,28 @@ I'm taking inspiration on the go-ts-mode, so I'll use that as my reference to lo
 * Lsp mode in java
 
 While working with lsp-mode and lsp-java in emacs, you may face some cryptic jdtls java errors, please bro, when that happens try to update the version of jdtls which is downloaded through the =lsp-java-jdt-download-url= (or similar). You'll just have to provide the proper link and test. You should do that before any configuration rabbit hole.
+
+A full example of configuration that I've used for a project :
+
+#+begin_src emacs-lisp
+  (with-eval-after-load 'lsp-java
+    (setq lsp-java-configuration-runtimes '[(:name "JavaSE-21"
+                                                   :path "/Library/Java/JavaVirtualMachines/temurin-21.jdk/Contents/Home"
+                                                   :default t)])
+    (require 'lsp-java-boot) ;; was a springboot project
+
+    ;; I've tried multiple version until one work
+    ;; the one that was considering both the packages of the current project and the one from the default java libraries
+    (setq lsp-java-jdt-download-url "https://www.eclipse.org/downloads/download.php?file=jdtls/milestones/1.30.0/jdt-language-server-1.30.0-202311301503.tar.gz")
+
+    (add-hook 'lsp-mode-hook #'lsp-lens-mode)
+    (add-hook 'java-ts-mode-hook #'lsp-java-boot-lens-mode)
+
+    (let ((lombok-jar
+           (expand-file-name "/Users/test/.m2/repository/org/projectlombok/lombok/1.18.36/lombok-1.18.36.jar")))
+      (unless (file-exists-p lombok-jar)
+        (error "Lombok-Jar not found: %s" lombok-jar))
+
+      (setq lsp-java-jdt-ls-lombok-support-enabled t)
+      (add-to-list 'lsp-java-vmargs (concat "-javaagent:" lombok-jar))))
+#+end_src
