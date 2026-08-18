@@ -423,3 +423,10 @@ A full example of configuration that I've used for a project :
       (setq lsp-java-jdt-ls-lombok-support-enabled t)
       (add-to-list 'lsp-java-vmargs (concat "-javaagent:" lombok-jar))))
 #+end_src
+
+
+* Using company-mode instead
+
+To begin with I thought company was slow, but that's not the case, it's just the default that are not optimized you could check my configuration to know what to do.
+
+Second point, if you moved from corfu you know that you can corfu-insert-separator to fuzzy easily in the completion candidates. I didn't knew that company has it too through the binding : =C-M-s= by default. 
