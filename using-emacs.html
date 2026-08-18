@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2026-08-06 Thu 16:27 -->
+<!-- 2026-08-18 Tue 18:20 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Working inside emacs</title>
@@ -67,37 +67,38 @@ nav.back-home a:hover{color:var(--accent);border-color:var(--accent);text-decora
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgf5d77e1">Emacs tab</a></li>
-<li><a href="#org3b90281">Merge my linux and mac configuration</a></li>
-<li><a href="#org6220226">Set transparent background</a></li>
-<li><a href="#orgab837fd">Set up emacs to load pkgs installed from nix</a>
+<li><a href="#orgd56fafe">Emacs tab</a></li>
+<li><a href="#orgc5fd164">Merge my linux and mac configuration</a></li>
+<li><a href="#org11fd0cd">Set transparent background</a></li>
+<li><a href="#orgd6d4895">Set up emacs to load pkgs installed from nix</a>
 <ul>
-<li><a href="#org6b1109a">First solution [deprecated]</a></li>
-<li><a href="#orga558c94">Second solution</a></li>
-<li><a href="#orgbac1c08">Third solution</a></li>
+<li><a href="#org5628e67">First solution [deprecated]</a></li>
+<li><a href="#orgfb6ced4">Second solution</a></li>
+<li><a href="#org8783dd4">Third solution</a></li>
 </ul>
 </li>
-<li><a href="#org17fdeaf">How to code per file</a></li>
-<li><a href="#org57df3d9">How to scroll inside vterm</a></li>
-<li><a href="#org77cacfd">How to find then filter down and replace in emacs</a></li>
-<li><a href="#orgbee1a26">How to search for patterns in files in emacs using consult</a></li>
-<li><a href="#org572b0a5">Setting compilation environment variable</a></li>
-<li><a href="#orgd56eb20">Working with macros</a>
+<li><a href="#orgdc52d00">How to code per file</a></li>
+<li><a href="#org73f5bf9">How to scroll inside vterm</a></li>
+<li><a href="#org0ad1dbe">How to find then filter down and replace in emacs</a></li>
+<li><a href="#org7962239">How to search for patterns in files in emacs using consult</a></li>
+<li><a href="#org7de07a9">Setting compilation environment variable</a></li>
+<li><a href="#org3a0fb3b">Working with macros</a>
 <ul>
-<li><a href="#org9971ccc">Executing macros with variations</a></li>
-<li><a href="#org149451f">Editing macros interactively</a></li>
-<li><a href="#org1cb7f87">Switching between macros</a></li>
-<li><a href="#orgf9d0607">Reorganizing macros</a></li>
+<li><a href="#org1eb9037">Executing macros with variations</a></li>
+<li><a href="#org4e8b831">Editing macros interactively</a></li>
+<li><a href="#org90fc3ce">Switching between macros</a></li>
+<li><a href="#orgc277078">Reorganizing macros</a></li>
 </ul>
 </li>
-<li><a href="#orgf4db8ed">Building a new ts mode</a></li>
-<li><a href="#orgfa7111a">Lsp mode in java</a></li>
+<li><a href="#org5eefd1a">Building a new ts mode</a></li>
+<li><a href="#orgb5dcf2d">Lsp mode in java</a></li>
+<li><a href="#orgc588b74">Using company-mode instead</a></li>
 </ul>
 </div>
 </nav>
-<div id="outline-container-orgf5d77e1" class="outline-2">
-<h2 id="orgf5d77e1">Emacs tab</h2>
-<div class="outline-text-2" id="text-orgf5d77e1">
+<div id="outline-container-orgd56fafe" class="outline-2">
+<h2 id="orgd56fafe">Emacs tab</h2>
+<div class="outline-text-2" id="text-orgd56fafe">
 <blockquote>
 <p>
 How I manually insert tabs inside emacs ?
@@ -138,9 +139,9 @@ I bound this function to the key <code>C-&lt;tab&gt;</code> so that I can quickl
 </p>
 </div>
 </div>
-<div id="outline-container-org3b90281" class="outline-2">
-<h2 id="org3b90281">Merge my linux and mac configuration</h2>
-<div class="outline-text-2" id="text-org3b90281">
+<div id="outline-container-orgc5fd164" class="outline-2">
+<h2 id="orgc5fd164">Merge my linux and mac configuration</h2>
+<div class="outline-text-2" id="text-orgc5fd164">
 <blockquote>
 <p>
 How to execute a elisp bloc depending on whether you're on mac or linux ?
@@ -164,7 +165,7 @@ You just have to use a condition depending on what you want to execute on the cu
 Example :
 </p>
 
-<pre class="example" id="org00d2bec">
+<pre class="example" id="org9ca80d8">
 (cond
  ((eq system-type 'darwin)  ;; macOS
   (setq read-process-output-max (* 64 1024)))  ;; 64KB
@@ -181,9 +182,9 @@ Do not forget variable like <code>user-emacs-directory</code> that helps you and
 </blockquote>
 </div>
 </div>
-<div id="outline-container-org6220226" class="outline-2">
-<h2 id="org6220226">Set transparent background</h2>
-<div class="outline-text-2" id="text-org6220226">
+<div id="outline-container-org11fd0cd" class="outline-2">
+<h2 id="org11fd0cd">Set transparent background</h2>
+<div class="outline-text-2" id="text-org11fd0cd">
 <blockquote>
 <p>
 How to set transparent background in emacs ?
@@ -214,9 +215,9 @@ On mac, what worked :
 </div>
 </div>
 </div>
-<div id="outline-container-orgab837fd" class="outline-2">
-<h2 id="orgab837fd">Set up emacs to load pkgs installed from nix</h2>
-<div class="outline-text-2" id="text-orgab837fd">
+<div id="outline-container-orgd6d4895" class="outline-2">
+<h2 id="orgd6d4895">Set up emacs to load pkgs installed from nix</h2>
+<div class="outline-text-2" id="text-orgd6d4895">
 <blockquote>
 <p>
 How to load the packages that you installed from nix inside emacs ?
@@ -227,9 +228,9 @@ We're not talking about binaries, but emacs packages. Such packages should not m
 </p>
 </blockquote>
 </div>
-<div id="outline-container-org6b1109a" class="outline-3">
-<h3 id="org6b1109a">First solution [deprecated]</h3>
-<div class="outline-text-3" id="text-org6b1109a">
+<div id="outline-container-org5628e67" class="outline-3">
+<h3 id="org5628e67">First solution [deprecated]</h3>
+<div class="outline-text-3" id="text-org5628e67">
 <p>
 The first solution, which is the simplest, is to just open a devshell, in which you've installed and initialize the emacs packages. An example for julia environment
 </p>
@@ -274,9 +275,9 @@ The packages should be present and loaded after your run `emacs &amp;` in the de
 </p>
 </div>
 </div>
-<div id="outline-container-orga558c94" class="outline-3">
-<h3 id="orga558c94">Second solution</h3>
-<div class="outline-text-3" id="text-orga558c94">
+<div id="outline-container-orgfb6ced4" class="outline-3">
+<h3 id="orgfb6ced4">Second solution</h3>
+<div class="outline-text-3" id="text-orgfb6ced4">
 <blockquote>
 <p>
 Why bother with this second solution ?
@@ -393,9 +394,9 @@ You can add such call to your .dir-locals.el file inside the root directory of y
 </p>
 </div>
 </div>
-<div id="outline-container-orgbac1c08" class="outline-3">
-<h3 id="orgbac1c08">Third solution</h3>
-<div class="outline-text-3" id="text-orgbac1c08">
+<div id="outline-container-org8783dd4" class="outline-3">
+<h3 id="org8783dd4">Third solution</h3>
+<div class="outline-text-3" id="text-org8783dd4">
 <p>
 The last solution involves <a href="https://www.jetify.com/docs/devbox/installing-devbox">devbox</a>, it's a wrapper around nix that you could use without knowing the nix language. It's pretty cool if you only use nix as an dev environment manager.
 </p>
@@ -482,9 +483,9 @@ And that is it. Running <code>direnv-update-environment</code> will also add the
 </div>
 </div>
 </div>
-<div id="outline-container-org17fdeaf" class="outline-2">
-<h2 id="org17fdeaf">How to code per file</h2>
-<div class="outline-text-2" id="text-org17fdeaf">
+<div id="outline-container-orgdc52d00" class="outline-2">
+<h2 id="orgdc52d00">How to code per file</h2>
+<div class="outline-text-2" id="text-orgdc52d00">
 <p>
 This notes that I take requires me to modify my index.html file each time. I could've use a command to trigger the modification automatically. But the solution that came up first into my mind was to create a snippet that will only be available in that file. This way I can open my file add my new entry and that's it.
 </p>
@@ -506,9 +507,9 @@ So here's what I wrote on top on my file, it uses the <code>auto-yasnippet</code
 </p>
 </div>
 </div>
-<div id="outline-container-org57df3d9" class="outline-2">
-<h2 id="org57df3d9">How to scroll inside vterm</h2>
-<div class="outline-text-2" id="text-org57df3d9">
+<div id="outline-container-org73f5bf9" class="outline-2">
+<h2 id="org73f5bf9">How to scroll inside vterm</h2>
+<div class="outline-text-2" id="text-org73f5bf9">
 <p>
 vterm has multiple mode, it's not like eshell that permits you to scroll without restriction inside the terminal.
 </p>
@@ -522,9 +523,9 @@ The default binding for that is : <code>C-c C-t</code>
 </p>
 </div>
 </div>
-<div id="outline-container-org77cacfd" class="outline-2">
-<h2 id="org77cacfd">How to find then filter down and replace in emacs</h2>
-<div class="outline-text-2" id="text-org77cacfd">
+<div id="outline-container-org0ad1dbe" class="outline-2">
+<h2 id="org0ad1dbe">How to find then filter down and replace in emacs</h2>
+<div class="outline-text-2" id="text-org0ad1dbe">
 <p>
 You can find patterns in folders in Emacs using `find-grep`, `find-grep-dired` (which will only show the file names inside a dired buffer), `rgrep`, and similar commands. All of these will open a grep buffer that utilizes `compilation-mode` bindings.
 </p>
@@ -544,9 +545,9 @@ Once you have your desired selection, switch to `wgrep` mode (`wgrep-change-to-w
 </p>
 </div>
 </div>
-<div id="outline-container-orgbee1a26" class="outline-2">
-<h2 id="orgbee1a26">How to search for patterns in files in emacs using consult</h2>
-<div class="outline-text-2" id="text-orgbee1a26">
+<div id="outline-container-org7962239" class="outline-2">
+<h2 id="org7962239">How to search for patterns in files in emacs using consult</h2>
+<div class="outline-text-2" id="text-org7962239">
 <p>
 Consult is the search package that you use.
 </p>
@@ -561,7 +562,7 @@ You can also use directly filtering patterns, as those commands support the comm
 For example you can search in all files ending with <code>.org</code> by typing in the consult-ripgrep prompt :
 </p>
 
-<pre class="example" id="org5c6d26a">
+<pre class="example" id="org42c3896">
 #foo bar --glob=*.org or #foo bar -g *.org: Search into org files 
 #foo bar --glob=!*.org or #foo bar -g !*.org: Search into non org files
 #.* -F: Treat input as fixed string, and not as regular expression.
@@ -571,9 +572,9 @@ For example you can search in all files ending with <code>.org</code> by typing 
 </pre>
 </div>
 </div>
-<div id="outline-container-org572b0a5" class="outline-2">
-<h2 id="org572b0a5">Setting compilation environment variable</h2>
-<div class="outline-text-2" id="text-org572b0a5">
+<div id="outline-container-org7de07a9" class="outline-2">
+<h2 id="org7de07a9">Setting compilation environment variable</h2>
+<div class="outline-text-2" id="text-org7de07a9">
 <p>
 When you're coding inside emacs you might want to run some commands using the project-compile command, which is really powerfull.
 Sometimes you might want to set some compilation environment that is only needed during this command evaluation process, you don't need that variable outside. For example you might want to add some path to the PYTHONPATH for your project to correctly run.
@@ -596,13 +597,13 @@ instead of : <code>(setq compilation-environment '("PYTHONPATH=$PYTHONPATH:./src
 </p>
 </div>
 </div>
-<div id="outline-container-orgd56eb20" class="outline-2">
-<h2 id="orgd56eb20">Working with macros</h2>
-<div class="outline-text-2" id="text-orgd56eb20">
+<div id="outline-container-org3a0fb3b" class="outline-2">
+<h2 id="org3a0fb3b">Working with macros</h2>
+<div class="outline-text-2" id="text-org3a0fb3b">
 </div>
-<div id="outline-container-org9971ccc" class="outline-3">
-<h3 id="org9971ccc">Executing macros with variations</h3>
-<div class="outline-text-3" id="text-org9971ccc">
+<div id="outline-container-org1eb9037" class="outline-3">
+<h3 id="org1eb9037">Executing macros with variations</h3>
+<div class="outline-text-3" id="text-org1eb9037">
 <p>
 While recording macros, you can use the command <code>C-x q</code> to stop at some point.
 This command when you type it in the macro will not do anything but when you will play back the macro emacs will ask you wheter you want to continue the macro or not.
@@ -615,9 +616,9 @@ After you've finished, you can type <code>C-M-c</code> to leave that recursive s
 </p>
 </div>
 </div>
-<div id="outline-container-org149451f" class="outline-3">
-<h3 id="org149451f">Editing macros interactively</h3>
-<div class="outline-text-3" id="text-org149451f">
+<div id="outline-container-org4e8b831" class="outline-3">
+<h3 id="org4e8b831">Editing macros interactively</h3>
+<div class="outline-text-3" id="text-org4e8b831">
 <p>
 You can edit macros interactively, meaning while playing it.
 The shortcut for that is : <code>C-x C-k SPC</code>
@@ -628,9 +629,9 @@ The shortcut for that is : <code>C-x C-k SPC</code>
 </p>
 </div>
 </div>
-<div id="outline-container-org1cb7f87" class="outline-3">
-<h3 id="org1cb7f87">Switching between macros</h3>
-<div class="outline-text-3" id="text-org1cb7f87">
+<div id="outline-container-org90fc3ce" class="outline-3">
+<h3 id="org90fc3ce">Switching between macros</h3>
+<div class="outline-text-3" id="text-org90fc3ce">
 <p>
 As the previous point said, a macro ring exists. You are able to jump between one macro you've recorded or another without having to save them before and bind them.
 To do that :
@@ -639,9 +640,9 @@ To do that :
 </p>
 </div>
 </div>
-<div id="outline-container-orgf9d0607" class="outline-3">
-<h3 id="orgf9d0607">Reorganizing macros</h3>
-<div class="outline-text-3" id="text-orgf9d0607">
+<div id="outline-container-orgc277078" class="outline-3">
+<h3 id="orgc277078">Reorganizing macros</h3>
+<div class="outline-text-3" id="text-orgc277078">
 <p>
 You can reorganize the macros' kill ring.
 Start by listing them with : <code>list-keyboard-macros</code> and here it's you can modify them
@@ -649,9 +650,9 @@ Start by listing them with : <code>list-keyboard-macros</code> and here it's you
 </div>
 </div>
 </div>
-<div id="outline-container-orgf4db8ed" class="outline-2">
-<h2 id="orgf4db8ed">Building a new ts mode</h2>
-<div class="outline-text-2" id="text-orgf4db8ed">
+<div id="outline-container-org5eefd1a" class="outline-2">
+<h2 id="org5eefd1a">Building a new ts mode</h2>
+<div class="outline-text-2" id="text-org5eefd1a">
 <p>
 I'm taking inspiration on the go-ts-mode, so I'll use that as my reference to look for information and understand each parts of the ~500 lines of code project.
 </p>
@@ -661,9 +662,9 @@ I'm taking inspiration on the go-ts-mode, so I'll use that as my reference to lo
 </ul>
 </div>
 </div>
-<div id="outline-container-orgfa7111a" class="outline-2">
-<h2 id="orgfa7111a">Lsp mode in java</h2>
-<div class="outline-text-2" id="text-orgfa7111a">
+<div id="outline-container-orgb5dcf2d" class="outline-2">
+<h2 id="orgb5dcf2d">Lsp mode in java</h2>
+<div class="outline-text-2" id="text-orgb5dcf2d">
 <p>
 While working with lsp-mode and lsp-java in emacs, you may face some cryptic jdtls java errors, please bro, when that happens try to update the version of jdtls which is downloaded through the <code>lsp-java-jdt-download-url</code> (or similar). You'll just have to provide the proper link and test. You should do that before any configuration rabbit hole.
 </p>
@@ -697,9 +698,21 @@ A full example of configuration that I've used for a project :
 </div>
 </div>
 </div>
+<div id="outline-container-orgc588b74" class="outline-2">
+<h2 id="orgc588b74">Using company-mode instead</h2>
+<div class="outline-text-2" id="text-orgc588b74">
+<p>
+To begin with I thought company was slow, but that's not the case, it's just the default that are not optimized you could check my configuration to know what to do.
+</p>
+
+<p>
+Second point, if you moved from corfu you know that you can corfu-insert-separator to fuzzy easily in the completion candidates. I didn't knew that company has it too through the binding : <code>C-M-s</code> by default. 
+</p>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Created: 2026-08-06 Thu 16:27</p>
+<p class="date">Created: 2026-08-18 Tue 18:20</p>
 </div>
 </body>
 </html>
