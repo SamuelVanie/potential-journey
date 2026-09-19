@@ -1,0 +1,72 @@
+#+SETUPFILE: ./org/theme-dark-dev.setup
+
+* Core Concepts
+
+** What's cobol ?
+
+- COBOL (Common Business-Oriented Language)
+
+#+begin_src cobol
+IDENTIFICATION DIVISION.
+PROGRAM-ID. HELLO-WORLD.
+PROCEDURE DIVISION.
+    DISPLAY "Hello, business world!".
+    STOP RUN.
+#+end_src
+
+- Mainframe Platforms
+  + z/OS and OS/390 : IBM's mainframe operating systems where most enterprise cobol runs
+  + *JCL* (Job Control Language) mediates the relationship between COBOL programs and the OS
+  + Mainframe COBOL often *interfaces* with CICS, IMS, DB2, and other *mainframe subsystems
+    
+#+begin_quote
+COBOL program
+   ├── JCL / JES  → batch job execution
+   ├── CICS       → online transaction processing
+   ├── DB2        → relational database access
+   └── IMS        → transaction processing or hierarchical databases
+#+end_quote
+
+*** Exercise
+
+#+begin_src cobol
+IDENTIFICATION DIVISION.
+PROGRAM-ID. PAYROLL-CALC.
+ENVIRONMENT DIVISION.
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 EMPLOYEE-WAGE    PIC 9(5)V99.
+01 HOURS-WORKED     PIC 9(3)V99.
+01 WEEKLY-PAY       PIC 9(6)V99.
+PROCEDURE DIVISION.
+    MOVE 15.50 TO EMPLOYEE-WAGE.
+    MOVE 40.00 TO HOURS-WORKED.
+    COMPUTE WEEKLY-PAY = EMPLOYEE-WAGE * HOURS-WORKED.
+    DISPLAY "Weekly Pay: $" WEEKLY-PAY.
+    STOP RUN.
+#+end_src
+
+1. What do the numbers 9(5)V99 mean in the PICTURE clause ?
+:NOTES:
+That's really fun just repeat and you know what format the number has
+:END:
+
+#+begin_quote
+- =9= means **one numeric digit**, from =0= through =9=.
+- =(5)= repeats that digit five times: =99999=
+- =V= means an **implied decimal point**. It determines where the decimal is logically placed but usually isn’t stored or displayed as a character.
+- =9= provides two digits after the decimal point.
+#+end_quote
+
+2. Why is STOP RUN included at the end ?
+
+#+begin_quote
+=STOP RUN= tells COBOL to **end the program’s execution** and return control to the operating system. Similar to =return 0;= in C
+
+- A subprogram that was called by another COBOL program usually uses:
+  =cobol GOBACK=
+#+end_quote
+
+** Mainframe Environment
+
+
