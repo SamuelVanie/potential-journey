@@ -65,110 +65,110 @@ nav.back-home a:hover{color:var(--accent);border-color:var(--accent);text-decora
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org960b9d9">How does frontend frameworks are built exactly ?</a></li>
-<li><a href="#org1d12950">Templating</a></li>
-<li><a href="#org8dd5cdc">What's virtual DOM</a></li>
+<li><a href="#org6ac87f6">Core Concepts</a>
+<ul>
+<li><a href="#org31b4fba">What's cobol ?</a></li>
+<li><a href="#orgd4ae497">Mainframe Environment</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </nav>
-<div id="outline-container-org960b9d9" class="outline-2">
-<h2 id="org960b9d9">How does frontend frameworks are built exactly ?</h2>
-<div class="outline-text-2" id="text-org960b9d9">
-<p>
-<a href="https://mfrachet.github.io/create-frontend-framework/vdom/existing.html">frontend frameworks by mfrachet</a>
-</p>
-
-<p>
-I'm not a frontend developer. I hate that. But I love programming. So even the stuff I hate has their places in my heart.
-</p>
-
-<p>
-It's the weekend, I don't want to work on any project, just want to chill out. So I decided to read more about some terminologies (<code>repository, service, controllers, etc</code>) : things you know but still need to revise from time to time (exactly like DSA).
-</p>
-
-<p>
-Then while reading I thought about React and how are frontend framework are built.
-</p>
-
-<p>
-That's the story my future self, for us to never forget this we decided to write down what we've learned.
-</p>
+<div id="outline-container-org6ac87f6" class="outline-2">
+<h2 id="org6ac87f6">Core Concepts</h2>
+<div class="outline-text-2" id="text-org6ac87f6">
 </div>
-</div>
-<div id="outline-container-org1d12950" class="outline-2">
-<h2 id="org1d12950">Templating</h2>
-<div class="outline-text-2" id="text-org1d12950">
-<p>
-Template are one of the core elements of frontend frameworks.
-</p>
-
-<p>
-They permit to inject data, to reuse components, to build interfaces faster while injecting the data.
-</p>
-
-<p>
-Every frontend frameworks has their template engine, but the book I read used the simple example of the interpolation operator (also called template literals) in js.
-</p>
-
-<p>
-Template literals permits to contatenate more easily strings. In js they permits to add data's value directly into string, to manipulate strings into a certain manner using custom functions : when using a function instead of the simple template literals, it's tagged template literals that you're manipulating.
-</p>
-
-<p>
-The latter is the system upon we base our implementation.
-</p>
-
-<p>
-Something like that :
-</p>
+<div id="outline-container-org31b4fba" class="outline-3">
+<h3 id="org31b4fba">What's cobol ?</h3>
+<div class="outline-text-3" id="text-org31b4fba">
+<ul class="org-ul">
+<li>COBOL (Common Business-Oriented Language)</li>
+</ul>
 
 <div class="org-src-container">
-<pre class="src src-js"><code>const createElement = tagName =&gt; (strings, ...args) =&gt; ({
-  type: tagName,
-  template: strings.reduce((acc, currentString, index) =&gt; `${acc}${currentString}${args[index] || ''}`, "")
-});
-
-export const div = createElement("div");
-export const p = createElement("p");
+<pre class="src src-cobol"><code>IDENTIFICATION DIVISION.
+PROGRAM-ID. HELLO-WORLD.
+PROCEDURE DIVISION.
+    DISPLAY "Hello, business world!".
+    STOP RUN.
 </code></pre>
 </div>
 
+<ul class="org-ul">
+<li>Mainframe Platforms
+<ul class="org-ul">
+<li>z/OS and OS/390 : IBM's mainframe operating systems where most enterprise cobol runs</li>
+<li><b>JCL</b> (Job Control Language) mediates the relationship between COBOL programs and the OS</li>
+<li>Mainframe COBOL often <b>interfaces</b> with CICS, IMS, DB2, and other *mainframe subsystems</li>
+</ul></li>
+</ul>
+
+<blockquote>
 <p>
-With the type and content here, we can just do a check and inject the element into the DOM :
+COBOL program
+   ├── JCL / JES  → batch job execution
+   ├── CICS       → online transaction processing
+   ├── DB2        → relational database access
+   └── IMS        → transaction processing or hierarchical databases
 </p>
-
+</blockquote>
+</div>
+<div id="outline-container-org3058cae" class="outline-4">
+<h4 id="org3058cae">Exercise</h4>
+<div class="outline-text-4" id="text-org3058cae">
 <div class="org-src-container">
-<pre class="src src-js"><code>export const User = ({ firstName, lastName }) =&gt; div`Hello ${firstName} ${lastName}`;
-
-import { div } from "./framework/element";
-import { User } from "./src/user";
-
-const firstName = "Anne-Marie";
-const lastName = "Koffi";
-
-init("#app", User({ firstName, lastName }));
+<pre class="src src-cobol"><code>IDENTIFICATION DIVISION.
+PROGRAM-ID. PAYROLL-CALC.
+ENVIRONMENT DIVISION.
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 EMPLOYEE-WAGE    PIC 9(5)V99.
+01 HOURS-WORKED     PIC 9(3)V99.
+01 WEEKLY-PAY       PIC 9(6)V99.
+PROCEDURE DIVISION.
+    MOVE 15.50 TO EMPLOYEE-WAGE.
+    MOVE 40.00 TO HOURS-WORKED.
+    COMPUTE WEEKLY-PAY = EMPLOYEE-WAGE * HOURS-WORKED.
+    DISPLAY "Weekly Pay: $" WEEKLY-PAY.
+    STOP RUN.
 </code></pre>
 </div>
 
+<ol class="org-ol">
+<li>What do the numbers 9(5)V99 mean in the PICTURE clause ?</li>
+</ol>
 <p>
-Here it's we have a component into our template system which is called div, which will return "Hello Sam Van"
-</p>
-</div>
-</div>
-<div id="outline-container-org8dd5cdc" class="outline-2">
-<h2 id="org8dd5cdc">What's virtual DOM</h2>
-<div class="outline-text-2" id="text-org8dd5cdc">
-<p>
-As we saw in the previous section, we often need to inject new elements into the DOM. The virtual DOM is a copy of the DOM that we keep into the framework to do DOM manipulation and at some point of time we update the real DOM using the elements of that virtual DOM (this process is called <code>reconcialation</code>).
+That's really fun just repeat and you know what format the number has
 </p>
 
+<blockquote>
+<ul class="org-ul">
+<li><code>9</code> means <b><b>one numeric digit</b></b>, from <code>0</code> through <code>9</code>.</li>
+<li><code>(5)</code> repeats that digit five times: <code>99999</code></li>
+<li><code>V</code> means an <b><b>implied decimal point</b></b>. It determines where the decimal is logically placed but usually isn’t stored or displayed as a character.</li>
+<li><code>9</code> provides two digits after the decimal point.</li>
+</ul>
+</blockquote>
+
+<ol class="org-ol">
+<li>Why is STOP RUN included at the end ?</li>
+</ol>
+
+<blockquote>
 <p>
-We do that because manipulating the real DOM takes time that we cannot afford.
+<code>STOP RUN</code> tells COBOL to <b><b>end the program’s execution</b></b> and return control to the operating system. Similar to <code>return 0;</code> in C
 </p>
 
-<p>
-snabbdom : a library that permits to do that for us
-</p>
+<ul class="org-ul">
+<li>A subprogram that was called by another COBOL program usually uses:
+<code>cobol GOBACK</code></li>
+</ul>
+</blockquote>
+</div>
+</div>
+</div>
+<div id="outline-container-orgd4ae497" class="outline-3">
+<h3 id="orgd4ae497">Mainframe Environment</h3>
 </div>
 </div>
 </div>
