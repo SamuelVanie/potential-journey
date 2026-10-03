@@ -18,7 +18,7 @@ PROCEDURE DIVISION.
   + z/OS and OS/390 : IBM's mainframe operating systems where most enterprise cobol runs
   + *JCL* (Job Control Language) mediates the relationship between COBOL programs and the OS
   + Mainframe COBOL often *interfaces* with CICS, IMS, DB2, and other *mainframe subsystems
-    
+
 #+begin_quote
 COBOL program
    ├── JCL / JES  → batch job execution
@@ -68,5 +68,51 @@ That's really fun just repeat and you know what format the number has
 #+end_quote
 
 ** Mainframe Environment
+
+╭──────────────────────────────────────────────────────────╮
+│  System Components                                       │
+│  ╭───────────────────────────────────────╮               │
+│  │Hardware Layer (processor, mem, I/O)   │               │
+│  ╰───────────────────────────────────────╯               │
+│  ╭─────────────────────────────────────────────╮         │
+│  │z/OS:MVSbased OS with job,mem,IO management  │         │
+│  ╰─────────────────────────────────────────────╯         │
+│  ╭─────────────────────────────────────────────────────╮ │
+│  │subsystems (CICS, IMS, DB2):Transaction,DB,online sys│ │
+│  ╰─────────────────────────────────────────────────────╯ │
+│  ╭───────────────────────────────────────╮               │
+│  │Application (COBOL programs)           │               │
+│  ╰───────────────────────────────────────╯               │
+╰──────────────────────────────────────────────────────────╯
+
+- TSO (Time Sharing Option) : Interactive command line interface for z/OS
+  LISTCAT                       + List catalog entries
+  LISTDS                        + List dataset information
+  EDIT                          + Edit datasets
+  SUBMIT                        + Submit JCL Jobs
+  STATUS                        + Check job status
+  RECEIVE                       + Receive transmitted datasets
+  TRANSMIT                      + Send datasets to other users
+  ALLOCATE                      + Allocate new datatsets
+[[https://www.mainframemaster.com/tutorials/cobol/mainframe-environment][mainframe environment]]
+
+- ISPF (Interactive System Productivity Facility)
+  + Provides a menu-driven interface built on top of TSO
+
+╭────────────────────────────────────────────────────────────╮
+│ Typical Development Cycle                                  │
+│                                                            │
+│ 1 Edit source code                                         │
+│   Use ISPF Edit to create/modify COBOL programs            │
+│                                                            │
+│ 2 Submit Compile Job                                       │
+│   Submit JCL to compile COBOL source using ISPF (3.4 > S)  │
+│                                                            │
+│ 3 Check Output                                             │
+│   Use SDSF or ISPF Browse to view compilation results      │
+│                                                            │
+│ 4 Debug/Test                                               │
+│   Fix errors, test program execution, repeat as needed     │
+╰────────────────────────────────────────────────────────────╯
 
 
