@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2026-09-19 Sat 22:14 -->
+<!-- 2026-10-03 Sat 09:52 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>&lrm;</title>
@@ -65,22 +65,22 @@ nav.back-home a:hover{color:var(--accent);border-color:var(--accent);text-decora
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org6ac87f6">Core Concepts</a>
+<li><a href="#org0d06068">Core Concepts</a>
 <ul>
-<li><a href="#org31b4fba">What's cobol ?</a></li>
-<li><a href="#orgd4ae497">Mainframe Environment</a></li>
+<li><a href="#orgae6b0fc">What's cobol ?</a></li>
+<li><a href="#orgdcbe4a5">Mainframe Environment</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </nav>
-<div id="outline-container-org6ac87f6" class="outline-2">
-<h2 id="org6ac87f6">Core Concepts</h2>
-<div class="outline-text-2" id="text-org6ac87f6">
+<div id="outline-container-org0d06068" class="outline-2">
+<h2 id="org0d06068">Core Concepts</h2>
+<div class="outline-text-2" id="text-org0d06068">
 </div>
-<div id="outline-container-org31b4fba" class="outline-3">
-<h3 id="org31b4fba">What's cobol ?</h3>
-<div class="outline-text-3" id="text-org31b4fba">
+<div id="outline-container-orgae6b0fc" class="outline-3">
+<h3 id="orgae6b0fc">What's cobol ?</h3>
+<div class="outline-text-3" id="text-orgae6b0fc">
 <ul class="org-ul">
 <li>COBOL (Common Business-Oriented Language)</li>
 </ul>
@@ -113,9 +113,9 @@ COBOL program
 </p>
 </blockquote>
 </div>
-<div id="outline-container-org3058cae" class="outline-4">
-<h4 id="org3058cae">Exercise</h4>
-<div class="outline-text-4" id="text-org3058cae">
+<div id="outline-container-orgf14ed1e" class="outline-4">
+<h4 id="orgf14ed1e">Exercise</h4>
+<div class="outline-text-4" id="text-orgf14ed1e">
 <div class="org-src-container">
 <pre class="src src-cobol"><code>IDENTIFICATION DIVISION.
 PROGRAM-ID. PAYROLL-CALC.
@@ -167,13 +167,72 @@ That's really fun just repeat and you know what format the number has
 </div>
 </div>
 </div>
-<div id="outline-container-orgd4ae497" class="outline-3">
-<h3 id="orgd4ae497">Mainframe Environment</h3>
+<div id="outline-container-orgdcbe4a5" class="outline-3">
+<h3 id="orgdcbe4a5">Mainframe Environment</h3>
+<div class="outline-text-3" id="text-orgdcbe4a5">
+<p>
+╭──────────────────────────────────────────────────────────╮
+│  System Components                                       │
+│  ╭───────────────────────────────────────╮               │
+│  │Hardware Layer (processor, mem, I/O)   │               │
+│  ╰───────────────────────────────────────╯               │
+│  ╭─────────────────────────────────────────────╮         │
+│  │z/OS:MVSbased OS with job,mem,IO management  │         │
+│  ╰─────────────────────────────────────────────╯         │
+│  ╭─────────────────────────────────────────────────────╮ │
+│  │subsystems (CICS, IMS, DB2):Transaction,DB,online sys│ │
+│  ╰─────────────────────────────────────────────────────╯ │
+│  ╭───────────────────────────────────────╮               │
+│  │Application (COBOL programs)           │               │
+│  ╰───────────────────────────────────────╯               │
+╰──────────────────────────────────────────────────────────╯
+</p>
+
+<ul class="org-ul">
+<li>TSO (Time Sharing Option) : Interactive command line interface for z/OS
+LISTCAT                       + List catalog entries
+LISTDS                        + List dataset information
+EDIT                          + Edit datasets
+SUBMIT                        + Submit JCL Jobs
+STATUS                        + Check job status
+RECEIVE                       + Receive transmitted datasets
+TRANSMIT                      + Send datasets to other users
+ALLOCATE                      + Allocate new datatsets</li>
+</ul>
+<p>
+<a href="https://www.mainframemaster.com/tutorials/cobol/mainframe-environment">mainframe environment</a>
+</p>
+
+<ul class="org-ul">
+<li>ISPF (Interactive System Productivity Facility)
+<ul class="org-ul">
+<li>Provides a menu-driven interface built on top of TSO</li>
+</ul></li>
+</ul>
+
+<p>
+╭────────────────────────────────────────────────────────────╮
+│ Typical Development Cycle                                  │
+│                                                            │
+│ 1 Edit source code                                         │
+│   Use ISPF Edit to create/modify COBOL programs            │
+│                                                            │
+│ 2 Submit Compile Job                                       │
+│   Submit JCL to compile COBOL source using ISPF (3.4 &gt; S)  │
+│                                                            │
+│ 3 Check Output                                             │
+│   Use SDSF or ISPF Browse to view compilation results      │
+│                                                            │
+│ 4 Debug/Test                                               │
+│   Fix errors, test program execution, repeat as needed     │
+╰────────────────────────────────────────────────────────────╯
+</p>
+</div>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Created: 2026-09-19 Sat 22:14</p>
+<p class="date">Created: 2026-10-03 Sat 09:52</p>
 </div>
 </body>
 </html>
