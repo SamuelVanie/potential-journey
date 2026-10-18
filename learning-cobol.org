@@ -116,3 +116,42 @@ That's really fun just repeat and you know what format the number has
 ╰────────────────────────────────────────────────────────────╯
 
 
+*** Relationship between COBOL, JCL and Data
+
+JCL : Job Control Language, used for execution control.
+In the mainframe, COBOL programs exists and works in conjunction with JCL, data management systems and manipulation.
+
+=JCL tells the z/OS operating system how to run batch jobs, including COBOL programs=.
+
+*JCL Responsabilities*                        *COBOL's Role*
++ Allocate system resources                 + Implement business
++ Define input/output                       + Process data records
++ Specify program execution parameters      + Perform calculations and validations
++ Control job scheduling and priority       + Generate reports and outputs
++ Handle error conditions                   + Handle file operations
+
+
+*** Data Management in COBOL Applications
+
+*Types of Data storage* :
+- Sequential Files
+  + Records accessed in order
+  + Ideal for batch processing
+  + High throughput for large volumes
+  + Common for reporting
+- VSAM Files
+  + Indexed access (KSDS)
+  + Relative record access (RRDS)
+  + Entry sequenced (ESDS)
+  + Direct record retrieval
+- Database Systems
+  + DB2 (relational)
+  + IMS (hierarchical)
+  + IDMS (network)
+  + SQL integration
+- Temporary Storage
+  + Work files
+  + Sort files
+  + Intermediate results
+  + Scratch datasets
+
