@@ -19,13 +19,14 @@ PROCEDURE DIVISION.
   + *JCL* (Job Control Language) mediates the relationship between COBOL programs and the OS
   + Mainframe COBOL often *interfaces* with CICS, IMS, DB2, and other *mainframe subsystems
 
-#+begin_quote
+
+#+begin_export ascii
 COBOL program
    ├── JCL / JES  → batch job execution
    ├── CICS       → online transaction processing
    ├── DB2        → relational database access
    └── IMS        → transaction processing or hierarchical databases
-#+end_quote
+#+end_export
 
 *** Exercise
 
@@ -69,6 +70,7 @@ That's really fun just repeat and you know what format the number has
 
 ** Mainframe Environment
 
+#+begin_export ascii
 ╭──────────────────────────────────────────────────────────╮
 │  System Components                                       │
 │  ╭───────────────────────────────────────╮               │
@@ -84,6 +86,7 @@ That's really fun just repeat and you know what format the number has
 │  │Application (COBOL programs)           │               │
 │  ╰───────────────────────────────────────╯               │
 ╰──────────────────────────────────────────────────────────╯
+#+end_export
 
 - TSO (Time Sharing Option) : Interactive command line interface for z/OS
   LISTCAT                       + List catalog entries
@@ -99,6 +102,7 @@ That's really fun just repeat and you know what format the number has
 - ISPF (Interactive System Productivity Facility)
   + Provides a menu-driven interface built on top of TSO
 
+#+begin_export ascii
 ╭────────────────────────────────────────────────────────────╮
 │ Typical Development Cycle                                  │
 │                                                            │
@@ -114,7 +118,7 @@ That's really fun just repeat and you know what format the number has
 │ 4 Debug/Test                                               │
 │   Fix errors, test program execution, repeat as needed     │
 ╰────────────────────────────────────────────────────────────╯
-
+#+end_export
 
 *** Relationship between COBOL, JCL and Data
 
