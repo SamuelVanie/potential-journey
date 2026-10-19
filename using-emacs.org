@@ -430,3 +430,42 @@ A full example of configuration that I've used for a project :
 To begin with I thought company was slow, but that's not the case, it's just the default that are not optimized you could check my configuration to know what to do.
 
 Second point, if you moved from corfu you know that you can corfu-insert-separator to fuzzy easily in the completion candidates. I didn't knew that company has it too through the binding : =C-M-s= by default. 
+
+
+* How to align-regexp ?
+
+The advanced align-regexp that you invoke with =C-u align-regexp= is pretty weird to understand.
+
+Here's my strategy to properly execute it:
+
+1. Start by building a regexp using =regexp-builder=
+2. Switch regexp-builder into string mode : =C-c C-<tab>=
+3. Match the whole line pattern
+4. Group the first character of the part you want to align
+5. Run without repeating on each lines
+
+For this block of text :
+#+begin_quote
+Columns	Area	Usage
+1-6	Sequence Number Area	Optional numbering (historically used for card decks)
+7	Indicator Area	Special characters: * (comment), - (continuation), / (form feed), D (debugging)
+8-11	Area A	Division names, sections names, paragraph names, level numbers 01 and 77, FD, SD
+12-72	Area B	Statements, clauses, level numbers 02-49, qualifying names
+73-80	Identification Area	Optional program identification (historically used)
+#+end_quote
+
+The regexp pattern : =".*	.*\(	\).*"=
+There're tabs in this string and in the regexp
+Remark how the group is the tab in front of the part that should be aligned ?
+Aligning it just aligns all the other parts of the text.
+
+The result :
+
+#+begin_quote
+Columns	Area                 Usage
+1-6	Sequence Number Area Optional numbering (historically used for card decks)
+7	Indicator Area       Special characters: * (comment), - (continuation), / (form feed), D (debugging)
+8-11	Area A               Division names, sections names, paragraph names, level numbers 01 and 77, FD, SD
+12-72	Area B               Statements, clauses, level numbers 02-49, qualifying names
+73-80	Identification Area  Optional program identification (historically used)
+#+end_quote

@@ -159,3 +159,19 @@ In the mainframe, COBOL programs exists and works in conjunction with JCL, data 
   + Intermediate results
   + Scratch datasets
 
+** COBOL Basics
+
+
+*** COBOL coding format (Area A, Area B)
+
+Traditionnaly, *COBOL used a fixed column with specific areas for different parts of the code*. While modern COBOL can use free format.
+
+
+COBOL line format
+
+Columns	Area                 Usage
+1-6	Sequence Number Area Optional numbering (historically used for card decks)
+7	Indicator Area       Special characters: * (comment), - (continuation), / (form feed), D (debugging)
+8-11	Area A               Division names, sections names, paragraph names, level numbers 01 and 77, FD, SD
+12-72	Area B               Statements, clauses, level numbers 02-49, qualifying names
+73-80	Identification Area  Optional program identification (historically used)
