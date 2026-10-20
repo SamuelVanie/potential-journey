@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2026-10-20 Tue 17:18 -->
+<!-- 2026-10-20 Tue 17:19 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>&lrm;</title>
@@ -65,24 +65,24 @@ nav.back-home a:hover{color:var(--accent);border-color:var(--accent);text-decora
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org6f78157">Core Concepts</a>
+<li><a href="#orgd9f1ece">Core Concepts</a>
 <ul>
-<li><a href="#org27ffe21">What's cobol ?</a></li>
-<li><a href="#orga3dbcc5">Mainframe Environment</a></li>
-<li><a href="#org1487c13">COBOL Basics</a></li>
+<li><a href="#orgadd9611">What's cobol ?</a></li>
+<li><a href="#org9bc4a75">Mainframe Environment</a></li>
+<li><a href="#orgeb44791">COBOL Basics</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </nav>
 
-<div id="outline-container-org6f78157" class="outline-2">
-<h2 id="org6f78157">Core Concepts</h2>
-<div class="outline-text-2" id="text-org6f78157">
+<div id="outline-container-orgd9f1ece" class="outline-2">
+<h2 id="orgd9f1ece">Core Concepts</h2>
+<div class="outline-text-2" id="text-orgd9f1ece">
 </div>
-<div id="outline-container-org27ffe21" class="outline-3">
-<h3 id="org27ffe21">What's cobol ?</h3>
-<div class="outline-text-3" id="text-org27ffe21">
+<div id="outline-container-orgadd9611" class="outline-3">
+<h3 id="orgadd9611">What's cobol ?</h3>
+<div class="outline-text-3" id="text-orgadd9611">
 <ul class="org-ul">
 <li>COBOL (Common Business-Oriented Language)</li>
 </ul>
@@ -117,9 +117,9 @@ COBOL program
 </p>
 </div>
 
-<div id="outline-container-org29fc9ed" class="outline-4">
-<h4 id="org29fc9ed">Exercise</h4>
-<div class="outline-text-4" id="text-org29fc9ed">
+<div id="outline-container-org11cbb42" class="outline-4">
+<h4 id="org11cbb42">Exercise</h4>
+<div class="outline-text-4" id="text-org11cbb42">
 <div class="org-src-container">
 <pre class="src src-cobol">IDENTIFICATION DIVISION.
 PROGRAM-ID. PAYROLL-CALC.
@@ -172,9 +172,9 @@ That's really fun just repeat and you know what format the number has
 </div>
 </div>
 
-<div id="outline-container-orga3dbcc5" class="outline-3">
-<h3 id="orga3dbcc5">Mainframe Environment</h3>
-<div class="outline-text-3" id="text-orga3dbcc5">
+<div id="outline-container-org9bc4a75" class="outline-3">
+<h3 id="org9bc4a75">Mainframe Environment</h3>
+<div class="outline-text-3" id="text-org9bc4a75">
 <p>
 #+begin<sub>begin</sub><sub>example</sub>
 ╭──────────────────────────────────────────────────────────╮
@@ -238,9 +238,9 @@ ALLOCATE                      + Allocate new datatsets</li>
 </p>
 </div>
 
-<div id="outline-container-org5c5a298" class="outline-4">
-<h4 id="org5c5a298">Relationship between COBOL, JCL and Data</h4>
-<div class="outline-text-4" id="text-org5c5a298">
+<div id="outline-container-org6c5c42f" class="outline-4">
+<h4 id="org6c5c42f">Relationship between COBOL, JCL and Data</h4>
+<div class="outline-text-4" id="text-org6c5c42f">
 <p>
 JCL : Job Control Language, used for execution control.
 In the mainframe, COBOL programs exists and works in conjunction with JCL, data management systems and manipulation.
@@ -264,9 +264,9 @@ In the mainframe, COBOL programs exists and works in conjunction with JCL, data 
 </div>
 
 
-<div id="outline-container-org2479bd0" class="outline-4">
-<h4 id="org2479bd0">Data Management in COBOL Applications</h4>
-<div class="outline-text-4" id="text-org2479bd0">
+<div id="outline-container-org8f43f0d" class="outline-4">
+<h4 id="org8f43f0d">Data Management in COBOL Applications</h4>
+<div class="outline-text-4" id="text-org8f43f0d">
 <p>
 <b>Types of Data storage</b> :
 </p>
@@ -304,37 +304,34 @@ In the mainframe, COBOL programs exists and works in conjunction with JCL, data 
 </div>
 </div>
 
-<div id="outline-container-org1487c13" class="outline-3">
-<h3 id="org1487c13">COBOL Basics</h3>
-<div class="outline-text-3" id="text-org1487c13">
+<div id="outline-container-orgeb44791" class="outline-3">
+<h3 id="orgeb44791">COBOL Basics</h3>
+<div class="outline-text-3" id="text-orgeb44791">
 </div>
-<div id="outline-container-orgebd85cf" class="outline-4">
-<h4 id="orgebd85cf">COBOL coding format (Area A, Area B)</h4>
-<div class="outline-text-4" id="text-orgebd85cf">
+<div id="outline-container-orgc3d7485" class="outline-4">
+<h4 id="orgc3d7485">COBOL coding format (Area A, Area B)</h4>
+<div class="outline-text-4" id="text-orgc3d7485">
 <p>
 Traditionnaly, <b>COBOL used a fixed column with specific areas for different parts of the code</b>. While modern COBOL can use free format.
 </p>
 
-
-<p>
+<pre class="example" id="org324c4be">
 COBOL line format
-</p>
 
-<p>
 Columns	Area                 Usage
 1-6	Sequence Number Area Optional numbering (historically used for card decks)
 7	Indicator Area       Special characters: * (comment), - (continuation), / (form feed), D (debugging)
 8-11	Area A               Division names, sections names, paragraph names, level numbers 01 and 77, FD, SD
 12-72	Area B               Statements, clauses, level numbers 02-49, qualifying names
 73-80	Identification Area  Optional program identification (historically used)
-</p>
+</pre>
 </div>
 </div>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Created: 2026-10-20 Tue 17:18</p>
+<p class="date">Created: 2026-10-20 Tue 17:19</p>
 </div>
 </body>
 </html>
