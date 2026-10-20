@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2026-10-20 Tue 18:21 -->
+<!-- 2026-10-20 Tue 18:25 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>&lrm;</title>
@@ -65,28 +65,25 @@ nav.back-home a:hover{color:var(--accent);border-color:var(--accent);text-decora
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orge77eb28">Introduction to COBOL</a>
+<li><a href="#orge470884">Introduction to COBOL</a>
 <ul>
-<li><a href="#org81705c3">What's cobol ?</a></li>
-<li><a href="#orgb20abb2">Mainframe Environment</a></li>
-<li><a href="#orgff2630a">COBOL Basics</a></li>
+<li><a href="#org591374e">What's cobol ?</a></li>
+<li><a href="#orgde1e784">Mainframe Environment</a></li>
+<li><a href="#org408a2c0">COBOL Basics</a></li>
 </ul>
 </li>
-<li><a href="#orgdde60ae">Simple statement:</a></li>
-<li><a href="#org1953a8f">Compound statement:</a></li>
-<li><a href="#org0550fa1">Conditional statement:</a></li>
-<li><a href="#org4290f46">Performing a paragraph:</a></li>
+<li><a href="#org5f46fd9">COBOL Fundamentals</a></li>
 </ul>
 </div>
 </nav>
 
-<div id="outline-container-orge77eb28" class="outline-2">
-<h2 id="orge77eb28">Introduction to COBOL</h2>
-<div class="outline-text-2" id="text-orge77eb28">
+<div id="outline-container-orge470884" class="outline-2">
+<h2 id="orge470884">Introduction to COBOL</h2>
+<div class="outline-text-2" id="text-orge470884">
 </div>
-<div id="outline-container-org81705c3" class="outline-3">
-<h3 id="org81705c3">What's cobol ?</h3>
-<div class="outline-text-3" id="text-org81705c3">
+<div id="outline-container-org591374e" class="outline-3">
+<h3 id="org591374e">What's cobol ?</h3>
+<div class="outline-text-3" id="text-org591374e">
 <ul class="org-ul">
 <li>COBOL (Common Business-Oriented Language)</li>
 </ul>
@@ -110,7 +107,7 @@ PROCEDURE DIVISION.
 </ul>
 
 
-<pre class="example" id="org812b04b">
+<pre class="example" id="org81d14e7">
 COBOL program
    ├── JCL / JES  → batch job execution
    ├── CICS       → online transaction processing
@@ -119,9 +116,9 @@ COBOL program
 </pre>
 </div>
 
-<div id="outline-container-org839b685" class="outline-4">
-<h4 id="org839b685">Exercise</h4>
-<div class="outline-text-4" id="text-org839b685">
+<div id="outline-container-org3693d6d" class="outline-4">
+<h4 id="org3693d6d">Exercise</h4>
+<div class="outline-text-4" id="text-org3693d6d">
 <div class="org-src-container">
 <pre class="src src-cobol">IDENTIFICATION DIVISION.
 PROGRAM-ID. PAYROLL-CALC.
@@ -174,10 +171,10 @@ That's really fun just repeat and you know what format the number has
 </div>
 </div>
 
-<div id="outline-container-orgb20abb2" class="outline-3">
-<h3 id="orgb20abb2">Mainframe Environment</h3>
-<div class="outline-text-3" id="text-orgb20abb2">
-<pre class="example" id="org5d34362">
+<div id="outline-container-orgde1e784" class="outline-3">
+<h3 id="orgde1e784">Mainframe Environment</h3>
+<div class="outline-text-3" id="text-orgde1e784">
+<pre class="example" id="org8eb7072">
 ╭──────────────────────────────────────────────────────────╮
 │  System Components                                       │
 │  ╭───────────────────────────────────────╮               │
@@ -217,7 +214,7 @@ ALLOCATE                      + Allocate new datatsets</li>
 </ul></li>
 </ul>
 
-<pre class="example" id="org3cc559b">
+<pre class="example" id="org77c8d7b">
 ╭────────────────────────────────────────────────────────────╮
 │ Typical Development Cycle                                  │
 │                                                            │
@@ -236,9 +233,9 @@ ALLOCATE                      + Allocate new datatsets</li>
 </pre>
 </div>
 
-<div id="outline-container-org54831cb" class="outline-4">
-<h4 id="org54831cb">Relationship between COBOL, JCL and Data</h4>
-<div class="outline-text-4" id="text-org54831cb">
+<div id="outline-container-org5de02f4" class="outline-4">
+<h4 id="org5de02f4">Relationship between COBOL, JCL and Data</h4>
+<div class="outline-text-4" id="text-org5de02f4">
 <p>
 JCL : Job Control Language, used for execution control.
 In the mainframe, COBOL programs exists and works in conjunction with JCL, data management systems and manipulation.
@@ -262,9 +259,9 @@ In the mainframe, COBOL programs exists and works in conjunction with JCL, data 
 </div>
 
 
-<div id="outline-container-org4d6abb1" class="outline-4">
-<h4 id="org4d6abb1">Data Management in COBOL Applications</h4>
-<div class="outline-text-4" id="text-org4d6abb1">
+<div id="outline-container-orgb33f78f" class="outline-4">
+<h4 id="orgb33f78f">Data Management in COBOL Applications</h4>
+<div class="outline-text-4" id="text-orgb33f78f">
 <p>
 <b>Types of Data storage</b> :
 </p>
@@ -302,18 +299,18 @@ In the mainframe, COBOL programs exists and works in conjunction with JCL, data 
 </div>
 </div>
 
-<div id="outline-container-orgff2630a" class="outline-3">
-<h3 id="orgff2630a">COBOL Basics</h3>
-<div class="outline-text-3" id="text-orgff2630a">
+<div id="outline-container-org408a2c0" class="outline-3">
+<h3 id="org408a2c0">COBOL Basics</h3>
+<div class="outline-text-3" id="text-org408a2c0">
 </div>
-<div id="outline-container-org0d2ff6d" class="outline-4">
-<h4 id="org0d2ff6d">COBOL coding format (Area A, Area B)</h4>
-<div class="outline-text-4" id="text-org0d2ff6d">
+<div id="outline-container-orge375494" class="outline-4">
+<h4 id="orge375494">COBOL coding format (Area A, Area B)</h4>
+<div class="outline-text-4" id="text-orge375494">
 <p>
 Traditionnaly, <b>COBOL used a fixed column with specific areas for different parts of the code</b>. While modern COBOL can use free format.
 </p>
 
-<pre class="example" id="orgf850b99">
+<pre class="example" id="org7aa552f">
 COBOL line format
 
 Columns	Area                 Usage
@@ -338,9 +335,9 @@ Columns	Area                 Usage
 </div>
 
 
-<div id="outline-container-orgd46008b" class="outline-4">
-<h4 id="orgd46008b">COBOL Statement Structure</h4>
-<div class="outline-text-4" id="text-orgd46008b">
+<div id="outline-container-org4b802c2" class="outline-4">
+<h4 id="org4b802c2">COBOL Statement Structure</h4>
+<div class="outline-text-4" id="text-org4b802c2">
 <p>
 <b>Elements of COBOL Statements</b> :
 </p>
@@ -353,51 +350,24 @@ Columns	Area                 Usage
 <li><b>Paragraphs</b>: Named groups of sentences</li>
 </ul>
 
-<p>
-#+begin<sub>src</sub> cobol
-</p>
-</div>
-</div>
-</div>
-</div>
-<div id="outline-container-orgdde60ae" class="outline-2">
-<h2 id="orgdde60ae">Simple statement:</h2>
-<div class="outline-text-2" id="text-orgdde60ae">
-<p>
+<div class="org-src-container">
+<pre class="src src-cobol">*Simple statement:*
 MOVE CUSTOMER-NAME TO OUTPUT-NAME.
-</p>
-</div>
-</div>
 
-<div id="outline-container-org1953a8f" class="outline-2">
-<h2 id="org1953a8f">Compound statement:</h2>
-<div class="outline-text-2" id="text-org1953a8f">
-<p>
+*Compound statement:*
 ADD ITEM-PRICE, TAX-AMOUNT GIVING TOTAL-PRICE ROUNDED.
-</p>
-</div>
-</div>
 
-<div id="outline-container-org0550fa1" class="outline-2">
-<h2 id="org0550fa1">Conditional statement:</h2>
-<div class="outline-text-2" id="text-org0550fa1">
-<p>
+*Conditional statement:*
 IF BALANCE IS GREATER THAN 1000
    DISPLAY "Premium Customer"
 ELSE
    DISPLAY "Regular Customer"
 END-IF.
-</p>
-</div>
-</div>
 
-<div id="outline-container-org4290f46" class="outline-2">
-<h2 id="org4290f46">Performing a paragraph:</h2>
-<div class="outline-text-2" id="text-org4290f46">
-<p>
+*Performing a paragraph:*
 PERFORM CALCULATE-TOTALS.
-#+end<sub>src</sub>
-</p>
+</pre>
+</div>
 
 <blockquote>
 <p>
@@ -425,8 +395,15 @@ When a COBOL statement is too long for one line, it can be continued on the next
 </div>
 </div>
 </div>
+</div>
+
+
+<div id="outline-container-org5f46fd9" class="outline-2">
+<h2 id="org5f46fd9">COBOL Fundamentals</h2>
+</div>
+</div>
 <div id="postamble" class="status">
-<p class="date">Created: 2026-10-20 Tue 18:21</p>
+<p class="date">Created: 2026-10-20 Tue 18:25</p>
 </div>
 </body>
 </html>
