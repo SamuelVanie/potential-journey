@@ -20,13 +20,13 @@ PROCEDURE DIVISION.
   + Mainframe COBOL often *interfaces* with CICS, IMS, DB2, and other *mainframe subsystems
 
 
-#+begin_export ascii
+#+begin_begin_example
 COBOL program
    ├── JCL / JES  → batch job execution
    ├── CICS       → online transaction processing
    ├── DB2        → relational database access
    └── IMS        → transaction processing or hierarchical databases
-#+end_export
+#+end_end_example
 
 *** Exercise
 
@@ -70,7 +70,7 @@ That's really fun just repeat and you know what format the number has
 
 ** Mainframe Environment
 
-#+begin_export ascii
+#+begin_begin_example
 ╭──────────────────────────────────────────────────────────╮
 │  System Components                                       │
 │  ╭───────────────────────────────────────╮               │
@@ -86,7 +86,7 @@ That's really fun just repeat and you know what format the number has
 │  │Application (COBOL programs)           │               │
 │  ╰───────────────────────────────────────╯               │
 ╰──────────────────────────────────────────────────────────╯
-#+end_export
+#+end_end_example
 
 - TSO (Time Sharing Option) : Interactive command line interface for z/OS
   LISTCAT                       + List catalog entries
@@ -102,7 +102,7 @@ That's really fun just repeat and you know what format the number has
 - ISPF (Interactive System Productivity Facility)
   + Provides a menu-driven interface built on top of TSO
 
-#+begin_export ascii
+#+begin_begin_example
 ╭────────────────────────────────────────────────────────────╮
 │ Typical Development Cycle                                  │
 │                                                            │
@@ -118,7 +118,7 @@ That's really fun just repeat and you know what format the number has
 │ 4 Debug/Test                                               │
 │   Fix errors, test program execution, repeat as needed     │
 ╰────────────────────────────────────────────────────────────╯
-#+end_export
+#+end_end_example
 
 *** Relationship between COBOL, JCL and Data
 
@@ -166,7 +166,7 @@ In the mainframe, COBOL programs exists and works in conjunction with JCL, data 
 
 Traditionnaly, *COBOL used a fixed column with specific areas for different parts of the code*. While modern COBOL can use free format.
 
-
+#+begin_example
 COBOL line format
 
 Columns	Area                 Usage
@@ -175,3 +175,5 @@ Columns	Area                 Usage
 8-11	Area A               Division names, sections names, paragraph names, level numbers 01 and 77, FD, SD
 12-72	Area B               Statements, clauses, level numbers 02-49, qualifying names
 73-80	Identification Area  Optional program identification (historically used)
+#+end_example
+
