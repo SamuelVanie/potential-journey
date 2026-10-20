@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2026-10-03 Sat 09:52 -->
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- 2026-10-20 Tue 17:06 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Working inside emacs</title>
-<meta name="generator" content="Org Mode">
+<meta name="generator" content="Org Mode" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -67,38 +67,40 @@ nav.back-home a:hover{color:var(--accent);border-color:var(--accent);text-decora
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org7163300">Emacs tab</a></li>
-<li><a href="#org2e92fcd">Merge my linux and mac configuration</a></li>
-<li><a href="#orga181f06">Set transparent background</a></li>
-<li><a href="#org3d1f023">Set up emacs to load pkgs installed from nix</a>
+<li><a href="#org0af725c">Emacs tab</a></li>
+<li><a href="#org7f02b97">Merge my linux and mac configuration</a></li>
+<li><a href="#orgb15af7a">Set transparent background</a></li>
+<li><a href="#orgda7c210">Set up emacs to load pkgs installed from nix</a>
 <ul>
-<li><a href="#orgd3bf132">First solution [deprecated]</a></li>
-<li><a href="#org2bf4cfe">Second solution</a></li>
-<li><a href="#org7b0390c">Third solution</a></li>
+<li><a href="#orgf4dcdb7">First solution [deprecated]</a></li>
+<li><a href="#orge4fbdc2">Second solution</a></li>
+<li><a href="#orgd1de2ee">Third solution</a></li>
 </ul>
 </li>
-<li><a href="#org3e2dc63">How to code per file</a></li>
-<li><a href="#org073ad4e">How to scroll inside vterm</a></li>
-<li><a href="#orgf6d61b0">How to find then filter down and replace in emacs</a></li>
-<li><a href="#org25c679d">How to search for patterns in files in emacs using consult</a></li>
-<li><a href="#org2e973d2">Setting compilation environment variable</a></li>
-<li><a href="#org866adf8">Working with macros</a>
+<li><a href="#org85e109d">How to code per file</a></li>
+<li><a href="#org6e0fe5d">How to scroll inside vterm</a></li>
+<li><a href="#org42fa5ee">How to find then filter down and replace in emacs</a></li>
+<li><a href="#org8f8a934">How to search for patterns in files in emacs using consult</a></li>
+<li><a href="#org26e071a">Setting compilation environment variable</a></li>
+<li><a href="#org15d236a">Working with macros</a>
 <ul>
-<li><a href="#org81f2ce7">Executing macros with variations</a></li>
-<li><a href="#orge9f514b">Editing macros interactively</a></li>
-<li><a href="#org3b834e2">Switching between macros</a></li>
-<li><a href="#org8af3423">Reorganizing macros</a></li>
+<li><a href="#org390f28c">Executing macros with variations</a></li>
+<li><a href="#org7acbdaa">Editing macros interactively</a></li>
+<li><a href="#org60be494">Switching between macros</a></li>
+<li><a href="#org069eccc">Reorganizing macros</a></li>
 </ul>
 </li>
-<li><a href="#org57dc75c">Building a new ts mode</a></li>
-<li><a href="#org895426b">Lsp mode in java</a></li>
-<li><a href="#orge199797">Using company-mode instead</a></li>
+<li><a href="#org99580a0">Building a new ts mode</a></li>
+<li><a href="#org1e6283a">Lsp mode in java</a></li>
+<li><a href="#org1d6bc91">Using company-mode instead</a></li>
+<li><a href="#orgc79274c">How to align-regexp ?</a></li>
 </ul>
 </div>
 </nav>
-<div id="outline-container-org7163300" class="outline-2">
-<h2 id="org7163300">Emacs tab</h2>
-<div class="outline-text-2" id="text-org7163300">
+
+<div id="outline-container-org0af725c" class="outline-2">
+<h2 id="org0af725c">Emacs tab</h2>
+<div class="outline-text-2" id="text-org0af725c">
 <blockquote>
 <p>
 How I manually insert tabs inside emacs ?
@@ -139,9 +141,11 @@ I bound this function to the key <code>C-&lt;tab&gt;</code> so that I can quickl
 </p>
 </div>
 </div>
-<div id="outline-container-org2e92fcd" class="outline-2">
-<h2 id="org2e92fcd">Merge my linux and mac configuration</h2>
-<div class="outline-text-2" id="text-org2e92fcd">
+
+
+<div id="outline-container-org7f02b97" class="outline-2">
+<h2 id="org7f02b97">Merge my linux and mac configuration</h2>
+<div class="outline-text-2" id="text-org7f02b97">
 <blockquote>
 <p>
 How to execute a elisp bloc depending on whether you're on mac or linux ?
@@ -165,7 +169,7 @@ You just have to use a condition depending on what you want to execute on the cu
 Example :
 </p>
 
-<pre class="example" id="org890f0ec">
+<pre class="example" id="orgcfa1b20">
 (cond
  ((eq system-type 'darwin)  ;; macOS
   (setq read-process-output-max (* 64 1024)))  ;; 64KB
@@ -182,9 +186,12 @@ Do not forget variable like <code>user-emacs-directory</code> that helps you and
 </blockquote>
 </div>
 </div>
-<div id="outline-container-orga181f06" class="outline-2">
-<h2 id="orga181f06">Set transparent background</h2>
-<div class="outline-text-2" id="text-orga181f06">
+
+
+
+<div id="outline-container-orgb15af7a" class="outline-2">
+<h2 id="orgb15af7a">Set transparent background</h2>
+<div class="outline-text-2" id="text-orgb15af7a">
 <blockquote>
 <p>
 How to set transparent background in emacs ?
@@ -200,24 +207,26 @@ To set transparent background in emacs, there are two methods, only one works fo
 On linux, what worked for me :
 </p>
 <div class="org-src-container">
-<pre class="src src-emacs-lisp"><code>(set-frame-parameter nil 'alpha-background 60)
+<pre class="src src-emacs-lisp">(set-frame-parameter nil 'alpha-background 60)
 (add-to-list 'default-frame-alist '(alpha-background . 60))
-</code></pre>
+</pre>
 </div>
 
 <p>
 On mac, what worked :
 </p>
 <div class="org-src-container">
-<pre class="src src-emacs-lisp"><code>(set-frame-parameter (selected-frame) 'alpha '(92 . 50))
+<pre class="src src-emacs-lisp">(set-frame-parameter (selected-frame) 'alpha '(92 . 50))
 (add-to-list 'default-frame-alist '(alpha . (92 . 50))))
-</code></pre>
+</pre>
 </div>
 </div>
 </div>
-<div id="outline-container-org3d1f023" class="outline-2">
-<h2 id="org3d1f023">Set up emacs to load pkgs installed from nix</h2>
-<div class="outline-text-2" id="text-org3d1f023">
+
+
+<div id="outline-container-orgda7c210" class="outline-2">
+<h2 id="orgda7c210">Set up emacs to load pkgs installed from nix</h2>
+<div class="outline-text-2" id="text-orgda7c210">
 <blockquote>
 <p>
 How to load the packages that you installed from nix inside emacs ?
@@ -228,16 +237,18 @@ We're not talking about binaries, but emacs packages. Such packages should not m
 </p>
 </blockquote>
 </div>
-<div id="outline-container-orgd3bf132" class="outline-3">
-<h3 id="orgd3bf132">First solution [deprecated]</h3>
-<div class="outline-text-3" id="text-orgd3bf132">
+
+
+<div id="outline-container-orgf4dcdb7" class="outline-3">
+<h3 id="orgf4dcdb7">First solution [deprecated]</h3>
+<div class="outline-text-3" id="text-orgf4dcdb7">
 <p>
 The first solution, which is the simplest, is to just open a devshell, in which you've installed and initialize the emacs packages. An example for julia environment
 </p>
 
 
 <div class="org-src-container">
-<pre class="src src-nix"><code>{
+<pre class="src src-nix">{
   description = "Environment to code in Julia";
 
   inputs = {
@@ -267,7 +278,7 @@ The first solution, which is the simplest, is to just open a devshell, in which 
       }
     );
 }
-</code></pre>
+</pre>
 </div>
 
 <p>
@@ -275,9 +286,11 @@ The packages should be present and loaded after your run `emacs &amp;` in the de
 </p>
 </div>
 </div>
-<div id="outline-container-org2bf4cfe" class="outline-3">
-<h3 id="org2bf4cfe">Second solution</h3>
-<div class="outline-text-3" id="text-org2bf4cfe">
+
+
+<div id="outline-container-orge4fbdc2" class="outline-3">
+<h3 id="orge4fbdc2">Second solution</h3>
+<div class="outline-text-3" id="text-orge4fbdc2">
 <blockquote>
 <p>
 Why bother with this second solution ?
@@ -302,10 +315,10 @@ My configuration looks like :
 </p>
 
 <div class="org-src-container">
-<pre class="src src-emacs-lisp"><code>(use-package envrc
+<pre class="src src-emacs-lisp">(use-package envrc
     :config
     (envrc-global-mode))
-</code></pre>
+</pre>
 </div>
 
 
@@ -323,7 +336,7 @@ The workaround I found for this is to add those directories to the load path wit
 
 
 <div class="org-src-container">
-<pre class="src src-emacs-lisp"><code>(defun smv/add-nix-pkg-to-lpath (PKG_ENV)
+<pre class="src src-emacs-lisp">(defun smv/add-nix-pkg-to-lpath (PKG_ENV)
     "Load the PKG_ENV directory to the load path of current emacs session
     it permits to then require the package"
 
@@ -340,7 +353,7 @@ The workaround I found for this is to add those directories to the load path wit
                (path-to-add (concat pkg-nix-path pkg-suffix pkg-full-path)))
           (unless (member path-to-add load-path)
             (add-to-list 'load-path path-to-add))))))
-</code></pre>
+</pre>
 </div>
 
 
@@ -357,7 +370,7 @@ How I use it ?
 </p>
 
 <div class="org-src-container">
-<pre class="src src-nix"><code>{
+<pre class="src src-nix">{
   ...
         devShell = pkgs.mkShell {
           nativeBuildInputs = with pkgs; [
@@ -374,7 +387,7 @@ How I use it ?
 
    ...
 }
-</code></pre>
+</pre>
 </div>
 
 <p>
@@ -394,9 +407,16 @@ You can add such call to your .dir-locals.el file inside the root directory of y
 </p>
 </div>
 </div>
-<div id="outline-container-org7b0390c" class="outline-3">
-<h3 id="org7b0390c">Third solution</h3>
-<div class="outline-text-3" id="text-org7b0390c">
+
+
+
+
+
+
+
+<div id="outline-container-orgd1de2ee" class="outline-3">
+<h3 id="orgd1de2ee">Third solution</h3>
+<div class="outline-text-3" id="text-orgd1de2ee">
 <p>
 The last solution involves <a href="https://www.jetify.com/docs/devbox/installing-devbox">devbox</a>, it's a wrapper around nix that you could use without knowing the nix language. It's pretty cool if you only use nix as an dev environment manager.
 </p>
@@ -414,18 +434,18 @@ I wrote this script that you could add to your devbox init<sub>hook</sub>, such 
 </p>
 
 <div class="org-src-container">
-<pre class="src src-shell"><code>EMACS_LOAD_PATHS=''
+<pre class="src src-shell">EMACS_LOAD_PATHS=''
 for pkg in $(printenv buildInputs | tr ' ' '\\n' | grep -E 'emacs.*-mode');
 do
     PKG_NAME=$(basename $pkg | awk -F- '{ printf "%s-%s", $3, $4 }')
     PKG_VERSION=$(devbox info emacsPackages.$PKG_NAME 2&gt;/dev/null | awk '{print $2}' || echo '')
     if [ -n "$PKG_VERSION" ]; then
-        EMACS_LOAD_PATHS="$pkg/share/emacs/site-lisp/elpa/$PKG_NAME-$PKG_VERSION:$EMACS_LOAD_PATHS"
+      EMACS_LOAD_PATHS="$pkg/share/emacs/site-lisp/elpa/$PKG_NAME-$PKG_VERSION:$EMACS_LOAD_PATHS"
     fi
 done
 export EMACSLOADPATH="$EMACS_LOAD_PATHS$EMACSLOADPATH"
 echo "✓ Emacs packages loaded"
-</code></pre>
+</pre>
 </div>
 
 
@@ -434,7 +454,7 @@ Or a more reliable one, as it doesn't depends on finding the version and concate
 </p>
 
 <div class="org-src-container">
-<pre class="src src-shell"><code>EMACS_LOAD_PATHS='',
+<pre class="src src-shell">EMACS_LOAD_PATHS='',
 for pkg in $(printenv buildInputs | tr ' ' '\\n' | grep -E 'emacs.*-mode'); do,
   LONGEST_PATH=$(find $pkg -name '*.el' -type f -exec dirname {} \\; 2&gt;/dev/null | awk '{ print length, $0 }' | sort -rn | head -1 | cut -d' ' -f2-),
   if [ -n $LONGEST_PATH ]; then,
@@ -443,7 +463,7 @@ for pkg in $(printenv buildInputs | tr ' ' '\\n' | grep -E 'emacs.*-mode'); do,
 done,
 export EMACSLOADPATH=$EMACS_LOAD_PATHS$EMACSLOADPATH,
 echo "✓ Emacs packages loaded"
-</code></pre>
+</pre>
 </div>
 
 <p>
@@ -466,14 +486,14 @@ I've written this code snippet that you can add to your configuration :
 </p>
 
 <div class="org-src-container">
-<pre class="src src-emacs-lisp"><code>(with-eval-after-load 'direnv
+<pre class="src src-emacs-lisp">(with-eval-after-load 'direnv
   (advice-add 'direnv-update-environment :after
               (lambda (&amp;rest _)
-                (when (getenv "EMACSLOADPATH")
+              (when (getenv "EMACSLOADPATH")
                   (let ((paths (split-string (getenv "EMACSLOADPATH") ":")))
                     (dolist (path (reverse paths))
                       (add-to-list 'load-path path)))))))
-</code></pre>
+</pre>
 </div>
 
 
@@ -483,9 +503,10 @@ And that is it. Running <code>direnv-update-environment</code> will also add the
 </div>
 </div>
 </div>
-<div id="outline-container-org3e2dc63" class="outline-2">
-<h2 id="org3e2dc63">How to code per file</h2>
-<div class="outline-text-2" id="text-org3e2dc63">
+
+<div id="outline-container-org85e109d" class="outline-2">
+<h2 id="org85e109d">How to code per file</h2>
+<div class="outline-text-2" id="text-org85e109d">
 <p>
 This notes that I take requires me to modify my index.html file each time. I could've use a command to trigger the modification automatically. But the solution that came up first into my mind was to create a snippet that will only be available in that file. This way I can open my file add my new entry and that's it.
 </p>
@@ -507,9 +528,11 @@ So here's what I wrote on top on my file, it uses the <code>auto-yasnippet</code
 </p>
 </div>
 </div>
-<div id="outline-container-org073ad4e" class="outline-2">
-<h2 id="org073ad4e">How to scroll inside vterm</h2>
-<div class="outline-text-2" id="text-org073ad4e">
+
+
+<div id="outline-container-org6e0fe5d" class="outline-2">
+<h2 id="org6e0fe5d">How to scroll inside vterm</h2>
+<div class="outline-text-2" id="text-org6e0fe5d">
 <p>
 vterm has multiple mode, it's not like eshell that permits you to scroll without restriction inside the terminal.
 </p>
@@ -523,9 +546,11 @@ The default binding for that is : <code>C-c C-t</code>
 </p>
 </div>
 </div>
-<div id="outline-container-orgf6d61b0" class="outline-2">
-<h2 id="orgf6d61b0">How to find then filter down and replace in emacs</h2>
-<div class="outline-text-2" id="text-orgf6d61b0">
+
+
+<div id="outline-container-org42fa5ee" class="outline-2">
+<h2 id="org42fa5ee">How to find then filter down and replace in emacs</h2>
+<div class="outline-text-2" id="text-org42fa5ee">
 <p>
 You can find patterns in folders in Emacs using `find-grep`, `find-grep-dired` (which will only show the file names inside a dired buffer), `rgrep`, and similar commands. All of these will open a grep buffer that utilizes `compilation-mode` bindings.
 </p>
@@ -545,9 +570,12 @@ Once you have your desired selection, switch to `wgrep` mode (`wgrep-change-to-w
 </p>
 </div>
 </div>
-<div id="outline-container-org25c679d" class="outline-2">
-<h2 id="org25c679d">How to search for patterns in files in emacs using consult</h2>
-<div class="outline-text-2" id="text-org25c679d">
+
+
+
+<div id="outline-container-org8f8a934" class="outline-2">
+<h2 id="org8f8a934">How to search for patterns in files in emacs using consult</h2>
+<div class="outline-text-2" id="text-org8f8a934">
 <p>
 Consult is the search package that you use.
 </p>
@@ -562,7 +590,7 @@ You can also use directly filtering patterns, as those commands support the comm
 For example you can search in all files ending with <code>.org</code> by typing in the consult-ripgrep prompt :
 </p>
 
-<pre class="example" id="org3547c6c">
+<pre class="example" id="org207e5e8">
 #foo bar --glob=*.org or #foo bar -g *.org: Search into org files 
 #foo bar --glob=!*.org or #foo bar -g !*.org: Search into non org files
 #.* -F: Treat input as fixed string, and not as regular expression.
@@ -572,9 +600,11 @@ For example you can search in all files ending with <code>.org</code> by typing 
 </pre>
 </div>
 </div>
-<div id="outline-container-org2e973d2" class="outline-2">
-<h2 id="org2e973d2">Setting compilation environment variable</h2>
-<div class="outline-text-2" id="text-org2e973d2">
+
+
+<div id="outline-container-org26e071a" class="outline-2">
+<h2 id="org26e071a">Setting compilation environment variable</h2>
+<div class="outline-text-2" id="text-org26e071a">
 <p>
 When you're coding inside emacs you might want to run some commands using the project-compile command, which is really powerfull.
 Sometimes you might want to set some compilation environment that is only needed during this command evaluation process, you don't need that variable outside. For example you might want to add some path to the PYTHONPATH for your project to correctly run.
@@ -597,13 +627,16 @@ instead of : <code>(setq compilation-environment '("PYTHONPATH=$PYTHONPATH:./src
 </p>
 </div>
 </div>
-<div id="outline-container-org866adf8" class="outline-2">
-<h2 id="org866adf8">Working with macros</h2>
-<div class="outline-text-2" id="text-org866adf8">
+
+
+
+<div id="outline-container-org15d236a" class="outline-2">
+<h2 id="org15d236a">Working with macros</h2>
+<div class="outline-text-2" id="text-org15d236a">
 </div>
-<div id="outline-container-org81f2ce7" class="outline-3">
-<h3 id="org81f2ce7">Executing macros with variations</h3>
-<div class="outline-text-3" id="text-org81f2ce7">
+<div id="outline-container-org390f28c" class="outline-3">
+<h3 id="org390f28c">Executing macros with variations</h3>
+<div class="outline-text-3" id="text-org390f28c">
 <p>
 While recording macros, you can use the command <code>C-x q</code> to stop at some point.
 This command when you type it in the macro will not do anything but when you will play back the macro emacs will ask you wheter you want to continue the macro or not.
@@ -616,9 +649,11 @@ After you've finished, you can type <code>C-M-c</code> to leave that recursive s
 </p>
 </div>
 </div>
-<div id="outline-container-orge9f514b" class="outline-3">
-<h3 id="orge9f514b">Editing macros interactively</h3>
-<div class="outline-text-3" id="text-orge9f514b">
+
+
+<div id="outline-container-org7acbdaa" class="outline-3">
+<h3 id="org7acbdaa">Editing macros interactively</h3>
+<div class="outline-text-3" id="text-org7acbdaa">
 <p>
 You can edit macros interactively, meaning while playing it.
 The shortcut for that is : <code>C-x C-k SPC</code>
@@ -629,9 +664,10 @@ The shortcut for that is : <code>C-x C-k SPC</code>
 </p>
 </div>
 </div>
-<div id="outline-container-org3b834e2" class="outline-3">
-<h3 id="org3b834e2">Switching between macros</h3>
-<div class="outline-text-3" id="text-org3b834e2">
+
+<div id="outline-container-org60be494" class="outline-3">
+<h3 id="org60be494">Switching between macros</h3>
+<div class="outline-text-3" id="text-org60be494">
 <p>
 As the previous point said, a macro ring exists. You are able to jump between one macro you've recorded or another without having to save them before and bind them.
 To do that :
@@ -640,9 +676,11 @@ To do that :
 </p>
 </div>
 </div>
-<div id="outline-container-org8af3423" class="outline-3">
-<h3 id="org8af3423">Reorganizing macros</h3>
-<div class="outline-text-3" id="text-org8af3423">
+
+
+<div id="outline-container-org069eccc" class="outline-3">
+<h3 id="org069eccc">Reorganizing macros</h3>
+<div class="outline-text-3" id="text-org069eccc">
 <p>
 You can reorganize the macros' kill ring.
 Start by listing them with : <code>list-keyboard-macros</code> and here it's you can modify them
@@ -650,9 +688,11 @@ Start by listing them with : <code>list-keyboard-macros</code> and here it's you
 </div>
 </div>
 </div>
-<div id="outline-container-org57dc75c" class="outline-2">
-<h2 id="org57dc75c">Building a new ts mode</h2>
-<div class="outline-text-2" id="text-org57dc75c">
+
+
+<div id="outline-container-org99580a0" class="outline-2">
+<h2 id="org99580a0">Building a new ts mode</h2>
+<div class="outline-text-2" id="text-org99580a0">
 <p>
 I'm taking inspiration on the go-ts-mode, so I'll use that as my reference to look for information and understand each parts of the ~500 lines of code project.
 </p>
@@ -662,9 +702,11 @@ I'm taking inspiration on the go-ts-mode, so I'll use that as my reference to lo
 </ul>
 </div>
 </div>
-<div id="outline-container-org895426b" class="outline-2">
-<h2 id="org895426b">Lsp mode in java</h2>
-<div class="outline-text-2" id="text-org895426b">
+
+
+<div id="outline-container-org1e6283a" class="outline-2">
+<h2 id="org1e6283a">Lsp mode in java</h2>
+<div class="outline-text-2" id="text-org1e6283a">
 <p>
 While working with lsp-mode and lsp-java in emacs, you may face some cryptic jdtls java errors, please bro, when that happens try to update the version of jdtls which is downloaded through the <code>lsp-java-jdt-download-url</code> (or similar). You'll just have to provide the proper link and test. You should do that before any configuration rabbit hole.
 </p>
@@ -674,7 +716,7 @@ A full example of configuration that I've used for a project :
 </p>
 
 <div class="org-src-container">
-<pre class="src src-emacs-lisp"><code>(with-eval-after-load 'lsp-java
+<pre class="src src-emacs-lisp">(with-eval-after-load 'lsp-java
   (setq lsp-java-configuration-runtimes '[(:name "JavaSE-21"
                                                  :path "/Library/Java/JavaVirtualMachines/temurin-21.jdk/Contents/Home"
                                                  :default t)])
@@ -694,13 +736,15 @@ A full example of configuration that I've used for a project :
 
     (setq lsp-java-jdt-ls-lombok-support-enabled t)
     (add-to-list 'lsp-java-vmargs (concat "-javaagent:" lombok-jar))))
-</code></pre>
+</pre>
 </div>
 </div>
 </div>
-<div id="outline-container-orge199797" class="outline-2">
-<h2 id="orge199797">Using company-mode instead</h2>
-<div class="outline-text-2" id="text-orge199797">
+
+
+<div id="outline-container-org1d6bc91" class="outline-2">
+<h2 id="org1d6bc91">Using company-mode instead</h2>
+<div class="outline-text-2" id="text-org1d6bc91">
 <p>
 To begin with I thought company was slow, but that's not the case, it's just the default that are not optimized you could check my configuration to know what to do.
 </p>
@@ -710,9 +754,67 @@ Second point, if you moved from corfu you know that you can corfu-insert-separat
 </p>
 </div>
 </div>
+
+
+<div id="outline-container-orgc79274c" class="outline-2">
+<h2 id="orgc79274c">How to align-regexp ?</h2>
+<div class="outline-text-2" id="text-orgc79274c">
+<p>
+The advanced align-regexp that you invoke with <code>C-u align-regexp</code> is pretty weird to understand.
+</p>
+
+<p>
+Here's my strategy to properly execute it:
+</p>
+
+<ol class="org-ol">
+<li>Start by building a regexp using <code>regexp-builder</code></li>
+<li>Switch regexp-builder into string mode : <code>C-c C-&lt;tab&gt;</code></li>
+<li>Match the whole line pattern</li>
+<li>Group the first character of the part you want to align</li>
+<li>Run without repeating on each lines</li>
+</ol>
+
+<p>
+For this block of text :
+</p>
+<blockquote>
+<p>
+Columns	Area	Usage
+1-6	Sequence Number Area	Optional numbering (historically used for card decks)
+7	Indicator Area	Special characters: * (comment), - (continuation), / (form feed), D (debugging)
+8-11	Area A	Division names, sections names, paragraph names, level numbers 01 and 77, FD, SD
+12-72	Area B	Statements, clauses, level numbers 02-49, qualifying names
+73-80	Identification Area	Optional program identification (historically used)
+</p>
+</blockquote>
+
+<p>
+The regexp pattern : <code>".*	.*\(	\).*"</code>
+There're tabs in this string and in the regexp
+Remark how the group is the tab in front of the part that should be aligned ?
+Aligning it just aligns all the other parts of the text.
+</p>
+
+<p>
+The result :
+</p>
+
+<blockquote>
+<p>
+Columns	Area                 Usage
+1-6	Sequence Number Area Optional numbering (historically used for card decks)
+7	Indicator Area       Special characters: * (comment), - (continuation), / (form feed), D (debugging)
+8-11	Area A               Division names, sections names, paragraph names, level numbers 01 and 77, FD, SD
+12-72	Area B               Statements, clauses, level numbers 02-49, qualifying names
+73-80	Identification Area  Optional program identification (historically used)
+</p>
+</blockquote>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Created: 2026-10-03 Sat 09:52</p>
+<p class="date">Created: 2026-10-20 Tue 17:06</p>
 </div>
 </body>
 </html>

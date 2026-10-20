@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2026-10-03 Sat 09:52 -->
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- 2026-10-20 Tue 17:06 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>&lrm;</title>
-<meta name="generator" content="Org Mode">
+<meta name="generator" content="Org Mode" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -65,15 +65,15 @@ nav.back-home a:hover{color:var(--accent);border-color:var(--accent);text-decora
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org18eb9b2">How does frontend frameworks are built exactly ?</a></li>
-<li><a href="#org14f8fa9">Templating</a></li>
-<li><a href="#org7ba2c09">What's virtual DOM</a></li>
+<li><a href="#org9dab5e9">How does frontend frameworks are built exactly ?</a></li>
+<li><a href="#orgf71aba5">Templating</a></li>
+<li><a href="#orgde8e5b0">What's virtual DOM</a></li>
 </ul>
 </div>
 </nav>
-<div id="outline-container-org18eb9b2" class="outline-2">
-<h2 id="org18eb9b2">How does frontend frameworks are built exactly ?</h2>
-<div class="outline-text-2" id="text-org18eb9b2">
+<div id="outline-container-org9dab5e9" class="outline-2">
+<h2 id="org9dab5e9">How does frontend frameworks are built exactly ?</h2>
+<div class="outline-text-2" id="text-org9dab5e9">
 <p>
 <a href="https://mfrachet.github.io/create-frontend-framework/vdom/existing.html">frontend frameworks by mfrachet</a>
 </p>
@@ -95,9 +95,11 @@ That's the story my future self, for us to never forget this we decided to write
 </p>
 </div>
 </div>
-<div id="outline-container-org14f8fa9" class="outline-2">
-<h2 id="org14f8fa9">Templating</h2>
-<div class="outline-text-2" id="text-org14f8fa9">
+
+
+<div id="outline-container-orgf71aba5" class="outline-2">
+<h2 id="orgf71aba5">Templating</h2>
+<div class="outline-text-2" id="text-orgf71aba5">
 <p>
 Template are one of the core elements of frontend frameworks.
 </p>
@@ -123,14 +125,14 @@ Something like that :
 </p>
 
 <div class="org-src-container">
-<pre class="src src-js"><code>const createElement = tagName =&gt; (strings, ...args) =&gt; ({
+<pre class="src src-js">const createElement = tagName =&gt; (strings, ...args) =&gt; ({
   type: tagName,
   template: strings.reduce((acc, currentString, index) =&gt; `${acc}${currentString}${args[index] || ''}`, "")
 });
 
 export const div = createElement("div");
 export const p = createElement("p");
-</code></pre>
+</pre>
 </div>
 
 <p>
@@ -138,7 +140,7 @@ With the type and content here, we can just do a check and inject the element in
 </p>
 
 <div class="org-src-container">
-<pre class="src src-js"><code>export const User = ({ firstName, lastName }) =&gt; div`Hello ${firstName} ${lastName}`;
+<pre class="src src-js">export const User = ({ firstName, lastName }) =&gt; div`Hello ${firstName} ${lastName}`;
 
 import { div } from "./framework/element";
 import { User } from "./src/user";
@@ -147,7 +149,7 @@ const firstName = "Anne-Marie";
 const lastName = "Koffi";
 
 init("#app", User({ firstName, lastName }));
-</code></pre>
+</pre>
 </div>
 
 <p>
@@ -155,9 +157,11 @@ Here it's we have a component into our template system which is called div, whic
 </p>
 </div>
 </div>
-<div id="outline-container-org7ba2c09" class="outline-2">
-<h2 id="org7ba2c09">What's virtual DOM</h2>
-<div class="outline-text-2" id="text-org7ba2c09">
+
+
+<div id="outline-container-orgde8e5b0" class="outline-2">
+<h2 id="orgde8e5b0">What's virtual DOM</h2>
+<div class="outline-text-2" id="text-orgde8e5b0">
 <p>
 As we saw in the previous section, we often need to inject new elements into the DOM. The virtual DOM is a copy of the DOM that we keep into the framework to do DOM manipulation and at some point of time we update the real DOM using the elements of that virtual DOM (this process is called <code>reconcialation</code>).
 </p>
@@ -173,7 +177,7 @@ snabbdom : a library that permits to do that for us
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Created: 2026-10-03 Sat 09:52</p>
+<p class="date">Created: 2026-10-20 Tue 17:06</p>
 </div>
 </body>
 </html>
