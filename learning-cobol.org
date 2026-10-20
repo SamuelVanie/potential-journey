@@ -20,13 +20,13 @@ PROCEDURE DIVISION.
   + Mainframe COBOL often *interfaces* with CICS, IMS, DB2, and other *mainframe subsystems
 
 
-#+begin_begin_example
+#+begin_example
 COBOL program
    ├── JCL / JES  → batch job execution
    ├── CICS       → online transaction processing
    ├── DB2        → relational database access
    └── IMS        → transaction processing or hierarchical databases
-#+end_end_example
+#+end_example
 
 *** Exercise
 
@@ -70,7 +70,7 @@ That's really fun just repeat and you know what format the number has
 
 ** Mainframe Environment
 
-#+begin_begin_example
+#+begin_example
 ╭──────────────────────────────────────────────────────────╮
 │  System Components                                       │
 │  ╭───────────────────────────────────────╮               │
@@ -86,7 +86,7 @@ That's really fun just repeat and you know what format the number has
 │  │Application (COBOL programs)           │               │
 │  ╰───────────────────────────────────────╯               │
 ╰──────────────────────────────────────────────────────────╯
-#+end_end_example
+#+end_example
 
 - TSO (Time Sharing Option) : Interactive command line interface for z/OS
   LISTCAT                       + List catalog entries
@@ -102,7 +102,7 @@ That's really fun just repeat and you know what format the number has
 - ISPF (Interactive System Productivity Facility)
   + Provides a menu-driven interface built on top of TSO
 
-#+begin_begin_example
+#+begin_example
 ╭────────────────────────────────────────────────────────────╮
 │ Typical Development Cycle                                  │
 │                                                            │
@@ -118,7 +118,7 @@ That's really fun just repeat and you know what format the number has
 │ 4 Debug/Test                                               │
 │   Fix errors, test program execution, repeat as needed     │
 ╰────────────────────────────────────────────────────────────╯
-#+end_end_example
+#+end_example
 
 *** Relationship between COBOL, JCL and Data
 
