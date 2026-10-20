@@ -1,6 +1,6 @@
 #+SETUPFILE: ./org/theme-dark-dev.setup
 
-* Core Concepts
+* Introduction to COBOL
 
 ** What's cobol ?
 
@@ -176,4 +176,57 @@ Columns	Area                 Usage
 12-72	Area B               Statements, clauses, level numbers 02-49, qualifying names
 73-80	Identification Area  Optional program identification (historically used)
 #+end_example
+
+*Naming Conventions* :
++ Use hyphens to separate words
++ Use meaningful, descriptive names
++ Indicate the type of data in the name
++ Consistent capitalization (uppercase)
++ Use standardized prefixes for common types (WS- for working storage, FD- for file descriptors)
+
+
+*** COBOL Statement Structure
+
+*Elements of COBOL Statements* :
++ *Verbs*: Action words that begin statements (MOVE, COMPUTE, DISPLAY)
++ *Operands*: Data items or literals that the verb act upon
++ *Clauses*: Combinations of keywords and operands
++ *Phrases*: Groups of clauses
++ *Sentences*: One or more statements ending with a period or with the scope terminators in modern COBOL (END-IF, END-PERFORM, etc)
++ *Paragraphs*: Named groups of sentences
+
+#+begin_src cobol
+* Simple statement:
+MOVE CUSTOMER-NAME TO OUTPUT-NAME.
+
+* Compound statement:
+ADD ITEM-PRICE, TAX-AMOUNT GIVING TOTAL-PRICE ROUNDED.
+
+* Conditional statement:
+IF BALANCE IS GREATER THAN 1000
+   DISPLAY "Premium Customer"
+ELSE
+   DISPLAY "Regular Customer"
+END-IF.
+
+* Performing a paragraph:
+PERFORM CALCULATE-TOTALS.
+#+end_src
+
+#+begin_quote
+*Comments*
+- *Comment lines*: Place an asteriks(*) in column 7
+- *Comment paragraph*: Place the word REMARKS in Area A followed by comment text
+- *Inline comments*: Use a comment entry starting with a slash and asterisk (/*)
+- *Floating comment*: Place the slash and asterisk at the beginning of a statement
+#+end_quote
+
+#+begin_quote
+*Continuation Lines*
+When a COBOL statement is too long for one line, it can be continued on the next line:
+1. Break the line at a logical point (like after a comma or space)
+2. Place a hyphen (-) in column 7 of the continuation line
+3. Continue the statement in Area B (column 12+)
+#+end_quote
+
 
