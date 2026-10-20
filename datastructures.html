@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2026-10-20 Tue 17:06 -->
+<!-- 2026-10-20 Tue 17:18 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>&lrm;</title>
@@ -65,9 +65,9 @@ nav.back-home a:hover{color:var(--accent);border-color:var(--accent);text-decora
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgec3b9e9">Hash tables</a>
+<li><a href="#org0e1d8dc">Hash tables</a>
 <ul>
-<li><a href="#orgbfa3077">Simple insertion steps</a></li>
+<li><a href="#orgb4c5d34">Simple insertion steps</a></li>
 </ul>
 </li>
 </ul>
@@ -75,9 +75,9 @@ nav.back-home a:hover{color:var(--accent);border-color:var(--accent);text-decora
 </nav>
 
 
-<div id="outline-container-orgec3b9e9" class="outline-2">
-<h2 id="orgec3b9e9">Hash tables</h2>
-<div class="outline-text-2" id="text-orgec3b9e9">
+<div id="outline-container-org0e1d8dc" class="outline-2">
+<h2 id="org0e1d8dc">Hash tables</h2>
+<div class="outline-text-2" id="text-org0e1d8dc">
 <ul class="org-ul">
 <li>Hash table maps keys to value for highly efficient lookup.</li>
 <li>There are two ways to implements them :
@@ -89,9 +89,9 @@ nav.back-home a:hover{color:var(--accent);border-color:var(--accent);text-decora
 </div>
 
 
-<div id="outline-container-orgbfa3077" class="outline-3">
-<h3 id="orgbfa3077">Simple insertion steps</h3>
-<div class="outline-text-3" id="text-orgbfa3077">
+<div id="outline-container-orgb4c5d34" class="outline-3">
+<h3 id="orgb4c5d34">Simple insertion steps</h3>
+<div class="outline-text-3" id="text-orgb4c5d34">
 <ol class="org-ol">
 <li>First, <b>compute the key's hash code</b> to make correspondance with its place in our datastructure. (<i>Two different keys could have the same hash code, because there may be an infinite number of keys and a finite number of places where to store your keys' values</i>)</li>
 <li><b>Map the hash code to an index</b> in the array (first method). You could do that using something like <code>hash(key) % array_length</code>. (<i>Two different hash codes could map to the same index</i>)</li>
@@ -99,7 +99,7 @@ nav.back-home a:hover{color:var(--accent);border-color:var(--accent);text-decora
 </ol>
 
 
-<div class="note" id="org4e514cf">
+<div class="note" id="org4d73d55">
 <p>
 To retrieve the value pair by its key, you repeat this process.
 </p>
@@ -121,7 +121,7 @@ To retrieve the value pair by its key, you repeat this process.
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Created: 2026-10-20 Tue 17:06</p>
+<p class="date">Created: 2026-10-20 Tue 17:18</p>
 </div>
 </body>
 </html>

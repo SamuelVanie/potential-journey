@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2026-10-20 Tue 17:06 -->
+<!-- 2026-10-20 Tue 17:18 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>&lrm;</title>
@@ -65,24 +65,24 @@ nav.back-home a:hover{color:var(--accent);border-color:var(--accent);text-decora
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgdfee943">Core Concepts</a>
+<li><a href="#org6f78157">Core Concepts</a>
 <ul>
-<li><a href="#orgd126433">What's cobol ?</a></li>
-<li><a href="#orgb2adaea">Mainframe Environment</a></li>
-<li><a href="#orgfd7b801">COBOL Basics</a></li>
+<li><a href="#org27ffe21">What's cobol ?</a></li>
+<li><a href="#orga3dbcc5">Mainframe Environment</a></li>
+<li><a href="#org1487c13">COBOL Basics</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </nav>
 
-<div id="outline-container-orgdfee943" class="outline-2">
-<h2 id="orgdfee943">Core Concepts</h2>
-<div class="outline-text-2" id="text-orgdfee943">
+<div id="outline-container-org6f78157" class="outline-2">
+<h2 id="org6f78157">Core Concepts</h2>
+<div class="outline-text-2" id="text-org6f78157">
 </div>
-<div id="outline-container-orgd126433" class="outline-3">
-<h3 id="orgd126433">What's cobol ?</h3>
-<div class="outline-text-3" id="text-orgd126433">
+<div id="outline-container-org27ffe21" class="outline-3">
+<h3 id="org27ffe21">What's cobol ?</h3>
+<div class="outline-text-3" id="text-org27ffe21">
 <ul class="org-ul">
 <li>COBOL (Common Business-Oriented Language)</li>
 </ul>
@@ -104,11 +104,22 @@ PROCEDURE DIVISION.
 <li>Mainframe COBOL often <b>interfaces</b> with CICS, IMS, DB2, and other *mainframe subsystems</li>
 </ul></li>
 </ul>
+
+
+<p>
+#+begin<sub>begin</sub><sub>example</sub>
+COBOL program
+   ├── JCL / JES  → batch job execution
+   ├── CICS       → online transaction processing
+   ├── DB2        → relational database access
+   └── IMS        → transaction processing or hierarchical databases
+#+end<sub>end</sub><sub>example</sub>
+</p>
 </div>
 
-<div id="outline-container-org520bf43" class="outline-4">
-<h4 id="org520bf43">Exercise</h4>
-<div class="outline-text-4" id="text-org520bf43">
+<div id="outline-container-org29fc9ed" class="outline-4">
+<h4 id="org29fc9ed">Exercise</h4>
+<div class="outline-text-4" id="text-org29fc9ed">
 <div class="org-src-container">
 <pre class="src src-cobol">IDENTIFICATION DIVISION.
 PROGRAM-ID. PAYROLL-CALC.
@@ -161,9 +172,29 @@ That's really fun just repeat and you know what format the number has
 </div>
 </div>
 
-<div id="outline-container-orgb2adaea" class="outline-3">
-<h3 id="orgb2adaea">Mainframe Environment</h3>
-<div class="outline-text-3" id="text-orgb2adaea">
+<div id="outline-container-orga3dbcc5" class="outline-3">
+<h3 id="orga3dbcc5">Mainframe Environment</h3>
+<div class="outline-text-3" id="text-orga3dbcc5">
+<p>
+#+begin<sub>begin</sub><sub>example</sub>
+╭──────────────────────────────────────────────────────────╮
+│  System Components                                       │
+│  ╭───────────────────────────────────────╮               │
+│  │Hardware Layer (processor, mem, I/O)   │               │
+│  ╰───────────────────────────────────────╯               │
+│  ╭─────────────────────────────────────────────╮         │
+│  │z/OS:MVSbased OS with job,mem,IO management  │         │
+│  ╰─────────────────────────────────────────────╯         │
+│  ╭─────────────────────────────────────────────────────╮ │
+│  │subsystems (CICS, IMS, DB2):Transaction,DB,online sys│ │
+│  ╰─────────────────────────────────────────────────────╯ │
+│  ╭───────────────────────────────────────╮               │
+│  │Application (COBOL programs)           │               │
+│  ╰───────────────────────────────────────╯               │
+╰──────────────────────────────────────────────────────────╯
+#+end<sub>end</sub><sub>example</sub>
+</p>
+
 <ul class="org-ul">
 <li>TSO (Time Sharing Option) : Interactive command line interface for z/OS
 LISTCAT                       + List catalog entries
@@ -185,11 +216,31 @@ ALLOCATE                      + Allocate new datatsets</li>
 <li>Provides a menu-driven interface built on top of TSO</li>
 </ul></li>
 </ul>
+
+<p>
+#+begin<sub>begin</sub><sub>example</sub>
+╭────────────────────────────────────────────────────────────╮
+│ Typical Development Cycle                                  │
+│                                                            │
+│ 1 Edit source code                                         │
+│   Use ISPF Edit to create/modify COBOL programs            │
+│                                                            │
+│ 2 Submit Compile Job                                       │
+│   Submit JCL to compile COBOL source using ISPF (3.4 &gt; S)  │
+│                                                            │
+│ 3 Check Output                                             │
+│   Use SDSF or ISPF Browse to view compilation results      │
+│                                                            │
+│ 4 Debug/Test                                               │
+│   Fix errors, test program execution, repeat as needed     │
+╰────────────────────────────────────────────────────────────╯
+#+end<sub>end</sub><sub>example</sub>
+</p>
 </div>
 
-<div id="outline-container-org09d885c" class="outline-4">
-<h4 id="org09d885c">Relationship between COBOL, JCL and Data</h4>
-<div class="outline-text-4" id="text-org09d885c">
+<div id="outline-container-org5c5a298" class="outline-4">
+<h4 id="org5c5a298">Relationship between COBOL, JCL and Data</h4>
+<div class="outline-text-4" id="text-org5c5a298">
 <p>
 JCL : Job Control Language, used for execution control.
 In the mainframe, COBOL programs exists and works in conjunction with JCL, data management systems and manipulation.
@@ -213,9 +264,9 @@ In the mainframe, COBOL programs exists and works in conjunction with JCL, data 
 </div>
 
 
-<div id="outline-container-org9209c50" class="outline-4">
-<h4 id="org9209c50">Data Management in COBOL Applications</h4>
-<div class="outline-text-4" id="text-org9209c50">
+<div id="outline-container-org2479bd0" class="outline-4">
+<h4 id="org2479bd0">Data Management in COBOL Applications</h4>
+<div class="outline-text-4" id="text-org2479bd0">
 <p>
 <b>Types of Data storage</b> :
 </p>
@@ -253,13 +304,13 @@ In the mainframe, COBOL programs exists and works in conjunction with JCL, data 
 </div>
 </div>
 
-<div id="outline-container-orgfd7b801" class="outline-3">
-<h3 id="orgfd7b801">COBOL Basics</h3>
-<div class="outline-text-3" id="text-orgfd7b801">
+<div id="outline-container-org1487c13" class="outline-3">
+<h3 id="org1487c13">COBOL Basics</h3>
+<div class="outline-text-3" id="text-org1487c13">
 </div>
-<div id="outline-container-org5df28f5" class="outline-4">
-<h4 id="org5df28f5">COBOL coding format (Area A, Area B)</h4>
-<div class="outline-text-4" id="text-org5df28f5">
+<div id="outline-container-orgebd85cf" class="outline-4">
+<h4 id="orgebd85cf">COBOL coding format (Area A, Area B)</h4>
+<div class="outline-text-4" id="text-orgebd85cf">
 <p>
 Traditionnaly, <b>COBOL used a fixed column with specific areas for different parts of the code</b>. While modern COBOL can use free format.
 </p>
@@ -283,7 +334,7 @@ Columns	Area                 Usage
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Created: 2026-10-20 Tue 17:06</p>
+<p class="date">Created: 2026-10-20 Tue 17:18</p>
 </div>
 </body>
 </html>
