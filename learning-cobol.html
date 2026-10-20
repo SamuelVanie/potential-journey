@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2026-10-20 Tue 17:19 -->
+<!-- 2026-10-20 Tue 17:27 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>&lrm;</title>
@@ -65,24 +65,24 @@ nav.back-home a:hover{color:var(--accent);border-color:var(--accent);text-decora
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgd9f1ece">Core Concepts</a>
+<li><a href="#orgf0e9c83">Core Concepts</a>
 <ul>
-<li><a href="#orgadd9611">What's cobol ?</a></li>
-<li><a href="#org9bc4a75">Mainframe Environment</a></li>
-<li><a href="#orgeb44791">COBOL Basics</a></li>
+<li><a href="#orgc06afd4">What's cobol ?</a></li>
+<li><a href="#org5bd6812">Mainframe Environment</a></li>
+<li><a href="#org2cae816">COBOL Basics</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </nav>
 
-<div id="outline-container-orgd9f1ece" class="outline-2">
-<h2 id="orgd9f1ece">Core Concepts</h2>
-<div class="outline-text-2" id="text-orgd9f1ece">
+<div id="outline-container-orgf0e9c83" class="outline-2">
+<h2 id="orgf0e9c83">Core Concepts</h2>
+<div class="outline-text-2" id="text-orgf0e9c83">
 </div>
-<div id="outline-container-orgadd9611" class="outline-3">
-<h3 id="orgadd9611">What's cobol ?</h3>
-<div class="outline-text-3" id="text-orgadd9611">
+<div id="outline-container-orgc06afd4" class="outline-3">
+<h3 id="orgc06afd4">What's cobol ?</h3>
+<div class="outline-text-3" id="text-orgc06afd4">
 <ul class="org-ul">
 <li>COBOL (Common Business-Oriented Language)</li>
 </ul>
@@ -106,20 +106,18 @@ PROCEDURE DIVISION.
 </ul>
 
 
-<p>
-#+begin<sub>begin</sub><sub>example</sub>
+<pre class="example" id="orgfe1704c">
 COBOL program
    ├── JCL / JES  → batch job execution
    ├── CICS       → online transaction processing
    ├── DB2        → relational database access
    └── IMS        → transaction processing or hierarchical databases
-#+end<sub>end</sub><sub>example</sub>
-</p>
+</pre>
 </div>
 
-<div id="outline-container-org11cbb42" class="outline-4">
-<h4 id="org11cbb42">Exercise</h4>
-<div class="outline-text-4" id="text-org11cbb42">
+<div id="outline-container-org6795046" class="outline-4">
+<h4 id="org6795046">Exercise</h4>
+<div class="outline-text-4" id="text-org6795046">
 <div class="org-src-container">
 <pre class="src src-cobol">IDENTIFICATION DIVISION.
 PROGRAM-ID. PAYROLL-CALC.
@@ -172,11 +170,10 @@ That's really fun just repeat and you know what format the number has
 </div>
 </div>
 
-<div id="outline-container-org9bc4a75" class="outline-3">
-<h3 id="org9bc4a75">Mainframe Environment</h3>
-<div class="outline-text-3" id="text-org9bc4a75">
-<p>
-#+begin<sub>begin</sub><sub>example</sub>
+<div id="outline-container-org5bd6812" class="outline-3">
+<h3 id="org5bd6812">Mainframe Environment</h3>
+<div class="outline-text-3" id="text-org5bd6812">
+<pre class="example" id="orge8b89e7">
 ╭──────────────────────────────────────────────────────────╮
 │  System Components                                       │
 │  ╭───────────────────────────────────────╮               │
@@ -192,8 +189,7 @@ That's really fun just repeat and you know what format the number has
 │  │Application (COBOL programs)           │               │
 │  ╰───────────────────────────────────────╯               │
 ╰──────────────────────────────────────────────────────────╯
-#+end<sub>end</sub><sub>example</sub>
-</p>
+</pre>
 
 <ul class="org-ul">
 <li>TSO (Time Sharing Option) : Interactive command line interface for z/OS
@@ -217,8 +213,7 @@ ALLOCATE                      + Allocate new datatsets</li>
 </ul></li>
 </ul>
 
-<p>
-#+begin<sub>begin</sub><sub>example</sub>
+<pre class="example" id="orgc07718a">
 ╭────────────────────────────────────────────────────────────╮
 │ Typical Development Cycle                                  │
 │                                                            │
@@ -234,13 +229,12 @@ ALLOCATE                      + Allocate new datatsets</li>
 │ 4 Debug/Test                                               │
 │   Fix errors, test program execution, repeat as needed     │
 ╰────────────────────────────────────────────────────────────╯
-#+end<sub>end</sub><sub>example</sub>
-</p>
+</pre>
 </div>
 
-<div id="outline-container-org6c5c42f" class="outline-4">
-<h4 id="org6c5c42f">Relationship between COBOL, JCL and Data</h4>
-<div class="outline-text-4" id="text-org6c5c42f">
+<div id="outline-container-org628eeb8" class="outline-4">
+<h4 id="org628eeb8">Relationship between COBOL, JCL and Data</h4>
+<div class="outline-text-4" id="text-org628eeb8">
 <p>
 JCL : Job Control Language, used for execution control.
 In the mainframe, COBOL programs exists and works in conjunction with JCL, data management systems and manipulation.
@@ -264,9 +258,9 @@ In the mainframe, COBOL programs exists and works in conjunction with JCL, data 
 </div>
 
 
-<div id="outline-container-org8f43f0d" class="outline-4">
-<h4 id="org8f43f0d">Data Management in COBOL Applications</h4>
-<div class="outline-text-4" id="text-org8f43f0d">
+<div id="outline-container-orgc96a9e8" class="outline-4">
+<h4 id="orgc96a9e8">Data Management in COBOL Applications</h4>
+<div class="outline-text-4" id="text-orgc96a9e8">
 <p>
 <b>Types of Data storage</b> :
 </p>
@@ -304,18 +298,18 @@ In the mainframe, COBOL programs exists and works in conjunction with JCL, data 
 </div>
 </div>
 
-<div id="outline-container-orgeb44791" class="outline-3">
-<h3 id="orgeb44791">COBOL Basics</h3>
-<div class="outline-text-3" id="text-orgeb44791">
+<div id="outline-container-org2cae816" class="outline-3">
+<h3 id="org2cae816">COBOL Basics</h3>
+<div class="outline-text-3" id="text-org2cae816">
 </div>
-<div id="outline-container-orgc3d7485" class="outline-4">
-<h4 id="orgc3d7485">COBOL coding format (Area A, Area B)</h4>
-<div class="outline-text-4" id="text-orgc3d7485">
+<div id="outline-container-orgc63e766" class="outline-4">
+<h4 id="orgc63e766">COBOL coding format (Area A, Area B)</h4>
+<div class="outline-text-4" id="text-orgc63e766">
 <p>
 Traditionnaly, <b>COBOL used a fixed column with specific areas for different parts of the code</b>. While modern COBOL can use free format.
 </p>
 
-<pre class="example" id="org324c4be">
+<pre class="example" id="orge761b5a">
 COBOL line format
 
 Columns	Area                 Usage
@@ -331,7 +325,7 @@ Columns	Area                 Usage
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Created: 2026-10-20 Tue 17:19</p>
+<p class="date">Created: 2026-10-20 Tue 17:27</p>
 </div>
 </body>
 </html>
