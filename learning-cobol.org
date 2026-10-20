@@ -196,20 +196,20 @@ Columns	Area                 Usage
 + *Paragraphs*: Named groups of sentences
 
 #+begin_src cobol
-* Simple statement:
+*Simple statement:*
 MOVE CUSTOMER-NAME TO OUTPUT-NAME.
 
-* Compound statement:
+*Compound statement:*
 ADD ITEM-PRICE, TAX-AMOUNT GIVING TOTAL-PRICE ROUNDED.
 
-* Conditional statement:
+*Conditional statement:*
 IF BALANCE IS GREATER THAN 1000
    DISPLAY "Premium Customer"
 ELSE
    DISPLAY "Regular Customer"
 END-IF.
 
-* Performing a paragraph:
+*Performing a paragraph:*
 PERFORM CALCULATE-TOTALS.
 #+end_src
 
@@ -228,5 +228,8 @@ When a COBOL statement is too long for one line, it can be continued on the next
 2. Place a hyphen (-) in column 7 of the continuation line
 3. Continue the statement in Area B (column 12+)
 #+end_quote
+
+
+* COBOL Fundamentals
 
 
