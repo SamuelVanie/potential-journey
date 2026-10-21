@@ -233,3 +233,51 @@ When a COBOL statement is too long for one line, it can be continued on the next
 * COBOL Fundamentals
 
 
+** COBOL Divisions Overview
+
+
+*Identification Division*: Identifies the program with a name and optional metadata like author, date written, etc
+*Environment Division*: Describes the computing environment, including file definitions and configuration
+*Data Division*: Defines all data items used by the program, including files, working storage, and parameters
+*Procedure Division*: Contains the actual executable instructions and business logic of the program
+
+
+
+*** IDENTIFICATION DIVISION Details and Purpose
+
+First division in a COBOL program and provides information about the program itself. This division is *mandatory* for every COBOL program.
+
+#+begin_quote
+*Required Elements*
+- The division header: IDENTIFICATION DIVISION.
+- The program name paragraph: PROGRAM-ID. program-name.
+#+end_quote
+
+#+begin_quote
+*Optional Elements*
+- AUTHOR. Name of the programmer who wrote the program
+- INSTALLATION. Name of the company or site where the program is used
+- DATE-WRITTEN. Date when the program was written
+- DATE-COMPILED. Date when the program was compiled
+#+end_quote
+
+
+*** ENVIRONMENT DIVISION Details and Purpose
+
+Describes the computing environment in which the program will run.
+Specifies the relationship between the program and external resources such as files and devices.
+
+#+begin_quote
+*CONFIGURATION SECTION*
+Describes the overall configuration of the program, including:
+- SOURCE-COMPUTER Specifies the computer used for compilation
+- OBJECT-COMPUTER Specifies the computer where the program will run
+- SPECIAL-NAMES Defines symbolic names for system devices or implements currency signs
+#+end_quote
+
+#+begin_quote
+*INPUT-OUTPUT SECTION*
+Describes the files and external devices used by the program:
+- FILE-CONTROL Assigns physical files to the program's internal file names
+- I-O-CONTROL Specifies input-output techniques, such as file sharing or memory allocation
+#+end_quote
