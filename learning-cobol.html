@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2026-10-20 Tue 18:25 -->
+<!-- 2026-10-21 Wed 11:07 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>&lrm;</title>
@@ -65,25 +65,29 @@ nav.back-home a:hover{color:var(--accent);border-color:var(--accent);text-decora
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orge470884">Introduction to COBOL</a>
+<li><a href="#orgc2e5922">Introduction to COBOL</a>
 <ul>
-<li><a href="#org591374e">What's cobol ?</a></li>
-<li><a href="#orgde1e784">Mainframe Environment</a></li>
-<li><a href="#org408a2c0">COBOL Basics</a></li>
+<li><a href="#org17c699a">What's cobol ?</a></li>
+<li><a href="#orgde16bba">Mainframe Environment</a></li>
+<li><a href="#orgfdbb896">COBOL Basics</a></li>
 </ul>
 </li>
-<li><a href="#org5f46fd9">COBOL Fundamentals</a></li>
+<li><a href="#org79bb817">COBOL Fundamentals</a>
+<ul>
+<li><a href="#orgbe9a132">COBOL Divisions Overview</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </nav>
 
-<div id="outline-container-orge470884" class="outline-2">
-<h2 id="orge470884">Introduction to COBOL</h2>
-<div class="outline-text-2" id="text-orge470884">
+<div id="outline-container-orgc2e5922" class="outline-2">
+<h2 id="orgc2e5922">Introduction to COBOL</h2>
+<div class="outline-text-2" id="text-orgc2e5922">
 </div>
-<div id="outline-container-org591374e" class="outline-3">
-<h3 id="org591374e">What's cobol ?</h3>
-<div class="outline-text-3" id="text-org591374e">
+<div id="outline-container-org17c699a" class="outline-3">
+<h3 id="org17c699a">What's cobol ?</h3>
+<div class="outline-text-3" id="text-org17c699a">
 <ul class="org-ul">
 <li>COBOL (Common Business-Oriented Language)</li>
 </ul>
@@ -107,7 +111,7 @@ PROCEDURE DIVISION.
 </ul>
 
 
-<pre class="example" id="org81d14e7">
+<pre class="example" id="org47fbae5">
 COBOL program
    ├── JCL / JES  → batch job execution
    ├── CICS       → online transaction processing
@@ -116,9 +120,9 @@ COBOL program
 </pre>
 </div>
 
-<div id="outline-container-org3693d6d" class="outline-4">
-<h4 id="org3693d6d">Exercise</h4>
-<div class="outline-text-4" id="text-org3693d6d">
+<div id="outline-container-org9dccba9" class="outline-4">
+<h4 id="org9dccba9">Exercise</h4>
+<div class="outline-text-4" id="text-org9dccba9">
 <div class="org-src-container">
 <pre class="src src-cobol">IDENTIFICATION DIVISION.
 PROGRAM-ID. PAYROLL-CALC.
@@ -171,10 +175,10 @@ That's really fun just repeat and you know what format the number has
 </div>
 </div>
 
-<div id="outline-container-orgde1e784" class="outline-3">
-<h3 id="orgde1e784">Mainframe Environment</h3>
-<div class="outline-text-3" id="text-orgde1e784">
-<pre class="example" id="org8eb7072">
+<div id="outline-container-orgde16bba" class="outline-3">
+<h3 id="orgde16bba">Mainframe Environment</h3>
+<div class="outline-text-3" id="text-orgde16bba">
+<pre class="example" id="org0793c57">
 ╭──────────────────────────────────────────────────────────╮
 │  System Components                                       │
 │  ╭───────────────────────────────────────╮               │
@@ -214,7 +218,7 @@ ALLOCATE                      + Allocate new datatsets</li>
 </ul></li>
 </ul>
 
-<pre class="example" id="org77c8d7b">
+<pre class="example" id="org72e4ab1">
 ╭────────────────────────────────────────────────────────────╮
 │ Typical Development Cycle                                  │
 │                                                            │
@@ -233,9 +237,9 @@ ALLOCATE                      + Allocate new datatsets</li>
 </pre>
 </div>
 
-<div id="outline-container-org5de02f4" class="outline-4">
-<h4 id="org5de02f4">Relationship between COBOL, JCL and Data</h4>
-<div class="outline-text-4" id="text-org5de02f4">
+<div id="outline-container-org60785bd" class="outline-4">
+<h4 id="org60785bd">Relationship between COBOL, JCL and Data</h4>
+<div class="outline-text-4" id="text-org60785bd">
 <p>
 JCL : Job Control Language, used for execution control.
 In the mainframe, COBOL programs exists and works in conjunction with JCL, data management systems and manipulation.
@@ -259,9 +263,9 @@ In the mainframe, COBOL programs exists and works in conjunction with JCL, data 
 </div>
 
 
-<div id="outline-container-orgb33f78f" class="outline-4">
-<h4 id="orgb33f78f">Data Management in COBOL Applications</h4>
-<div class="outline-text-4" id="text-orgb33f78f">
+<div id="outline-container-orgaa986eb" class="outline-4">
+<h4 id="orgaa986eb">Data Management in COBOL Applications</h4>
+<div class="outline-text-4" id="text-orgaa986eb">
 <p>
 <b>Types of Data storage</b> :
 </p>
@@ -299,18 +303,18 @@ In the mainframe, COBOL programs exists and works in conjunction with JCL, data 
 </div>
 </div>
 
-<div id="outline-container-org408a2c0" class="outline-3">
-<h3 id="org408a2c0">COBOL Basics</h3>
-<div class="outline-text-3" id="text-org408a2c0">
+<div id="outline-container-orgfdbb896" class="outline-3">
+<h3 id="orgfdbb896">COBOL Basics</h3>
+<div class="outline-text-3" id="text-orgfdbb896">
 </div>
-<div id="outline-container-orge375494" class="outline-4">
-<h4 id="orge375494">COBOL coding format (Area A, Area B)</h4>
-<div class="outline-text-4" id="text-orge375494">
+<div id="outline-container-org011ef11" class="outline-4">
+<h4 id="org011ef11">COBOL coding format (Area A, Area B)</h4>
+<div class="outline-text-4" id="text-org011ef11">
 <p>
 Traditionnaly, <b>COBOL used a fixed column with specific areas for different parts of the code</b>. While modern COBOL can use free format.
 </p>
 
-<pre class="example" id="org7aa552f">
+<pre class="example" id="org1bbcadc">
 COBOL line format
 
 Columns	Area                 Usage
@@ -335,9 +339,9 @@ Columns	Area                 Usage
 </div>
 
 
-<div id="outline-container-org4b802c2" class="outline-4">
-<h4 id="org4b802c2">COBOL Statement Structure</h4>
-<div class="outline-text-4" id="text-org4b802c2">
+<div id="outline-container-org4b0d7a4" class="outline-4">
+<h4 id="org4b0d7a4">COBOL Statement Structure</h4>
+<div class="outline-text-4" id="text-org4b0d7a4">
 <p>
 <b>Elements of COBOL Statements</b> :
 </p>
@@ -398,12 +402,92 @@ When a COBOL statement is too long for one line, it can be continued on the next
 </div>
 
 
-<div id="outline-container-org5f46fd9" class="outline-2">
-<h2 id="org5f46fd9">COBOL Fundamentals</h2>
+<div id="outline-container-org79bb817" class="outline-2">
+<h2 id="org79bb817">COBOL Fundamentals</h2>
+<div class="outline-text-2" id="text-org79bb817">
+</div>
+<div id="outline-container-orgbe9a132" class="outline-3">
+<h3 id="orgbe9a132">COBOL Divisions Overview</h3>
+<div class="outline-text-3" id="text-orgbe9a132">
+<p>
+<b>Identification Division</b>: Identifies the program with a name and optional metadata like author, date written, etc
+<b>Environment Division</b>: Describes the computing environment, including file definitions and configuration
+<b>Data Division</b>: Defines all data items used by the program, including files, working storage, and parameters
+<b>Procedure Division</b>: Contains the actual executable instructions and business logic of the program
+</p>
+</div>
+
+
+
+<div id="outline-container-orgdb0e82f" class="outline-4">
+<h4 id="orgdb0e82f">IDENTIFICATION DIVISION Details and Purpose</h4>
+<div class="outline-text-4" id="text-orgdb0e82f">
+<p>
+First division in a COBOL program and provides information about the program itself. This division is <b>mandatory</b> for every COBOL program.
+</p>
+
+<blockquote>
+<p>
+<b>Required Elements</b>
+</p>
+<ul class="org-ul">
+<li>The division header: IDENTIFICATION DIVISION.</li>
+<li>The program name paragraph: PROGRAM-ID. program-name.</li>
+</ul>
+</blockquote>
+
+<blockquote>
+<p>
+<b>Optional Elements</b>
+</p>
+<ul class="org-ul">
+<li>AUTHOR. Name of the programmer who wrote the program</li>
+<li>INSTALLATION. Name of the company or site where the program is used</li>
+<li>DATE-WRITTEN. Date when the program was written</li>
+<li>DATE-COMPILED. Date when the program was compiled</li>
+</ul>
+</blockquote>
+</div>
+</div>
+
+
+<div id="outline-container-org94cf052" class="outline-4">
+<h4 id="org94cf052">ENVIRONMENT DIVISION Details and Purpose</h4>
+<div class="outline-text-4" id="text-org94cf052">
+<p>
+Describes the computing environment in which the program will run.
+Specifies the relationship between the program and external resources such as files and devices.
+</p>
+
+<blockquote>
+<p>
+<b>CONFIGURATION SECTION</b>
+Describes the overall configuration of the program, including:
+</p>
+<ul class="org-ul">
+<li>SOURCE-COMPUTER Specifies the computer used for compilation</li>
+<li>OBJECT-COMPUTER Specifies the computer where the program will run</li>
+<li>SPECIAL-NAMES Defines symbolic names for system devices or implements currency signs</li>
+</ul>
+</blockquote>
+
+<blockquote>
+<p>
+<b>INPUT-OUTPUT SECTION</b>
+Describes the files and external devices used by the program:
+</p>
+<ul class="org-ul">
+<li>FILE-CONTROL Assigns physical files to the program's internal file names</li>
+<li>I-O-CONTROL Specifies input-output techniques, such as file sharing or memory allocation</li>
+</ul>
+</blockquote>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Created: 2026-10-20 Tue 18:25</p>
+<p class="date">Created: 2026-10-21 Wed 11:07</p>
 </div>
 </body>
 </html>
